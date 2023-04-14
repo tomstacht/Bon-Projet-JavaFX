@@ -3,10 +3,10 @@ import java.sql.*;
 import java.util.*;
 public class BaseDeDonnee {
     String type_Logement;
-    ArrayList<String> searchHotel;
-    ArrayList<String> searchVilla;
-    ArrayList<String> searchAppart;
-    ArrayList<String> searchChalet;
+    ArrayList<String> searchHotel= new ArrayList<>();
+    ArrayList<String> searchVilla=new ArrayList<>();
+    ArrayList<String> searchAppart=new ArrayList<>();
+    ArrayList<String> searchChalet=new ArrayList<>();
 
     public void ajouterTable() {
         String url = "jdbc:mysql://localhost:3306/projet";
@@ -118,9 +118,7 @@ public class BaseDeDonnee {
 
             switch (choix) {
                 case 1:
-
                     break;
-
                 case 2:
                     break;
 
@@ -154,7 +152,7 @@ public class BaseDeDonnee {
         String ville = sc.nextLine();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet ", "root", "");
             //lire un élément de la bdd
             Statement stHotel = con.createStatement();
             ResultSet resHotel = stHotel.executeQuery("select * from Hotel");
@@ -235,11 +233,7 @@ public class BaseDeDonnee {
         for (String s : searchChalet) {
             System.out.println(s);
         }
-
-
     }
-
-
-
 }
+
 
