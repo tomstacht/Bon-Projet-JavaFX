@@ -2,11 +2,18 @@ package com.example.bonprojetjavafx;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import java.io.IOException;
+import javafx.scene.control.Button;
+import javafx.stage.StageStyle;
+import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
+
 
 public class HelloController {
     @FXML
@@ -17,6 +24,250 @@ public class HelloController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void BoutonActionSeConnecter(ActionEvent event2) throws IOException{
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
+        Parent root2 = loader2.load();
+        Scene scene2 = new Scene(root2);
+        Stage stage2 = new Stage();
+        stage2.setScene(scene2);
+        stage2.show();
+    }
+
+    @FXML
+    private Button CancelButton;
+
+    public void CancelButtonOnAction(ActionEvent e){
+        Stage stage3 = (Stage) CancelButton.getScene().getWindow();
+        stage3.close();
+    }
+
+    @FXML
+    private CheckBox MyCheckBoxHotel;
+    @FXML
+    private Label loginMessageLabel;
+    @FXML
+    private TextField UsernameTextField;
+    @FXML
+    private TextField PasswordTextField;
+    public void loginButtonOnAction(ActionEvent e){
+        if(UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false){
+            loginMessageLabel.setText("Vous avez essayé de vous connecter !");
+        }else{
+            loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:");
+        }
+    }
+
+    @FXML
+    private CheckBox MyCheckBoxVilla;
+    @FXML
+    private CheckBox MyCheckBoxChalet;
+    @FXML
+    private CheckBox MyCheckBoxAppartement;
+    @FXML
+    private CheckBox MyCheckBoxPaschere;
+    @FXML
+    private CheckBox MyCheckBoxMoyen;
+    @FXML
+    private CheckBox MyCheckBoxChere;
+    @FXML
+    private CheckBox MyCheckBox123Etoiles;
+    @FXML
+    private CheckBox MyCheckBox45Etoiles;
+    @FXML
+    private CheckBox MyCheckBoxP_D;
+    @FXML
+    private CheckBox MyCheckBoxRestaurant;
+    @FXML
+    private CheckBox MyCheckBoxNoteClientNul;
+    @FXML
+    private CheckBox MyCheckBoxNoteClientBien;
+    @FXML
+    private CheckBox MyCheckBoxPiscine;
+    @FXML
+    private CheckBox MyCheckBoxWifi;
+    @FXML
+    private CheckBox MyCheckBoxClim;
+    @FXML
+    private CheckBox MyCheckBoxFumeur;
+    @FXML
+    private CheckBox MyCheckBoxAnimaux;
+    @FXML
+    private CheckBox MyCheckBoxParking;
+    @FXML
+    private CheckBox MyCheckBoxLocalSki;
+    @FXML
+    private CheckBox MyCheckBoxCheminee ;
+
+    public void ChangeHotel(ActionEvent eventHotel){
+        if(MyCheckBoxHotel.isSelected()){
+            System.out.println("Hotel=1");
+        }
+        else{
+            System.out.println("Hotel=0");
+        }
+    }
+    public void ChangeVilla(ActionEvent eventVilla){
+        if(MyCheckBoxVilla.isSelected()){
+            System.out.println("Villa=1");
+        }
+        else{
+            System.out.println("Villa=0");
+        }
+    }
+    public void ChangeChalet(ActionEvent eventChalet){
+        if(MyCheckBoxChalet.isSelected()){
+            System.out.println("Chalet=1");
+        }
+        else{
+            System.out.println("Chalet=0");
+        }
+    }
+    public void ChangeAppart(ActionEvent eventAppart){
+        if(MyCheckBoxAppartement.isSelected()){
+            System.out.println("Appart=1");
+        }
+        else{
+            System.out.println("Appart=0");
+        }
+    }
+    public void ChangePasChere(ActionEvent eventPasChere){
+        if(MyCheckBoxPaschere.isSelected()){
+            System.out.println("PasChere=1");
+        }
+        else{
+            System.out.println("PasChere=0");
+        }
+    }
+    public void ChangeMoyen(ActionEvent eventMoyen){
+        if(MyCheckBoxMoyen.isSelected()){
+            System.out.println("Moyen=1");
+        }
+        else{
+            System.out.println("Moyen=0");
+        }
+    }
+    public void ChangeChere(ActionEvent eventChere){
+        if(MyCheckBoxChere.isSelected()){
+            System.out.println("Chere=1");
+        }
+        else{
+            System.out.println("Chere=0");
+        }
+    }
+    public void Change123Etoiles(ActionEvent event123Etoiles){
+        if(MyCheckBox123Etoiles.isSelected()){
+            System.out.println("123Etoiles=1");
+        }
+        else{
+            System.out.println("123 Etoiles=0");
+        }
+    }
+    public void Change45Etoiles(ActionEvent event45Etoiles){
+        if(MyCheckBox45Etoiles.isSelected()){
+            System.out.println("45Etoiles=1");
+        }
+        else{
+            System.out.println("45Etoiles=0");
+        }
+    }
+    public void ChangeP_D(ActionEvent eventP_D){
+        if(MyCheckBoxP_D.isSelected()){
+            System.out.println("P_D=1");
+        }
+        else{
+            System.out.println("P_D=0");
+        }
+    }
+    public void ChangeRestaurant(ActionEvent eventRestaurant){
+        if(MyCheckBoxRestaurant.isSelected()){
+            System.out.println("resto=1");
+        }
+        else{
+            System.out.println("resto=0");
+        }
+    }
+    public void ChangeNoteClientNul(ActionEvent eventNoteClientNul){
+        if(MyCheckBoxNoteClientNul.isSelected()){
+            System.out.println("client nul=1");
+        }
+        else{
+            System.out.println("client nul=0");
+        }
+    }
+    public void ChangeNoteClientBien(ActionEvent eventNoteClientBien){
+        if(MyCheckBoxNoteClientBien.isSelected()){
+            System.out.println("client bien=1");
+        }
+        else{
+            System.out.println("note client bien=0");
+        }
+    }
+    public void ChangePiscine(ActionEvent eventPiscine){
+        if(MyCheckBoxPiscine.isSelected()){
+            System.out.println("piscine=1");
+        }
+        else{
+            System.out.println("piscine=0");
+        }
+    }
+    public void ChangeWifi(ActionEvent eventWifi){
+        if(MyCheckBoxWifi.isSelected()){
+            System.out.println("wifi=1");
+        }
+        else{
+            System.out.println("wifi=0");
+        }
+    }
+    public void ChangeClim(ActionEvent eventClim){
+        if(MyCheckBoxClim.isSelected()){
+            System.out.println("clim=1");
+        }
+        else{
+            System.out.println("clim=0");
+        }
+    }
+    public void ChangeFumeur(ActionEvent eventFumeur){
+        if(MyCheckBoxFumeur.isSelected()){
+            System.out.println("fumeur=1");
+        }
+        else{
+            System.out.println("fumeur=0");
+        }
+    }
+    public void ChangeAnimaux(ActionEvent eventAnimaux){
+        if(MyCheckBoxAnimaux.isSelected()){
+            System.out.println("animaux=1");
+        }
+        else{
+            System.out.println("animaux=0");
+        }
+    }
+    public void ChangeParking(ActionEvent eventParking){
+        if(MyCheckBoxParking.isSelected()){
+            System.out.println("parking=1");
+        }
+        else{
+            System.out.println("parking=0");
+        }
+    }
+    public void ChangeLocalSki(ActionEvent eventLocalSki){
+        if(MyCheckBoxLocalSki.isSelected()){
+            System.out.println("loacalski=1");
+        }
+        else{
+            System.out.println("localski=0");
+        }
+    }
+    public void ChangeCheminee(ActionEvent eventCheminee){
+        if(MyCheckBoxCheminee.isSelected()){
+            System.out.println("cheminee=1");
+        }
+        else{
+            System.out.println("cheminee=0");
+        }
     }
 
 }
