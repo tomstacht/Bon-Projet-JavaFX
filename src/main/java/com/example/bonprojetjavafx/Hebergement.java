@@ -1,5 +1,4 @@
 package com.example.bonprojetjavafx;
-
 import java.util.Scanner;
 
 public class Hebergement {
