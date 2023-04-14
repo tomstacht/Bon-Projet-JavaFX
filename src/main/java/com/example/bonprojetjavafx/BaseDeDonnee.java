@@ -9,9 +9,8 @@ public class BaseDeDonnee {
     ArrayList<String> searchAppart = new ArrayList<>();
     ArrayList<String> searchChalet = new ArrayList<>();
 
-
     public void ajouterTable() {
-        String url = "jdbc:mysql://localhost:3306/projet";
+        String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
         String password = "root";
 
@@ -99,7 +98,7 @@ public class BaseDeDonnee {
         }
     }
     public void ajouterLigne() {
-        String url = "jdbc:mysql://localhost:3306/projet ";
+        String url = "jdbc:mysql://localhost:3306/projet";
         String user = "root";
         String password = "";
 
@@ -156,7 +155,7 @@ public class BaseDeDonnee {
         System.out.println("Ou souhaitez-vous aller ?");
         String ville = sc.nextLine();
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
             //lire un élément de la bdd
             Statement stHotel = con.createStatement();
@@ -195,9 +194,7 @@ public class BaseDeDonnee {
                 if (resHotel.getString("Restaurant") == ...){
                     searchHotel.add(resHotel.getString("Nom"));
                 }
-                if (resHotel.getString("Type_Lit") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
+
                 if (resHotel.getString("Marque").compareTo("...")==0){
                     searchHotel.add(resHotel.getString("Nom"));
                 }

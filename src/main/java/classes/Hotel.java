@@ -1,9 +1,12 @@
 package classes;
+
+/*
+type lit retire dans hotel
+ */
 public class Hotel extends Hebergement{
     private float nb_etoile;
     private boolean petitDej;
     private boolean restaurant;
-    private String type_lit;
     private String compagnie;
 
     public float getNb_etoile() {
@@ -23,12 +26,6 @@ public class Hotel extends Hebergement{
     }
     public void setRestaurant(boolean restaurant) {
         this.restaurant = restaurant;
-    }
-    public String getType_lit() {
-        return type_lit;
-    }
-    public void setType_lit(String type_lit) {
-        this.type_lit = type_lit;
     }
     public String getCompagnie() {
         return compagnie;
