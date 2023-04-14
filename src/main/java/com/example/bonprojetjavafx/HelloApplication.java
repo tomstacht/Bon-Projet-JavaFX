@@ -21,10 +21,6 @@ public class HelloApplication extends Application {
 
         BaseDeDonnee b1=new BaseDeDonnee();
         b1.ajouterLigne();
-
-
-
-
         //launch();
     }
 }
