@@ -98,7 +98,7 @@ public class BaseDeDonnee {
         }
     }
     public void ajouterLigne() {
-        String url = "jdbc:mysql://localhost:3306/projet ";
+        String url = "jdbc:mysql://localhost:3306/projet";
         String user = "root";
         String password = "";
 
@@ -155,7 +155,7 @@ public class BaseDeDonnee {
         System.out.println("Ou souhaitez-vous aller ?");
         String ville = sc.nextLine();
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
             //lire un élément de la bdd
             Statement stHotel = con.createStatement();

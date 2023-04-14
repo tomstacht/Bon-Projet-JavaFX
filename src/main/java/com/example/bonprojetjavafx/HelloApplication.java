@@ -24,17 +24,8 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         BaseDeDonnee b1 = new BaseDeDonnee();
 
-        String url = "jdbc:mysql://localhost:8889/bdd";
-        String user = "root";
-        String password = "root";
+       // b1.rechercheFiltre();
 
-        try {
-            Connection connection = DriverManager.getConnection(url, user, password);
-            System.out.println("Connection établie...");
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         launch();
     }
 }
