@@ -8,4 +8,6 @@ module com.example.bonprojetjavafx {
 
     opens com.example.bonprojetjavafx to javafx.fxml;
     exports com.example.bonprojetjavafx;
+    exports classes;
+    opens classes to javafx.fxml;
 }

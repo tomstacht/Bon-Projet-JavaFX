@@ -1,4 +1,4 @@
-package com.example.bonprojetjavafx;
+package classes;
 import java.util.Scanner;
 
 public class Hebergement {
