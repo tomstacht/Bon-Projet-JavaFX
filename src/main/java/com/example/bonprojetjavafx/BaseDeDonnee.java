@@ -195,9 +195,7 @@ public class BaseDeDonnee {
                 if (resHotel.getString("Restaurant") == ...){
                     searchHotel.add(resHotel.getString("Nom"));
                 }
-                if (resHotel.getString("Type_Lit") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
+
                 if (resHotel.getString("Marque").compareTo("...")==0){
                     searchHotel.add(resHotel.getString("Nom"));
                 }

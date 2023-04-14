@@ -62,20 +62,20 @@
         <CheckBox layoutX="13.0" layoutY="370.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="300€ &lt; ..." />
         <Line endX="100.0" layoutX="78.0" layoutY="404.0" startX="-60.99847412109375" strokeWidth="5.0" />
         <Label layoutX="13.0" layoutY="414.0" prefHeight="17.0" prefWidth="173.0" text="AUTRES :" textAlignment="CENTER" />
-        <CheckBox layoutX="13.0" layoutY="440.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PETIT-DEJEUNÉ COMPRIS" />
-        <CheckBox layoutX="13.0" layoutY="460.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="RESTAURANT111" />
-        <CheckBox layoutX="13.0" layoutY="480.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PISCINE" />
-        <CheckBox layoutX="13.0" layoutY="500.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="WI-FI" />
-        <CheckBox layoutX="13.0" layoutY="520.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="CLIMATISATION" />
-        <CheckBox layoutX="13.0" layoutY="540.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ANIMEAUX" />
-        <CheckBox layoutX="13.0" layoutY="560.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PARKING" />
-        <CheckBox layoutX="13.0" layoutY="580.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="CHEMINÉE" />
-        <CheckBox layoutX="13.0" layoutY="600.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ETAGE SUPPLÉMENTAIRE" />
-        <CheckBox layoutX="13.0" layoutY="620.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="BALCON" />
-        <CheckBox layoutX="13.0" layoutY="640.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PLAGE" />
-        <CheckBox layoutX="13.0" layoutY="660.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ACTIVITÉS ENFANTS" />
-        <CheckBox layoutX="13.0" layoutY="680.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="RECHARGE VOITURES" />
-        <CheckBox layoutX="13.0" layoutY="700.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ANIMAUX ACCPETÉS" />
+        <CheckBox layoutX="13.0" layoutY="440.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Étoiles 1-2-3" />
+        <CheckBox layoutX="13.0" layoutY="460.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Étoiles 4-5" />
+        <CheckBox layoutX="13.0" layoutY="480.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Petit-déjeuner" />
+        <CheckBox layoutX="13.0" layoutY="500.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Restaurant" />
+        <CheckBox layoutX="13.0" layoutY="520.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Note client < 8" />
+        <CheckBox layoutX="13.0" layoutY="540.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Note client > 8" />
+        <CheckBox layoutX="13.0" layoutY="560.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Piscine" />
+        <CheckBox layoutX="13.0" layoutY="580.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Wifi" />
+        <CheckBox layoutX="13.0" layoutY="600.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Climatisation" />
+        <CheckBox layoutX="13.0" layoutY="620.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Fumeur" />
+        <CheckBox layoutX="13.0" layoutY="640.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Animaux" />
+        <CheckBox layoutX="13.0" layoutY="660.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Parking" />
+        <CheckBox layoutX="13.0" layoutY="680.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Local à skis" />
+        <CheckBox layoutX="13.0" layoutY="700.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Cheminée" />
         <MenuButton layoutX="222.0" layoutY="85.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="202.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK;" text="OÙ ALLEZ VOUS ? ">
             <items>
                 <MenuItem mnemonicParsing="false" text="LONDRES" />
