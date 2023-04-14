@@ -1,4 +1,4 @@
-package com.example.bonprojetjavafx;
+package classes;
 public class Hotel extends Hebergement{
     private float nb_etoile;
     private boolean petitDej;
