@@ -62,34 +62,34 @@
         <CheckBox layoutX="13.0" layoutY="370.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="300€ &lt; ..." />
         <Line endX="100.0" layoutX="78.0" layoutY="404.0" startX="-60.99847412109375" strokeWidth="5.0" />
         <Label layoutX="13.0" layoutY="414.0" prefHeight="17.0" prefWidth="173.0" text="AUTRES :" textAlignment="CENTER" />
-        <CheckBox layoutX="13.0" layoutY="440.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Étoiles 1-2-3" />
-        <CheckBox layoutX="13.0" layoutY="460.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Étoiles 4-5" />
-        <CheckBox layoutX="13.0" layoutY="480.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Petit-déjeuner" />
-        <CheckBox layoutX="13.0" layoutY="500.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Restaurant" />
-        <CheckBox layoutX="13.0" layoutY="520.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Note client < 8" />
-        <CheckBox layoutX="13.0" layoutY="540.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Note client > 8" />
-        <CheckBox layoutX="13.0" layoutY="560.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Piscine" />
-        <CheckBox layoutX="13.0" layoutY="580.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Wifi" />
-        <CheckBox layoutX="13.0" layoutY="600.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Climatisation" />
-        <CheckBox layoutX="13.0" layoutY="620.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Fumeur" />
-        <CheckBox layoutX="13.0" layoutY="640.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Animaux" />
-        <CheckBox layoutX="13.0" layoutY="660.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Parking" />
-        <CheckBox layoutX="13.0" layoutY="680.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Local à skis" />
-        <CheckBox layoutX="13.0" layoutY="700.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="Cheminée" />
+        <CheckBox layoutX="13.0" layoutY="440.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ÉTOILES 1-2-3" />
+        <CheckBox layoutX="13.0" layoutY="460.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ÉTOILES 4-5" />
+        <CheckBox layoutX="13.0" layoutY="480.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PETIT-DÉJEUNER" />
+        <CheckBox layoutX="13.0" layoutY="500.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="RESTAURANT" />
+        <CheckBox layoutX="13.0" layoutY="520.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="NOTE CLIENT &lt; 8" />
+        <CheckBox layoutX="13.0" layoutY="540.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="NOTE CLIENT &gt; 8" />
+        <CheckBox layoutX="13.0" layoutY="560.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PISCINE" />
+        <CheckBox layoutX="13.0" layoutY="580.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="WIFI" />
+        <CheckBox layoutX="13.0" layoutY="600.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="CLIMATISATION" />
+        <CheckBox layoutX="13.0" layoutY="620.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="FUMEUR" />
+        <CheckBox layoutX="13.0" layoutY="640.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ANIMAUX" />
+        <CheckBox layoutX="13.0" layoutY="660.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PARKING" />
+        <CheckBox layoutX="13.0" layoutY="680.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="LOCAL A SKIS" />
+        <CheckBox layoutX="13.0" layoutY="700.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="CHEMINÉE" />
         <MenuButton layoutX="222.0" layoutY="85.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="202.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK;" text="OÙ ALLEZ VOUS ? ">
             <items>
-                <MenuItem mnemonicParsing="false" text="LONDRES" />
                 <MenuItem mnemonicParsing="false" text="PARIS" />
-                <MenuItem mnemonicParsing="false" text="MADRID" />
-                <MenuItem mnemonicParsing="false" text="VENISE" />
-                <MenuItem mnemonicParsing="false" text="NEW YORK" />
-                <MenuItem mnemonicParsing="false" text="LOS ANGELES" />
-                <MenuItem mnemonicParsing="false" text="BARCELONE" />
-                <MenuItem mnemonicParsing="false" text="NICE" />
-                <MenuItem mnemonicParsing="false" text="AMSTERDAM " />
-                <MenuItem mnemonicParsing="false" text="MARSEILLE" />
                 <MenuItem mnemonicParsing="false" text="BORDEAUX" />
-                <MenuItem mnemonicParsing="false" text="NAPLES" />
+                <MenuItem mnemonicParsing="false" text="ARCACHON" />
+                <MenuItem mnemonicParsing="false" text="LILLE" />
+                <MenuItem mnemonicParsing="false" text="CAEN" />
+                <MenuItem mnemonicParsing="false" text="ORLÉANS" />
+                <MenuItem mnemonicParsing="false" text="VAL D'ISERE" />
+                <MenuItem mnemonicParsing="false" text="ISOLA 2000" />
+                <MenuItem mnemonicParsing="false" text="ANDORRE " />
+                <MenuItem mnemonicParsing="false" text="PERLES" />
+                <MenuItem mnemonicParsing="false" text="BIARRITZ" />
+                <MenuItem mnemonicParsing="false" text="STRASBOURG" />
             </items>
         </MenuButton>
         <DatePicker layoutX="488.0" layoutY="86.0" prefHeight="44.0" prefWidth="169.0" promptText=".. / .. / ....." style="-fx-background-color: white; -fx-border-color: black;" />
