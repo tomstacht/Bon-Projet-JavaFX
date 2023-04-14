@@ -3,15 +3,16 @@ import java.sql.*;
 import java.util.*;
 public class BaseDeDonnee {
     String type_Logement;
-    ArrayList<String> searchHotel;
-    ArrayList<String> searchVilla;
-    ArrayList<String> searchAppart;
-    ArrayList<String> searchChalet;
+
+    ArrayList<String> searchHotel = new ArrayList<>();
+    ArrayList<String> searchVilla = new ArrayList<>();
+    ArrayList<String> searchAppart = new ArrayList<>();
+    ArrayList<String> searchChalet = new ArrayList<>();
 
     public void ajouterTable() {
         String url = "jdbc:mysql://localhost:3306/projet";
         String user = "root";
-        String password = "";
+        String password = "root";
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
@@ -149,6 +150,7 @@ public class BaseDeDonnee {
         }
     }
     public void rechercheFiltre(){
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Ou souhaitez-vous aller ?");
         String ville = sc.nextLine();
@@ -209,12 +211,15 @@ public class BaseDeDonnee {
                     searchChalet.add(resChalet.getString("Nom"));
                 }
             }
-
+            System.out.println("C1");
             con.close();
+
+            System.out.println("C");
 
         } catch (Exception e){
             System.out.println("Error :" + e.getMessage());
         }
+        System.out.println("C3");
 
         System.out.println("Voici les hotels présents à "+ville+ " : ");
         for (String s : searchHotel) {
@@ -235,11 +240,50 @@ public class BaseDeDonnee {
         for (String s : searchChalet) {
             System.out.println(s);
         }
-
+        System.out.println("B");
 
     }
 
+    public void ConnexionClient(){
+        //System.out.println("A");
+        String url = "jdbc:mysql://localhost/proyecto ";
+        String user = "root";
+        String password = "root";
 
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            Scanner sc = new Scanner(System.in);
+            String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement statement = conn.prepareStatement(query);
+
+            System.out.println("Quel est votre prénom ?");
+            String prenom = sc.nextLine();
+            System.out.println("Quel est votre nom ?");
+            String nom = sc.nextLine();
+            System.out.println("Quel est votre adresse mail ?");
+            String email = sc.nextLine();
+            System.out.println("Quel est votre pseudo ?");
+            String pseudo = sc.nextLine();
+            System.out.println("Quel est votre mot de passe ?");
+            String mdp = sc.nextLine();
+
+            statement.setString(1, prenom);
+            statement.setString(2, nom);
+            statement.setString(3, email);
+            statement.setString(4, pseudo);
+            statement.setString(5, mdp);
+
+            statement.executeUpdate();
+
+
+            System.out.println("ligne ajouter.");
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
+    }
 
 }
 
