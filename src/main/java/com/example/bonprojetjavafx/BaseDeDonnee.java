@@ -105,44 +105,34 @@ public class BaseDeDonnee {
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
-            Scanner sc = new Scanner(System.in);
-            String query = "INSERT INTO villa (piscine, distanceMer, prix) VALUES (?, ?, ?)";
-            PreparedStatement statement = conn.prepareStatement(query);
+            int choix=0;
 
-            System.out.println("Quel est le type de logement que vous allez creer ? ");
-            System.out.println("1. Hotel");
-            System.out.println("2. Appartement");
-            System.out.println("3. Chalet");
-            System.out.println("4. Villa");
-            System.out.println("5. Maison");
-            int choix = sc.nextInt();
+            // if click sur ajout hotel, choix=1, click sur ajout appart, choix=2...
 
             switch (choix) {
                 case 1:
-
+                    String queryH = "INSERT INTO Hotel (ID, Nom, Prix, Lieu, NB_Etoile, Petit-Dej, Restaurant, Marque, D_Hotel-Centre, NB_M2, NB_Pers, Note_Client) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    PreparedStatement statementH = conn.prepareStatement(queryH);
+                    //remplissage
+                    statementH.executeUpdate();
                     break;
 
                 case 2:
+                    String queryA = "INSERT INTO Appartement (ID, Nom, Prix, Lieu, Num_Etage, Balcon, D_Appart-Centre, NB_Chambre, NB_M2, NB_Personne, Note_Client, Wifi, Climatisation, Fumeur, Animaux, Parking) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    PreparedStatement statementA = conn.prepareStatement(queryA);
+                    //remplissage
+                    statementA.executeUpdate();
                     break;
 
                 case 3:
+                    //chalet
                     break;
 
                 case 4:
-                    System.out.println("Vous avez choisi d'ajouter une Villa");
-                    System.out.println("Saisir true si il y a une piscine / false si il n'y en a pas");
-                    boolean piscine = sc.nextBoolean();
-                    System.out.println("Saisir la distance de la mer (int)");
-                    int distanceMer = sc.nextInt();
-                    System.out.println("Saisir le prix (float)");
-                    float prix = sc.nextFloat();
-                    statement.setBoolean(1, piscine);
-                    statement.setInt(2, distanceMer);
-                    statement.setFloat(3, prix);
-                    statement.executeUpdate();
+
                     break;
             }
-            System.out.println("ligne ajouter.");
+            System.out.println("Hébergement ajouté.");
             conn.close();
         } catch (Exception e) {
             System.err.println("Exception relevée...");
