@@ -9,9 +9,9 @@ public class BaseDeDonnee {
     ArrayList<String> searchChalet=new ArrayList<>();
 
     public void ajouterTable() {
-        String url = "jdbc:mysql://localhost:3306/projet";
+        String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
-        String password = "";
+        String password = "root";
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
