@@ -370,7 +370,6 @@ public class BaseDeDonnee {
         }
 
     }
-
     public void InscriptionClient(){
 
         String url = "jdbc:mysql://localhost/proyecto ";
@@ -411,7 +410,6 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-
     public void Connexion_Client() {
 
         Scanner sc = new Scanner(System.in);
