@@ -20,11 +20,15 @@
          <children>
             <PasswordField layoutX="484.0" layoutY="173.0" prefHeight="39.0" prefWidth="463.0" promptText="MOT DE PASSE..." style="-fx-border-color: black; -fx-border-radius: 5;">
                <font>
-                  <Font size="19.0" />
+                  <Font size="16.0" />
                </font>
             </PasswordField>
-            <TextField layoutX="399.0" layoutY="70.0" prefHeight="52.0" prefWidth="621.0" promptText="ADRESSE MAIL..." style="-fx-border-color: black; -fx-border-radius: 5;" />
-            <Button layoutX="599.0" layoutY="297.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="234.0" style="-fx-border-color: black; -fx-border-radius: 5; -fx-background-color: black;" text="SOUMETTRE" textFill="WHITE">
+            <TextField layoutX="399.0" layoutY="70.0" prefHeight="52.0" prefWidth="621.0" promptText="ADRESSE MAIL..." style="-fx-border-color: black; -fx-border-radius: 5;">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+            <Button layoutX="592.0" layoutY="267.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="234.0" style="-fx-border-color: black; -fx-border-radius: 5; -fx-background-color: black;" text="SOUMETTRE" textFill="WHITE">
                <font>
                   <Font size="22.0" />
                </font>
