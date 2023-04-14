@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import java.io.IOException;
+import javafx.scene.control.Button;
+import javafx.stage.StageStyle;
 
 public class HelloController {
     @FXML
@@ -27,6 +29,14 @@ public class HelloController {
         Stage stage2 = new Stage();
         stage2.setScene(scene2);
         stage2.show();
+    }
+
+    @FXML
+    private Button CancelButton;
+
+    public void CancelButtonOnAction(ActionEvent e){
+        Stage stage3 = (Stage) CancelButton.getScene().getWindow();
+        stage3.close();
     }
 
 }
