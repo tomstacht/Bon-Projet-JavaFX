@@ -56,7 +56,7 @@ public class HelloController {
         if(UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false){
             loginMessageLabel.setText("Vous avez essayé de vous connecter !");
         }else{
-            loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:");
+            loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:merci");
         }
     }
 
