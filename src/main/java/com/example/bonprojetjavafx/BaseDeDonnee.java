@@ -3,10 +3,12 @@ import java.sql.*;
 import java.util.*;
 public class BaseDeDonnee {
     String type_Logement;
-    ArrayList<String> searchHotel= new ArrayList<>();
-    ArrayList<String> searchVilla=new ArrayList<>();
-    ArrayList<String> searchAppart=new ArrayList<>();
-    ArrayList<String> searchChalet=new ArrayList<>();
+
+    ArrayList<String> searchHotel = new ArrayList<>();
+    ArrayList<String> searchVilla = new ArrayList<>();
+    ArrayList<String> searchAppart = new ArrayList<>();
+    ArrayList<String> searchChalet = new ArrayList<>();
+
 
     public void ajouterTable() {
         String url = "jdbc:mysql://localhost:8889/bdd";
@@ -118,11 +120,15 @@ public class BaseDeDonnee {
 
             switch (choix) {
                 case 1:
+
                     break;
+
                 case 2:
                     break;
+
                 case 3:
                     break;
+
                 case 4:
                     System.out.println("Vous avez choisi d'ajouter une Villa");
                     System.out.println("Saisir true si il y a une piscine / false si il n'y en a pas");
@@ -145,12 +151,13 @@ public class BaseDeDonnee {
         }
     }
     public void rechercheFiltre(){
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Ou souhaitez-vous aller ?");
         String ville = sc.nextLine();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet ", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
             //lire un élément de la bdd
             Statement stHotel = con.createStatement();
             ResultSet resHotel = stHotel.executeQuery("select * from Hotel");
@@ -179,7 +186,25 @@ public class BaseDeDonnee {
                 /*if (resHotel.getString("Nom").compareTo("...")==0){
                     searchHotel.add(resHotel.getString("Nom"));
                 }
-                if (resHotel.getString("Prix") == ...){
+                if (resHotel.getString("NB_Etoile") == ...){
+                    searchHotel.add(resHotel.getString("Nom"));
+                }
+                if (resHotel.getString("Petit-Dej") == ...){
+                    searchHotel.add(resHotel.getString("Nom"));
+                }
+                if (resHotel.getString("Restaurant") == ...){
+                    searchHotel.add(resHotel.getString("Nom"));
+                }
+                if (resHotel.getString("Type_Lit") == ...){
+                    searchHotel.add(resHotel.getString("Nom"));
+                }
+                if (resHotel.getString("Marque").compareTo("...")==0){
+                    searchHotel.add(resHotel.getString("Nom"));
+                }
+                if (resHotel.getString("NB_Pers") == ...){
+                    searchHotel.add(resHotel.getString("Nom"));
+                }
+                if (resHotel.getString("Note_Client") == ...){
                     searchHotel.add(resHotel.getString("Nom"));
                 }*/
             }
@@ -189,6 +214,42 @@ public class BaseDeDonnee {
                 if (resVilla.getString("Lieu").compareTo(ville)==0){
                     searchVilla.add(resVilla.getString("Nom"));
                 }
+                /*if (resVilla.getString("Nom").compareTo(...)==0){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("Prix") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("Piscine") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("NB_Chambre") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("NB_SDB") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("NB_Personne") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("Note_Client") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("Wifi") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("Climatisation") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("Fumeur") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("Animaux") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }
+                if (resVilla.getString("Parking") == ...){
+                    searchVilla.add(resVilla.getString("Nom"));
+                }*/
 
             }
 
@@ -197,6 +258,39 @@ public class BaseDeDonnee {
                 if (resAppart.getString("Lieu").compareTo(ville)==0){
                     searchAppart.add(resAppart.getString("Nom"));
                 }
+                /*if (resAppart.getString("Nom").compareTo(...)==0){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("Prix") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("NB_Chambre") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("NB_SDB") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("NB_Personne") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("Note_Client") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("Wifi") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("Climatisation") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("Fumeur") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("Animaux") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }
+                if (resAppart.getString("Parking") == ...){
+                    searchAppart.add(resAppart.getString("Nom"));
+                }*/
             }
 
             while(resChalet.next()){
@@ -204,6 +298,48 @@ public class BaseDeDonnee {
                 if (resChalet.getString("Lieu").compareTo(ville)==0){
                     searchChalet.add(resChalet.getString("Nom"));
                 }
+                /*if (resChalet.getString("Nom").compareTo(ville)==0){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("Prix") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("Local_Ski") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("Cheminer") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("D_Chalet-Piste") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("NB_Chambre") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("NB_SDB") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("NB_Personne") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("Note_Client") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("Wifi") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("Climatisation") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("Fumeur") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("Animaux") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }
+                if (resChalet.getString("Parking") == ...){
+                    searchChalet.add(resChalet.getString("Nom"));
+                }*/
             }
 
             con.close();
@@ -211,6 +347,7 @@ public class BaseDeDonnee {
         } catch (Exception e){
             System.out.println("Error :" + e.getMessage());
         }
+        System.out.println("C3");
 
         System.out.println("Voici les hotels présents à "+ville+ " : ");
         for (String s : searchHotel) {
@@ -231,7 +368,81 @@ public class BaseDeDonnee {
         for (String s : searchChalet) {
             System.out.println(s);
         }
-    }
-}
 
+    }
+    public void InscriptionClient(){
+
+        String url = "jdbc:mysql://localhost/proyecto ";
+        String user = "root";
+        String password = "root";
+
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            Scanner sc = new Scanner(System.in);
+            String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement statement = conn.prepareStatement(query);
+
+            System.out.println("Quel est votre prénom ?");
+            String prenom = sc.nextLine();
+            System.out.println("Quel est votre nom ?");
+            String nom = sc.nextLine();
+            System.out.println("Quel est votre adresse mail ?");
+            String email = sc.nextLine();
+            System.out.println("Quel est votre pseudo ?");
+            String pseudo = sc.nextLine();
+            System.out.println("Quel est votre mot de passe ?");
+            String mdp = sc.nextLine();
+
+            statement.setString(1, prenom);
+            statement.setString(2, nom);
+            statement.setString(3, email);
+            statement.setString(4, pseudo);
+            statement.setString(5, mdp);
+
+            statement.executeUpdate();
+
+
+            System.out.println("ligne ajouter.");
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
+    }
+    public void Connexion_Client() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Veuillez saisir votre adresse mail ou votre pseudo : ");
+        String identification = sc.nextLine();
+        System.out.println("Veuillez saisir votre mot de passe : ");
+        String mdp = sc.nextLine();
+
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
+            //lire un élément de la bdd
+            Statement stConnexion = con.createStatement();
+            ResultSet resConnexion = stConnexion.executeQuery("select * from Connexion_Client");
+
+            //lire un élément de la bdd
+            while(resConnexion.next()){
+                //System.out.println("Pays : " + resHotel.getString("pays"));
+                if ((resConnexion.getString("Email").compareTo(identification)==0) || (resConnexion.getString("Pseudo").compareTo(identification)==0) && (resConnexion.getString("Password").compareTo(mdp)==0)){
+                    System.out.println("Bienvenue sur votre compte client " + resConnexion.getString("Prenom") + " " + resConnexion.getString("Nom") + " !!!");
+                }
+                else {
+                    System.out.println("Vous n'avez pas encore de compte, je vous invite à en créer un :)");
+                }
+            }
+            con.close();
+
+        } catch (Exception e){
+            System.out.println("Error :" + e.getMessage());
+        }
+
+    }
+
+}
 
