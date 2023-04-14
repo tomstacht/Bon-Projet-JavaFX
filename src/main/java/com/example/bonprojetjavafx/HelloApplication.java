@@ -1,4 +1,6 @@
 package com.example.bonprojetjavafx;
+import java.sql.*;
+import java.util.*;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class HelloApplication extends Application {
     @Override
@@ -19,6 +23,10 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+        BaseDeDonnee b1 = new BaseDeDonnee();
+
+       // b1.rechercheFiltre();
+
         launch();
     }
 }

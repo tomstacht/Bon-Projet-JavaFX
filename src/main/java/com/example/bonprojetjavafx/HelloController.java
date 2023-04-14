@@ -3,7 +3,6 @@ package com.example.bonprojetjavafx;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -11,9 +10,6 @@ import javafx.scene.Parent;
 import java.io.IOException;
 import javafx.scene.control.Button;
 import javafx.stage.StageStyle;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
-
 
 public class HelloController {
     @FXML
@@ -47,18 +43,45 @@ public class HelloController {
     @FXML
     private CheckBox MyCheckBoxHotel;
     @FXML
-    private Label loginMessageLabel;
+    private CheckBox MyCheckBoxVilla;
     @FXML
-    private TextField UsernameTextField;
+    private CheckBox MyCheckBoxChalet;
     @FXML
-    private TextField PasswordTextField;
-    public void loginButtonOnAction(ActionEvent e){
-        if(UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false){
-            loginMessageLabel.setText("Vous avez essayé de vous connecter !");
-        }else{
-            loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:");
-        }
-    }
+    private CheckBox MyCheckBoxAppartement;
+    @FXML
+    private CheckBox MyCheckBoxPaschere;
+    @FXML
+    private CheckBox MyCheckBoxMoyen;
+    @FXML
+    private CheckBox MyCheckBoxChere;
+    @FXML
+    private CheckBox MyCheckBox123Etoiles;
+    @FXML
+    private CheckBox MyCheckBox45Etoiles;
+    @FXML
+    private CheckBox MyCheckBoxP_D;
+    @FXML
+    private CheckBox MyCheckBoxRestaurant;
+    @FXML
+    private CheckBox MyCheckBoxNoteClientNul;
+    @FXML
+    private CheckBox MyCheckBoxNoteClientBien;
+    @FXML
+    private CheckBox MyCheckBoxPiscine;
+    @FXML
+    private CheckBox MyCheckBoxWifi;
+    @FXML
+    private CheckBox MyCheckBoxClim;
+    @FXML
+    private CheckBox MyCheckBoxFumeur;
+    @FXML
+    private CheckBox MyCheckBoxAnimaux;
+    @FXML
+    private CheckBox MyCheckBoxParking;
+    @FXML
+    private CheckBox MyCheckBoxLocalSki;
+    @FXML
+    private CheckBox MyCheckBoxCheminee ;
 
     public void ChangeHotel(ActionEvent eventHotel){
         if(MyCheckBoxHotel.isSelected()){
@@ -68,5 +91,52 @@ public class HelloController {
             System.out.println("Hotel=0");
         }
     }
-
+    public void ChangeVilla(ActionEvent eventVilla){
+        if(MyCheckBoxVilla.isSelected()){
+            System.out.println("Villa=1");
+        }
+        else{
+            System.out.println("Villa=0");
+        }
+    }
+    public void ChangeChalet(ActionEvent eventChalet){
+        if(MyCheckBoxChalet.isSelected()){
+            System.out.println("Chalet=1");
+        }
+        else{
+            System.out.println("Chalet=0");
+        }
+    }
+    public void ChangeAppart(ActionEvent eventAppart){
+        if(MyCheckBoxAppartement.isSelected()){
+            System.out.println("Appart=1");
+        }
+        else{
+            System.out.println("Appart=0");
+        }
+    }
+    public void ChangePasChere(ActionEvent eventPasChere){
+        if(MyCheckBoxPaschere.isSelected()){
+            System.out.println("PasChere=1");
+        }
+        else{
+            System.out.println("PasChere=0");
+        }
+    }
+    public void ChangeMoyen(ActionEvent eventMoyen){
+        if(MyCheckBoxMoyen.isSelected()){
+            System.out.println("Moyen=1");
+        }
+        else{
+            System.out.println("Moyen=0");
+        }
+    }
+    public void ChangeChere(ActionEvent eventChere){
+        if(MyCheckBoxChere.isSelected()){
+            System.out.println("Chere=1");
+        }
+        else{
+            System.out.println("Chere=0");
+        }
+    }
 }
