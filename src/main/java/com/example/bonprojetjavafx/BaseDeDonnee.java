@@ -3,10 +3,10 @@ import java.sql.*;
 import java.util.*;
 public class BaseDeDonnee {
     String type_Logement;
-    ArrayList<String> searchHotel;
-    ArrayList<String> searchVilla;
-    ArrayList<String> searchAppart;
-    ArrayList<String> searchChalet;
+    ArrayList<String> searchHotel= new ArrayList<>();
+    ArrayList<String> searchVilla=new ArrayList<>();
+    ArrayList<String> searchAppart=new ArrayList<>();
+    ArrayList<String> searchChalet=new ArrayList<>();
 
     public void ajouterTable() {
         String url = "jdbc:mysql://localhost:3306/projet";
@@ -118,15 +118,11 @@ public class BaseDeDonnee {
 
             switch (choix) {
                 case 1:
-
                     break;
-
                 case 2:
                     break;
-
                 case 3:
                     break;
-
                 case 4:
                     System.out.println("Vous avez choisi d'ajouter une Villa");
                     System.out.println("Saisir true si il y a une piscine / false si il n'y en a pas");
@@ -154,20 +150,26 @@ public class BaseDeDonnee {
         String ville = sc.nextLine();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet ", "root", "");
             //lire un élément de la bdd
             Statement stHotel = con.createStatement();
             ResultSet resHotel = stHotel.executeQuery("select * from Hotel");
+
             Statement stVilla = con.createStatement();
             ResultSet resVilla = stVilla.executeQuery("select * from Villa");
+
             Statement stAppart = con.createStatement();
             ResultSet resAppart = stAppart.executeQuery("select * from Appartement");
+
             Statement stChalet = con.createStatement();
             ResultSet resChalet = stChalet.executeQuery("select * from Chalet");
+
             //ajouter un élément dans la bdd
             //String query = "INSERT INTO Hotel (pays, ville, nom_hotel, nb_etoile) values ('usa','nyc','manhattan','5')";
             //PreparedStatement statement = con.prepareStatement(query);
             //statement.executeUpdate();
+
+
             //lire un élément de la bdd
             while(resHotel.next()){
                 //System.out.println("Pays : " + resHotel.getString("pays"));
@@ -181,29 +183,35 @@ public class BaseDeDonnee {
                     searchHotel.add(resHotel.getString("Nom"));
                 }*/
             }
+
             while(resVilla.next()){
                 //System.out.println("Pays : " + resHotel.getString("pays"));
                 if (resVilla.getString("Lieu").compareTo(ville)==0){
                     searchVilla.add(resVilla.getString("Nom"));
                 }
+
             }
+
             while(resAppart.next()){
                 //System.out.println("Pays : " + resHotel.getString("pays"));
                 if (resAppart.getString("Lieu").compareTo(ville)==0){
                     searchAppart.add(resAppart.getString("Nom"));
                 }
             }
+
             while(resChalet.next()){
                 //System.out.println("Pays : " + resHotel.getString("pays"));
                 if (resChalet.getString("Lieu").compareTo(ville)==0){
                     searchChalet.add(resChalet.getString("Nom"));
                 }
             }
+
             con.close();
 
         } catch (Exception e){
             System.out.println("Error :" + e.getMessage());
         }
+
         System.out.println("Voici les hotels présents à "+ville+ " : ");
         for (String s : searchHotel) {
             System.out.println(s);
@@ -224,12 +232,6 @@ public class BaseDeDonnee {
             System.out.println(s);
         }
     }
-
-    public void CalendrierResa(){
-
-
-
-    }
-
 }
+
 
