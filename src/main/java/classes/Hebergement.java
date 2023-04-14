@@ -1,7 +1,7 @@
 package classes;
 import java.util.Scanner;
 
-public class Hebergement {
+public class  Hebergement {
     protected String id;
     protected float prix_location;
     protected String date_reservation;

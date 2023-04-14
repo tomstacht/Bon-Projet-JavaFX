@@ -121,10 +121,8 @@ public class BaseDeDonnee {
                     break;
                 case 2:
                     break;
-
                 case 3:
                     break;
-
                 case 4:
                     System.out.println("Vous avez choisi d'ajouter une Villa");
                     System.out.println("Saisir true si il y a une piscine / false si il n'y en a pas");
