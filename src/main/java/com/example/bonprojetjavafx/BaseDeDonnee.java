@@ -156,7 +156,7 @@ public class BaseDeDonnee {
         String ville = sc.nextLine();
         try{
             //Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd", "root", "root");
             //lire un élément de la bdd
             Statement stHotel = con.createStatement();
             ResultSet resHotel = stHotel.executeQuery("select * from Hotel");
