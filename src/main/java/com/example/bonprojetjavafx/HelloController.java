@@ -2,6 +2,7 @@ package com.example.bonprojetjavafx;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -37,6 +38,18 @@ public class HelloController {
     public void CancelButtonOnAction(ActionEvent e){
         Stage stage3 = (Stage) CancelButton.getScene().getWindow();
         stage3.close();
+    }
+
+    @FXML
+    private CheckBox MyCheckBoxHotel;
+
+    public void ChangeHotel(ActionEvent eventHotel){
+        if(MyCheckBoxHotel.isSelected()){
+            System.out.println("Hotel=1");
+        }
+        else{
+            System.out.println("Hotel=0");
+        }
     }
 
 }

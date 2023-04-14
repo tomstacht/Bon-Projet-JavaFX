@@ -29,9 +29,7 @@
             </font>
         </MenuButton>
         <Line endX="1248.9998779296875" endY="1.52587890625E-5" layoutX="190.0" layoutY="51.0" startX="-191.00003051757812" startY="1.52587890625E-5" stroke="#83bced" strokeWidth="5.0" />
-        <Button layoutX="1142.0" mnemonicParsing="false" onAction="#BoutonActionSeConnecter" prefHeight="52.0"
-                prefWidth="151.0" style="-fx-background-color: #83BCED;" text="SE CONNECTER" textFill="WHITE"
-                underline="true">
+        <Button layoutX="1142.0" mnemonicParsing="false" onAction="#BoutonActionSeConnecter" prefHeight="52.0" prefWidth="151.0" style="-fx-background-color: #83BCED;" text="SE CONNECTER" textFill="WHITE" underline="true">
             <font>
                 <Font size="17.0" />
             </font>
@@ -53,7 +51,7 @@
         </ImageView>
         <Line endX="-99.99998474121094" endY="578.0750122070312" layoutX="300.0" layoutY="200.0" startX="-99.99998474121094" startY="-33.51434326171875" strokeWidth="5.0" />
         <Label layoutX="13.0" layoutY="164.0" prefHeight="17.0" prefWidth="173.0" text="TYPE DE LOGEMENT :" textAlignment="CENTER" />
-        <CheckBox layoutX="13.0" layoutY="190.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="HOTELS" />
+        <CheckBox fx:id="MyCheckBoxHotel" layoutX="13.0" layoutY="190.0" mnemonicParsing="false" onAction="#ChangeHotel" prefHeight="18.0" prefWidth="170.0" text="HOTELS" />
         <CheckBox layoutX="13.0" layoutY="210.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="VILLAS" />
         <CheckBox layoutX="13.0" layoutY="230.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="CHALETS" />
         <CheckBox layoutX="13.0" layoutY="250.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="APPARTEMENT" />
