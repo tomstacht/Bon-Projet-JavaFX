@@ -9,22 +9,6 @@ public class BaseDeDonnee {
     ArrayList<String> searchAppart = new ArrayList<>();
     ArrayList<String> searchChalet = new ArrayList<>();
 
-    public void connexion(){
-        String url = "jdbc:mysql://localhost:8889/bdd";
-        String user = "root";
-        String password = "root";
-
-        try{
-            Connection conn = DriverManager.getConnection(url, user, password);
-            conn.close();
-        }
-        catch (Exception e) {
-            System.err.println("Exception relevée, connexion à la base de données échouée... ");
-            System.err.println(e.getMessage());
-        }
-    }
-
-
     public void ajouterTable() {
         String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
