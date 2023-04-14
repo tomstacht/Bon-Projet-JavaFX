@@ -63,15 +63,15 @@
         <Line endX="100.0" layoutX="78.0" layoutY="404.0" startX="-60.99847412109375" strokeWidth="5.0" />
         <Label layoutX="13.0" layoutY="414.0" prefHeight="17.0" prefWidth="173.0" text="AUTRES :" textAlignment="CENTER" />
         <CheckBox layoutX="13.0" layoutY="440.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PETIT-DEJEUNÉ COMPRIS" />
-        <CheckBox layoutX="13.0" layoutY="460.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="WIFI" />
-        <CheckBox layoutX="13.0" layoutY="480.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="CLIMATISATION" />
-        <CheckBox layoutX="13.0" layoutY="500.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="VUE" />
-        <CheckBox layoutX="13.0" layoutY="520.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PISCINE" />
-        <CheckBox layoutX="13.0" layoutY="540.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="COFFRE FORT" />
-        <CheckBox layoutX="13.0" layoutY="560.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="FUMEUR" />
-        <CheckBox layoutX="13.0" layoutY="580.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="MENAGE COMPRIS" />
-        <CheckBox layoutX="13.0" layoutY="600.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PARKING PRIVÉ" />
-        <CheckBox layoutX="13.0" layoutY="620.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="BAR" />
+        <CheckBox layoutX="13.0" layoutY="460.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="RESTAURANT" />
+        <CheckBox layoutX="13.0" layoutY="480.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PISCINE" />
+        <CheckBox layoutX="13.0" layoutY="500.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="WI-FI" />
+        <CheckBox layoutX="13.0" layoutY="520.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="CLIMATISATION" />
+        <CheckBox layoutX="13.0" layoutY="540.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ANIMEAUX" />
+        <CheckBox layoutX="13.0" layoutY="560.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PARKING" />
+        <CheckBox layoutX="13.0" layoutY="580.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="CHEMINÉE" />
+        <CheckBox layoutX="13.0" layoutY="600.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ETAGE SUPPLÉMENTAIRE" />
+        <CheckBox layoutX="13.0" layoutY="620.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="BALCON" />
         <CheckBox layoutX="13.0" layoutY="640.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PLAGE" />
         <CheckBox layoutX="13.0" layoutY="660.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="ACTIVITÉS ENFANTS" />
         <CheckBox layoutX="13.0" layoutY="680.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="RECHARGE VOITURES" />
@@ -215,3 +215,6 @@
         </ScrollPane>
     </children>
 </Pane>
+
+
+
