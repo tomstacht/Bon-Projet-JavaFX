@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         //launch();
         BaseDeDonnee b1 = new BaseDeDonnee();
-        b1.InscriptionClient();
+        b1.Connexion_Client();
 
     }
 }

@@ -9,6 +9,7 @@ public class BaseDeDonnee {
     ArrayList<String> searchAppart = new ArrayList<>();
     ArrayList<String> searchChalet = new ArrayList<>();
 
+
     public void ajouterTable() {
         String url = "jdbc:mysql://localhost:3306/projet";
         String user = "root";
@@ -340,10 +341,8 @@ public class BaseDeDonnee {
                     searchChalet.add(resChalet.getString("Nom"));
                 }*/
             }
-            System.out.println("C1");
-            con.close();
 
-            System.out.println("C");
+            con.close();
 
         } catch (Exception e){
             System.out.println("Error :" + e.getMessage());
@@ -369,7 +368,6 @@ public class BaseDeDonnee {
         for (String s : searchChalet) {
             System.out.println(s);
         }
-        System.out.println("B");
 
     }
 
@@ -415,6 +413,36 @@ public class BaseDeDonnee {
     }
 
     public void Connexion_Client() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Veuillez saisir votre adresse mail ou votre pseudo : ");
+        String identification = sc.nextLine();
+        System.out.println("Veuillez saisir votre mot de passe : ");
+        String mdp = sc.nextLine();
+
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
+            //lire un élément de la bdd
+            Statement stConnexion = con.createStatement();
+            ResultSet resConnexion = stConnexion.executeQuery("select * from Connexion_Client");
+
+            //lire un élément de la bdd
+            while(resConnexion.next()){
+                //System.out.println("Pays : " + resHotel.getString("pays"));
+                if ((resConnexion.getString("Email").compareTo(identification)==0) || (resConnexion.getString("Pseudo").compareTo(identification)==0) && (resConnexion.getString("Password").compareTo(mdp)==0)){
+                    System.out.println("Bienvenue sur votre compte client " + resConnexion.getString("Prenom") + " " + resConnexion.getString("Nom") + " !!!");
+                }
+                else {
+                    System.out.println("Vous n'avez pas encore de compte, je vous invite à en créer un :)");
+                }
+            }
+            con.close();
+
+        } catch (Exception e){
+            System.out.println("Error :" + e.getMessage());
+        }
 
     }
 
