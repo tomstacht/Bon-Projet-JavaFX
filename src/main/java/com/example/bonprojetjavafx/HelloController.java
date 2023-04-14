@@ -19,4 +19,14 @@ public class HelloController {
         stage.show();
     }
 
+    @FXML
+    private void BoutonActionSeConnecter(ActionEvent event2) throws IOException{
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
+        Parent root2 = loader2.load();
+        Scene scene2 = new Scene(root2);
+        Stage stage2 = new Stage();
+        stage2.setScene(scene2);
+        stage2.show();
+    }
+
 }
