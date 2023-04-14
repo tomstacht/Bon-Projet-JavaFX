@@ -63,7 +63,7 @@
         <Line endX="100.0" layoutX="78.0" layoutY="404.0" startX="-60.99847412109375" strokeWidth="5.0" />
         <Label layoutX="13.0" layoutY="414.0" prefHeight="17.0" prefWidth="173.0" text="AUTRES :" textAlignment="CENTER" />
         <CheckBox layoutX="13.0" layoutY="440.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PETIT-DEJEUNÉ COMPRIS" />
-        <CheckBox layoutX="13.0" layoutY="460.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="RESTAURANT" />
+        <CheckBox layoutX="13.0" layoutY="460.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="RESTAURANT111" />
         <CheckBox layoutX="13.0" layoutY="480.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="PISCINE" />
         <CheckBox layoutX="13.0" layoutY="500.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="WI-FI" />
         <CheckBox layoutX="13.0" layoutY="520.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="170.0" text="CLIMATISATION" />
