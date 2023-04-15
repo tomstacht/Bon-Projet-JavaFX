@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 
 public class ControllerConnexion {
+    BaseDeDonnee base=new BaseDeDonnee();
 
     @FXML
     private Button CancelButton;
@@ -24,6 +25,7 @@ public class ControllerConnexion {
         stage3.close();
     }
 
+    private boolean test;
     @FXML
     private Label loginMessageLabel;
     @FXML
@@ -32,11 +34,18 @@ public class ControllerConnexion {
     private TextField PasswordTextField;
     public void loginButtonOnAction(ActionEvent e){
         if(UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false){
-            loginMessageLabel.setText("Vous avez essayé de vous connecter !");
-            String usernamebdd = UsernameTextField.getText();
-            System.out.println(usernamebdd);
-            String passwordbdd = PasswordTextField.getText();
-            System.out.println(passwordbdd);
+            String id = UsernameTextField.getText();
+            String mdpp = PasswordTextField.getText();
+            test=base.Connexion_Client(id,mdpp);
+            if (test==true)
+            {
+                loginMessageLabel.setText("bienvenue"+id);
+            }else
+            {
+                loginMessageLabel.setText("Vous avez essayé de vous connecter !");
+
+            }
+
         }else{
             loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:");
         }
