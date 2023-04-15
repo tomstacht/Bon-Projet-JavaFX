@@ -206,6 +206,11 @@ public class BaseDeDonnee {
                 listeVilla.add(new Villa(id, nom, prix, lieu, distanceVillaCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, piscine, distanceVillaMer, nbChambres, nbSDB));
             }
 
+            listeHebergements.addAll(listeHotel);
+            listeHebergements.addAll(listeAppart);
+            listeHebergements.addAll(listeChalet);
+            listeHebergements.addAll(listeVilla);
+
         } catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
