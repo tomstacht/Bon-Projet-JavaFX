@@ -3,7 +3,6 @@ import java.sql.*;
 import java.util.*;
 public class BaseDeDonnee {
     String type_Logement;
-
     ArrayList<String> searchHotel = new ArrayList<>();
     ArrayList<String> searchVilla = new ArrayList<>();
     ArrayList<String> searchAppart = new ArrayList<>();
@@ -341,42 +340,49 @@ public class BaseDeDonnee {
             System.out.println("Error :" + e.getMessage());
         }
     }
-    public void InscriptionClient(String firstname,String lastname,String username, String email, String wordtopass){
+    public void InscriptionClient(String firstname,String lastname,String email, String username, String wordtopass){
 
         String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
         String password = "";
+        boolean exist=false;
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
             Scanner sc = new Scanner(System.in);
-            String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement statement = conn.prepareStatement(query);
+            ResultSet resConnexion = stmt.executeQuery("select * from Connexion_Client");
 
-            /*System.out.println("Quel est votre prénom ?");
-            String prenom = sc.nextLine();
-            System.out.println("Quel est votre nom ?");
-            String nom = sc.nextLine();
-            System.out.println("Quel est votre adresse mail ?");
-            String email = sc.nextLine();
-            System.out.println("Quel est votre pseudo ?");
-            String pseudo = sc.nextLine();
-            System.out.println("Quel est votre mot de passe ?");
-            String mdp = sc.nextLine();*/
+            //lire un élément de la bdd
+            while(resConnexion.next()){
+                //System.out.println("Pays : " + resHotel.getString("pays"));
+                if ((resConnexion.getString("Email").compareTo(email)==0) || (resConnexion.getString("Pseudo").compareTo(username)==0) && (resConnexion.getString("Password").compareTo(wordtopass)==0)) {
+                    exist=true;
+                }else{
+                    exist=false;
+                }
+            }
 
-            statement.setString(1, firstname);
-            statement.setString(2, lastname);
-            statement.setString(3, email);
-            statement.setString(4, username);
-            statement.setString(5, wordtopass);
+            if(exist==true)
+            {
+                System.out.println("vous avez deja un compte");
+            }
+            if(exist==false)
+            {
+                String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
+                PreparedStatement statement = conn.prepareStatement(query);
+                statement.setString(1, firstname);
+                statement.setString(2, lastname);
+                statement.setString(3, email);
+                statement.setString(4, username);
+                statement.setString(5, wordtopass);
+                statement.executeUpdate();
+                System.out.println("ligne ajouter.");
+            }
 
-            statement.executeUpdate();
-
-
-            System.out.println("ligne ajouter.");
             conn.close();
-        } catch (Exception e) {
+
+        }  catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
         }
