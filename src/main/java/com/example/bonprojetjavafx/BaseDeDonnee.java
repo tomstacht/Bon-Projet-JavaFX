@@ -105,9 +105,9 @@ public class BaseDeDonnee {
     }
 
     public void initBdd(){
-        String url = "jdbc:mysql://localhost:8889/bdd";
+        String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
-        String password = "root";
+        String password = "";
 
         try{
             Connection conn = DriverManager.getConnection(url, user, password);
@@ -204,11 +204,33 @@ public class BaseDeDonnee {
                 boolean parking=rsVilla.getBoolean("Parking");
                 listeVilla.add(new Villa(id, nom, prix, lieu, distanceVillaCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, piscine, distanceVillaMer, nbChambres, nbSDB));
             }
-
             listeHebergements.addAll(listeHotel);
             listeHebergements.addAll(listeAppart);
             listeHebergements.addAll(listeChalet);
             listeHebergements.addAll(listeVilla);
+
+            Statement stmtClient = conn.createStatement();
+            ResultSet rsClient = stmtClient.executeQuery("SELECT * FROM Connexion_Client");
+            while(rsClient.next()){
+                int id=rsVilla.getInt("ID");
+                String nom=rsVilla.getString("Nom");
+                int prix=rsVilla.getInt("Prix");
+                String lieu=rsVilla.getString("Lieu");
+                boolean piscine=rsVilla.getBoolean("Piscine");
+                float distanceVillaMer=rsVilla.getFloat("D_Villa-Mer");
+                float distanceVillaCentre=rsVilla.getFloat("D_Villa-Centre");
+                int nbChambres=rsVilla.getInt("NB_CHAMBRE");
+                int nbSDB=rsVilla.getInt("NB_SDB");
+                int nbM2=rsVilla.getInt("NB_M2");
+                int nbPers=rsVilla.getInt("NB_Personne");
+                float noteClient=rsVilla.getFloat("Note_Client");
+                boolean wifi=rsVilla.getBoolean("Wifi");
+                boolean clim=rsVilla.getBoolean("Climatisation");
+                boolean fumeur=rsVilla.getBoolean("Fumeur");
+                boolean animaux=rsVilla.getBoolean("Animaux");
+                boolean parking=rsVilla.getBoolean("Parking");
+                listeVilla.add(new Villa(id, nom, prix, lieu, distanceVillaCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, piscine, distanceVillaMer, nbChambres, nbSDB));
+            }
 
         } catch (Exception e) {
             System.err.println("Exception relevée...");
