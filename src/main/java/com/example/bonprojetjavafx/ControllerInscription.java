@@ -1,9 +1,11 @@
 package com.example.bonprojetjavafx;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -28,11 +30,31 @@ public class ControllerInscription {
     @FXML
     private TextField NomTextField;
     @FXML
-    private Label loginMessageLabel;
+    private Label InscriptionMessageLabel;
 
-    public void CancelButtonOnAction(ActionEvent e) {
-        Stage stage3 = (Stage) CancelButton.getScene().getWindow();
-        stage3.close();
+    public void CancelButtonOnAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway/Home.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
+
+    @FXML
+    private void retourPremierePage(MouseEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
     }
 
     public void InscriptionButtonOnAction(ActionEvent e) {
@@ -44,11 +66,11 @@ public class ControllerInscription {
             String Mail = MailTextField.getText();
             String mdpp = PasswordTextField.getText();
             baseinscription.InscriptionClient(prenom,nom,Mail,pseudo,mdpp);
-            //loginMessageLabel.setText("c'est bon");
+            InscriptionMessageLabel.setText("VOUS ETES BIEN INSCRIT !");
         }
         else
         {
-           // loginMessageLabel.setText("Veuillez remplir les 5 zones de texte");
+            InscriptionMessageLabel.setText("ERREUR 404 ! VEUILLEZ BIEN REMPLIR LES 5 ZONES DE TEXTE");
         }
     }
 }
