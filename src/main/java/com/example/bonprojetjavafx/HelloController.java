@@ -41,29 +41,7 @@ public class HelloController {
     }
 
     @FXML
-    private Button CancelButton;
-
-    public void CancelButtonOnAction(ActionEvent e){
-        Stage stage3 = (Stage) CancelButton.getScene().getWindow();
-        stage3.close();
-    }
-
-    @FXML
     private CheckBox MyCheckBoxHotel;
-    @FXML
-    private Label loginMessageLabel;
-    @FXML
-    private TextField UsernameTextField;
-    @FXML
-    private TextField PasswordTextField;
-    public void loginButtonOnAction(ActionEvent e){
-        if(UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false){
-            loginMessageLabel.setText("Vous avez essayé de vous connecter !");
-        }else{
-            loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:");
-        }
-    }
-
     @FXML
     private CheckBox MyCheckBoxVilla;
     @FXML
