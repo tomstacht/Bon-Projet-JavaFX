@@ -1,14 +1,12 @@
 package com.example.bonprojetjavafx;
 import java.sql.*;
 import java.util.*;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.lang.reflect.InvocationTargetException;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
