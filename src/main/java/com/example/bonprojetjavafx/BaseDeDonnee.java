@@ -1,8 +1,11 @@
 package com.example.bonprojetjavafx;
 import java.sql.*;
 import java.util.*;
+import classes.*;
 public class BaseDeDonnee {
     String type_Logement;
+
+    ArrayList<Hebergement> listeHebergements = new ArrayList<Hebergement>();
 
     ArrayList<String> searchHotel = new ArrayList<>();
     ArrayList<String> searchVilla = new ArrayList<>();
