@@ -53,7 +53,7 @@ public class ControllerConnexion {
     private TextField UsernameTextField;
     @FXML
     private TextField PasswordTextField;
-    public void loginButtonOnAction(ActionEvent e){
+    public void loginButtonOnAction(ActionEvent e) {
         if(UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false){
             String id = UsernameTextField.getText();
             String mdpp = PasswordTextField.getText();
@@ -65,8 +65,9 @@ public class ControllerConnexion {
             {
                 loginMessageLabel.setText("Erreur dans la saisie de l'identifiant ou du mot de passe");
             }
-        }else{
-            loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe :");
+            }else{
+                loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe :");
+            }
         }
     }
-}
+
