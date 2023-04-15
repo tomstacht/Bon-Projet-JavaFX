@@ -344,11 +344,11 @@ public class BaseDeDonnee {
             System.out.println("Error :" + e.getMessage());
         }
     }
-    public void InscriptionClient(){
+    public void InscriptionClient(String firstname,String lastname,String username, String email, String wordtopass){
 
-        String url = "jdbc:mysql://localhost/proyecto ";
+        String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
-        String password = "root";
+        String password = "";
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
@@ -357,7 +357,7 @@ public class BaseDeDonnee {
             String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
 
-            System.out.println("Quel est votre prénom ?");
+            /*System.out.println("Quel est votre prénom ?");
             String prenom = sc.nextLine();
             System.out.println("Quel est votre nom ?");
             String nom = sc.nextLine();
@@ -366,13 +366,13 @@ public class BaseDeDonnee {
             System.out.println("Quel est votre pseudo ?");
             String pseudo = sc.nextLine();
             System.out.println("Quel est votre mot de passe ?");
-            String mdp = sc.nextLine();
+            String mdp = sc.nextLine();*/
 
-            statement.setString(1, prenom);
-            statement.setString(2, nom);
+            statement.setString(1, firstname);
+            statement.setString(2, lastname);
             statement.setString(3, email);
-            statement.setString(4, pseudo);
-            statement.setString(5, mdp);
+            statement.setString(4, username);
+            statement.setString(5, wordtopass);
 
             statement.executeUpdate();
 
