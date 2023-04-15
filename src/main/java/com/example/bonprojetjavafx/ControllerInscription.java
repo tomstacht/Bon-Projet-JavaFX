@@ -56,4 +56,4 @@ public class ControllerInscription {
             loginMessageLabel.setText("Veuillez remplir les 5 zones de texte");
         }
     }
-},
+}
