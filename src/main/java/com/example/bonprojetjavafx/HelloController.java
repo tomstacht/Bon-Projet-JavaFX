@@ -90,6 +90,7 @@ public class HelloController {
 
     public void RechercherButtonOnAction(ActionEvent e){
         MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
+        listeCheckbox.clear();
         listeCheckbox.add(hotel);
         listeCheckbox.add(villa);
         listeCheckbox.add(chalet);
@@ -112,11 +113,7 @@ public class HelloController {
         listeCheckbox.add(localSkis);
         listeCheckbox.add(cheminee);
 
-        for (int i=0;i<listeCheckbox.size();i++) {
-            System.out.print(listeCheckbox.get(i)+"/");
-        }
-        System.out.println("");
-        System.out.println("ButtonPushed=1");
+        System.out.println("Recherche lancée...");
         String destinationbdd = DestinantionTextField.getText();
         System.out.println(destinationbdd);
         LocalDate dateArriveebdd = DateArriveeDatePicker.getValue();
@@ -127,7 +124,7 @@ public class HelloController {
         System.out.println(NbAdulteBdd);
         String NbEnfantsBdd = NombreEnfantTextField.getText();
         System.out.println(NbEnfantsBdd);
-        b1.rechercheFiltre(listeCheckbox);
+        b1.filtrageBox(listeCheckbox);
     }
 
     @FXML
