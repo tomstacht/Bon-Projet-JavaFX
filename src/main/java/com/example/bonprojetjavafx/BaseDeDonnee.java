@@ -379,9 +379,7 @@ public class BaseDeDonnee {
                 statement.executeUpdate();
                 System.out.println("ligne ajouter.");
             }
-
             conn.close();
-
         }  catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
