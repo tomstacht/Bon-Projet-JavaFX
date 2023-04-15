@@ -27,27 +27,27 @@
             <Font size="22.0" />
          </font>
       </Button>
-      <TextField layoutX="739.0" layoutY="410.0" prefHeight="52.0" prefWidth="621.0" promptText="ADRESSE MAIL..." style="-fx-border-color: black; -fx-border-radius: 5;">
+      <TextField fx:id="MailTextField" layoutX="739.0" layoutY="410.0" prefHeight="52.0" prefWidth="621.0" promptText="ADRESSE MAIL..." style="-fx-border-color: black; -fx-border-radius: 5;">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="789.0" layoutY="110.0" prefHeight="52.0" prefWidth="527.0" promptText="NOM..." style="-fx-border-color: black; -fx-border-radius: 5;">
+      <TextField fx:id="NomTextField" layoutX="789.0" layoutY="110.0" prefHeight="52.0" prefWidth="527.0" promptText="NOM..." style="-fx-border-color: black; -fx-border-radius: 5;">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="789.0" layoutY="310.0" prefHeight="52.0" prefWidth="527.0" promptText="PSEUDO..." style="-fx-border-color: black; -fx-border-radius: 5;">
+      <TextField fx:id="UsernameTextField" layoutX="789.0" layoutY="310.0" prefHeight="52.0" prefWidth="527.0" promptText="PSEUDO..." style="-fx-border-color: black; -fx-border-radius: 5;">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="789.0" layoutY="210.0" prefHeight="52.0" prefWidth="527.0" promptText="PRENOM..." style="-fx-border-color: black; -fx-border-radius: 5;">
+      <TextField fx:id="PrenomTextField" layoutX="789.0" layoutY="210.0" prefHeight="52.0" prefWidth="527.0" promptText="PRENOM..." style="-fx-border-color: black; -fx-border-radius: 5;">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField layoutX="789.0" layoutY="500.0" prefHeight="52.0" prefWidth="527.0" promptText="PSEUDO..." style="-fx-border-color: black; -fx-border-radius: 5;">
+      <TextField fx:id="PasswordTextField" layoutX="789.0" layoutY="500.0" prefHeight="52.0" prefWidth="527.0" promptText="MOT DE PASSE..." style="-fx-border-color: black; -fx-border-radius: 5;">
          <font>
             <Font size="17.0" />
          </font>
