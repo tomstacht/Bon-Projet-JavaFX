@@ -53,6 +53,7 @@ public class HelloController {
 
     public void RechercherButtonOnAction(ActionEvent e){
             MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
+            System.out.println("ButtonPushed=1");
             String destinationbdd = DestinantionTextField.getText();
             System.out.println(destinationbdd);
             LocalDate dateArriveebdd = DateArriveeDatePicker.getValue();
