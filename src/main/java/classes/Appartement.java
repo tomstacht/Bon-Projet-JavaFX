@@ -3,6 +3,9 @@ package classes;
 public class Appartement extends Logement{
     private int etage;
     private boolean balcon;
+
+
+
     public int getEtage() {
         return etage;
     }

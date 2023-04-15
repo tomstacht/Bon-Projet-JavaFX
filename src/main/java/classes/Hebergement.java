@@ -2,15 +2,19 @@ package classes;
 import java.util.Scanner;
 
 public class  Hebergement {
-    protected String id;
-    protected float prix_location;
-    protected String date_reservation;
-    protected String ville;
-    protected String nom;
+    protected String id;//
+    protected float prix_location;//
+    protected String ville;//
+    protected String nom;//
     protected int distance_centre;
     protected float note_client;
     protected int nb_mettreCaree;
     protected int nb_personne;
+
+    protected int nb_etoile;
+    protected int nb_chambres;
+
+
 
     public Hebergement() {
     }
@@ -21,10 +25,6 @@ public class  Hebergement {
 
     public float getPrix_location() {
         return prix_location;
-    }
-
-    public String getDate_reservation() {
-        return date_reservation;
     }
 
     public String getVille() {
@@ -57,9 +57,6 @@ public class  Hebergement {
     public void setPrix_location(float prix_location) {
         this.prix_location = prix_location;
     }
-    public void setDate_reservation(String date_reservation) {
-        this.date_reservation = date_reservation;
-    }
     public void setVille(String ville) {
         this.ville = ville;
     }
@@ -77,23 +74,6 @@ public class  Hebergement {
     }
     public void setNb_personne(int nb_personne) {
         this.nb_personne = nb_personne;
-    }
-
-    public String saisieDate()
-    {
-        int jour;
-        int mois;
-        int annee;
-        do {
-            System.out.println("veuillez saisir le jour/ mois/ annee de votre naissance");
-            Scanner scanner= new Scanner(System.in);
-            jour = scanner.nextInt();
-            mois = scanner.nextInt();
-            annee = scanner.nextInt();
-        } while((jour < 0 || jour >= 31) || (mois<0 || mois >=12));
-
-        date_reservation  = new String();
-        return date_reservation;
     }
 
 }

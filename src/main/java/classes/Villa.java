@@ -17,4 +17,5 @@ public class Villa extends Logement{
     }
     public Villa() {
     }
+
 }

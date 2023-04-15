@@ -18,6 +18,6 @@ public class Chalet extends Logement{
     public void setDistance_piste(int distance_piste) {
         this.distance_piste = distance_piste;
     }
-    public Chalet() {
-    }
+
+
 }

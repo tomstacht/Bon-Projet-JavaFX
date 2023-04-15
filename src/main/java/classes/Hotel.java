@@ -35,4 +35,6 @@ public class Hotel extends Hebergement{
     }
     public Hotel() {
     }
+
+
 }
