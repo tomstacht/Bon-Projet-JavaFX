@@ -9,9 +9,9 @@ public class BaseDeDonnee {
     ArrayList<String> searchChalet = new ArrayList<>();
 
     public void ajouterTable() {
-        String url = "jdbc:mysql://localhost:8889/bdd";
+        String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
-        String password = "root";
+        String password = "";
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
@@ -19,7 +19,7 @@ public class BaseDeDonnee {
             Statement stmt = conn.createStatement();
             Scanner sc = new Scanner(System.in);
 
-            System.out.println("Saisissez le nom de la nouvelle table : ");
+            System.out.println("Saisissez le nom de la nouvelle table:");
             String titre = sc.nextLine();
 
             System.out.print("Saisissez le nombre de colonnes de la nouvelle table : ");
@@ -32,7 +32,6 @@ public class BaseDeDonnee {
 
                 if (i != 0)
                     sc.nextLine();
-
                 String titreColonne = sc.nextLine();
                 System.out.println("Quel est le type de donnée que vous allez stocker ? ");
                 System.out.println("1. Booléen");
@@ -40,31 +39,24 @@ public class BaseDeDonnee {
                 System.out.println("3. Réel");
                 System.out.println("4. Chaine de caractères");
                 int choix = sc.nextInt();
-
                 switch (choix) {
                     case 1:
                         sql += titreColonne + " " + "BOOLEAN" + ",";
                         break;
-
                     case 2:
                         sql += titreColonne + " " + "INT" + ",";
                         break;
-
                     case 3:
                         sql += titreColonne + " " + "FLOAT" + ",";
                         break;
-
                     case 4:
                         sql += titreColonne + " " + "VARCHAR(50)" + ",";
                         break;
                 }
             }
             sql = sql.substring(0, sql.length() - 1) + ")";
-
             stmt.executeUpdate(sql);
-
             System.out.println("Table créée !");
-
             conn.close();
         } catch (Exception e) {
             System.err.println("Exception relevée... ");
