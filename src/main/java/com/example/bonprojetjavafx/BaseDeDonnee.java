@@ -4,7 +4,7 @@ import java.util.*;
 import classes.*;
 public class BaseDeDonnee {
     String type_Logement;
-
+    ArrayList<Client> listeClient = new ArrayList<Client>();
     ArrayList<Hebergement> listeHebergements = new ArrayList<Hebergement>();
     ArrayList<Appartement> listeAppart = new ArrayList<Appartement>();
     ArrayList<Chalet> listeChalet = new ArrayList<Chalet>();
@@ -103,7 +103,30 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
+    public void initBddClient(){
+        String url = "jdbc:mysql://localhost/projet ";
+        String user = "root";
+        String password = "";
+        try{
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmtClient = conn.createStatement();
+            ResultSet rsClient = stmtClient.executeQuery("SELECT * FROM Connexion_Client");
+            while(rsClient.next()){
+                String prenom=rsClient.getString("Prenom");
+                String nom=rsClient.getString("Nom");
+                String mail=rsClient.getString("Email");
+                String pseudo=rsClient.getString("Pseudo");
+                String passworde =rsClient.getString("Password");
+                listeClient.add(new Client(prenom,nom,mail,pseudo,passworde));
+            }
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
 
+        for(int i=0;i<listeClient.size();i++)
+            System.out.println(listeClient.get(i).getNom());
+    }
     public void initBdd(){
         String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
@@ -261,202 +284,6 @@ public class BaseDeDonnee {
         } catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
-        }
-    }
-    public void rechercheFiltre(ArrayList<Boolean> listeCheckbox) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ou souhaitez-vous aller ?");
-        String ville = sc.nextLine();
-        try {
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd", "root", "root");
-            //lire un élément de la bdd
-            Statement stHotel = con.createStatement();
-            ResultSet resHotel = stHotel.executeQuery("select * from Hotel");
-
-            Statement stVilla = con.createStatement();
-            ResultSet resVilla = stVilla.executeQuery("select * from Villa");
-
-            Statement stAppart = con.createStatement();
-            ResultSet resAppart = stAppart.executeQuery("select * from Appartement");
-
-            Statement stChalet = con.createStatement();
-            ResultSet resChalet = stChalet.executeQuery("select * from Chalet");
-
-            //ajouter un élément dans la bdd
-            //String query = "INSERT INTO Hotel (pays, ville, nom_hotel, nb_etoile) values ('usa','nyc','manhattan','5')";
-            //PreparedStatement statement = con.prepareStatement(query);
-            //statement.executeUpdate();
-
-
-            //lire un élément de la bdd
-            while (resHotel.next()) {
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resHotel.getString("Lieu").compareTo(ville) == 0) {
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                /*if (resHotel.getString("Nom").compareTo("...")==0){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("NB_Etoile") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("Petit-Dej") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("Restaurant") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-
-                if (resHotel.getString("Marque").compareTo("...")==0){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("NB_Pers") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("Note_Client") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }*/
-            }
-
-            while (resVilla.next()) {
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resVilla.getString("Lieu").compareTo(ville) == 0) {
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                /*if (resVilla.getString("Nom").compareTo(...)==0){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Prix") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Piscine") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("NB_Chambre") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("NB_SDB") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("NB_Personne") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Note_Client") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Wifi") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Climatisation") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Fumeur") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Animaux") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Parking") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }*/
-
-            }
-
-            while (resAppart.next()) {
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resAppart.getString("Lieu").compareTo(ville) == 0) {
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                /*if (resAppart.getString("Nom").compareTo(...)==0){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Prix") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("NB_Chambre") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("NB_SDB") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("NB_Personne") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Note_Client") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Wifi") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Climatisation") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Fumeur") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Animaux") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Parking") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }*/
-            }
-
-            while (resChalet.next()) {
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resChalet.getString("Lieu").compareTo(ville) == 0) {
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                /*if (resChalet.getString("Nom").compareTo(ville)==0){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Prix") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Local_Ski") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Cheminer") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("D_Chalet-Piste") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("NB_Chambre") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("NB_SDB") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("NB_Personne") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Note_Client") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Wifi") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Climatisation") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Fumeur") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Animaux") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Parking") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }*/
-            }
-
-            con.close();
-
-        } catch (Exception e) {
-            System.out.println("Error :" + e.getMessage());
         }
     }
     public void InscriptionClient(String firstname,String lastname,String username, String email, String wordtopass){
