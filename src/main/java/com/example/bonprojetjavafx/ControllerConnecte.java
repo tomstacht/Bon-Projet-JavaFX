@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.stage.StageStyle;
@@ -21,32 +22,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.DatePicker;
 
 
-public class HelloController {
-    @FXML
-    private void handleButtonAction(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Stage newStage = new Stage();
-        newStage.setTitle("GetAway/Home.com");
-        newStage.setScene(scene);
-        newStage.show();
-        currentStage.close();
-    }
-
-    @FXML
-    private void BoutonAdministrateur(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-administrateur.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Stage newStage = new Stage();
-        newStage.setTitle("GetAway/ADMIN.com");
-        newStage.setScene(scene);
-        newStage.show();
-        currentStage.close();
-    }
+public class ControllerConnecte {
 
     @FXML
     private void retourPremierePage(MouseEvent event) throws IOException{
@@ -62,27 +38,15 @@ public class HelloController {
     }
 
     @FXML
-    private void BoutonActionSeConnecter(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
+    private void BoutonSeDeconnecter(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        Stage stage = new Stage();
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("GetAway/Home/Connexion.com");
-        stage.setScene(scene);
-        stage.show();
-        currentStage.close();
-    }
-    @FXML
-    private void ButtonOnActionInscription(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-inscription.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setTitle("GetAway/Home/Inscription.com");
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway.com");
+        newStage.setScene(scene);
+        newStage.show();
         currentStage.close();
     }
 

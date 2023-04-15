@@ -2,98 +2,141 @@ package classes;
 import java.util.Scanner;
 
 public class  Hebergement {
-    protected String id;
-    protected float prix_location;
-    protected String date_reservation;
-    protected String ville;
+
+    protected int id;
     protected String nom;
-    protected int distance_centre;
-    protected float note_client;
-    protected int nb_mettreCaree;
-    protected int nb_personne;
+    protected int prix;
+    protected String lieu;
+    protected float distanceCentre;
+    protected int m2;
+    protected int nbPersonnes;
+    protected float note;
+    protected boolean wifi;
+    protected boolean clim;
+    protected boolean animaux;
+    protected boolean parking;
+    protected boolean fumeur;
 
     public Hebergement() {
     }
 
-    public String getId() {
+    public Hebergement(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur) {
+        this.id = id;
+        this.nom = nom;
+        this.prix = prix;
+        this.lieu = lieu;
+        this.distanceCentre = distanceCentre;
+        this.m2 = m2;
+        this.nbPersonnes = nbPersonnes;
+        this.note = note;
+        this.wifi = wifi;
+        this.clim = clim;
+        this.animaux = animaux;
+        this.parking = parking;
+        this.fumeur = fumeur;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public float getPrix_location() {
-        return prix_location;
-    }
-
-    public String getDate_reservation() {
-        return date_reservation;
-    }
-
-    public String getVille() {
-        return ville;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {
         return nom;
     }
 
-    public int getDistance_centre() {
-        return distance_centre;
-    }
-
-    public float getNote_client() {
-        return note_client;
-    }
-
-    public int getNb_mettreCaree() {
-        return nb_mettreCaree;
-    }
-
-    public int getNb_personne() {
-        return nb_personne;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-    public void setPrix_location(float prix_location) {
-        this.prix_location = prix_location;
-    }
-    public void setDate_reservation(String date_reservation) {
-        this.date_reservation = date_reservation;
-    }
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
     public void setNom(String nom) {
         this.nom = nom;
     }
-    public void setDistance_centre(int distance_centre) {
-        this.distance_centre = distance_centre;
-    }
-    public void setNote_client(float note_client) {
-        this.note_client = note_client;
-    }
-    public void setNb_mettreCaree(int nb_mettreCaree) {
-        this.nb_mettreCaree = nb_mettreCaree;
-    }
-    public void setNb_personne(int nb_personne) {
-        this.nb_personne = nb_personne;
+
+    public int getPrix() {
+        return prix;
     }
 
-    public String saisieDate()
-    {
-        int jour;
-        int mois;
-        int annee;
-        do {
-            System.out.println("veuillez saisir le jour/ mois/ annee de votre naissance");
-            Scanner scanner= new Scanner(System.in);
-            jour = scanner.nextInt();
-            mois = scanner.nextInt();
-            annee = scanner.nextInt();
-        } while((jour < 0 || jour >= 31) || (mois<0 || mois >=12));
-
-        date_reservation  = new String();
-        return date_reservation;
+    public void setPrix(int prix) {
+        this.prix = prix;
     }
 
+    public String getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
+    }
+
+    public float getDistanceCentre() {
+        return distanceCentre;
+    }
+
+    public void setDistanceCentre(float distanceCentre) {
+        this.distanceCentre = distanceCentre;
+    }
+
+    public int getM2() {
+        return m2;
+    }
+
+    public void setM2(int m2) {
+        this.m2 = m2;
+    }
+
+    public int getNbPersonnes() {
+        return nbPersonnes;
+    }
+
+    public void setNbPersonnes(int nbPersonnes) {
+        this.nbPersonnes = nbPersonnes;
+    }
+
+    public float getNote() {
+        return note;
+    }
+
+    public void setNote(float note) {
+        this.note = note;
+    }
+
+    public boolean isWifi() {
+        return wifi;
+    }
+
+    public void setWifi(boolean wifi) {
+        this.wifi = wifi;
+    }
+
+    public boolean isClim() {
+        return clim;
+    }
+
+    public void setClim(boolean clim) {
+        this.clim = clim;
+    }
+
+    public boolean isAnimaux() {
+        return animaux;
+    }
+
+    public void setAnimaux(boolean animaux) {
+        this.animaux = animaux;
+    }
+
+    public boolean isParking() {
+        return parking;
+    }
+
+    public void setParking(boolean parking) {
+        this.parking = parking;
+    }
+
+    public boolean isFumeur() {
+        return fumeur;
+    }
+
+    public void setFumeur(boolean fumeur) {
+        this.fumeur = fumeur;
+    }
 }

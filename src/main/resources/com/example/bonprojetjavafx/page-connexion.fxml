@@ -11,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bonprojetjavafx.ControllerConnexion">
    <children>
-      <ImageView fitHeight="286.0" fitWidth="494.0" layoutX="544.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="286.0" fitWidth="494.0" layoutX="544.0" layoutY="30.0" onMouseClicked="#retourPremierePage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../LogoGetAway.png" />
          </image>
