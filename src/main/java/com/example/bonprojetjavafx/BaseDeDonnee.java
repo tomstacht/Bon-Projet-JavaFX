@@ -98,65 +98,61 @@ public class BaseDeDonnee {
         }
     }
     public void ajouterLigne() {
-        String url = "jdbc:mysql://localhost:3306/projet";
+        String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
-        String password = "";
+        String password = "root";
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
-            Scanner sc = new Scanner(System.in);
-            String query = "INSERT INTO villa (piscine, distanceMer, prix) VALUES (?, ?, ?)";
-            PreparedStatement statement = conn.prepareStatement(query);
+            int choix=0;
 
-            System.out.println("Quel est le type de logement que vous allez creer ? ");
-            System.out.println("1. Hotel");
-            System.out.println("2. Appartement");
-            System.out.println("3. Chalet");
-            System.out.println("4. Villa");
-            System.out.println("5. Maison");
-            int choix = sc.nextInt();
+            // if click sur ajout hotel, choix=1, click sur ajout appart, choix=2...
 
             switch (choix) {
                 case 1:
-
+                    String queryH = "INSERT INTO Hotel (ID, Nom, Prix, Lieu, NB_Etoile, Petit-Dej, Restaurant, Marque, D_Hotel-Centre, NB_CHAMBRE, NB_SDB, NB_M2, NB_Pers, Note_Client) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    PreparedStatement statementH = conn.prepareStatement(queryH);
+                    //remplissage
+                    statementH.executeUpdate();
                     break;
 
                 case 2:
+                    String queryA = "INSERT INTO Appartement (ID, Nom, Prix, Lieu, Num_Etage, Balcon, D_Appart-Centre, NB_Chambre, NB_SDB, NB_M2, NB_Personne, Note_Client, Wifi, Climatisation, Fumeur, Animaux, Parking) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    PreparedStatement statementA = conn.prepareStatement(queryA);
+                    //remplissage
+                    statementA.executeUpdate();
                     break;
 
                 case 3:
+                    String queryC = "INSERT INTO Chalet (ID, Nom, Prix, Lieu, Local_Ski, Cheminer, D_Chalet-Piste, D_Chalet-Centre, NB_CHAMBRE, NB_SDB, NB_M2, NB_Personne, Note_Client, Wifi, Climatisation, Fumeur, Animaux, Parking) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    PreparedStatement statementC = conn.prepareStatement(queryC);
+                    //remplissage
+                    statementC.executeUpdate();
                     break;
 
                 case 4:
-                    System.out.println("Vous avez choisi d'ajouter une Villa");
-                    System.out.println("Saisir true si il y a une piscine / false si il n'y en a pas");
-                    boolean piscine = sc.nextBoolean();
-                    System.out.println("Saisir la distance de la mer (int)");
-                    int distanceMer = sc.nextInt();
-                    System.out.println("Saisir le prix (float)");
-                    float prix = sc.nextFloat();
-                    statement.setBoolean(1, piscine);
-                    statement.setInt(2, distanceMer);
-                    statement.setFloat(3, prix);
-                    statement.executeUpdate();
+                    String queryV = "INSERT INTO Villa (ID, Nom, Prix, Lieu, Piscine, D_Villa-Mer, D_Villa-Centre, NB_CHAMBRE, NB_SDB, NB_M2, NB_Personne, Note_Client, Wifi, Climatisation, Fumeur, Animaux, Parking) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    PreparedStatement statementV = conn.prepareStatement(queryV);
+                    //remplissage
+                    statementV.executeUpdate();
                     break;
             }
-            System.out.println("ligne ajouter.");
+            System.out.println("Hébergement ajouté.");
             conn.close();
         } catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
         }
     }
-    public void rechercheFiltre(){
+    public void rechercheFiltre(ArrayList<Boolean> listeCheckbox) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Ou souhaitez-vous aller ?");
         String ville = sc.nextLine();
-        try{
+        try {
             //Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd", "root", "root");
             //lire un élément de la bdd
             Statement stHotel = con.createStatement();
             ResultSet resHotel = stHotel.executeQuery("select * from Hotel");
@@ -177,9 +173,9 @@ public class BaseDeDonnee {
 
 
             //lire un élément de la bdd
-            while(resHotel.next()){
+            while (resHotel.next()) {
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resHotel.getString("Lieu").compareTo(ville)==0){
+                if (resHotel.getString("Lieu").compareTo(ville) == 0) {
                     searchHotel.add(resHotel.getString("Nom"));
                 }
                 /*if (resHotel.getString("Nom").compareTo("...")==0){
@@ -206,9 +202,9 @@ public class BaseDeDonnee {
                 }*/
             }
 
-            while(resVilla.next()){
+            while (resVilla.next()) {
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resVilla.getString("Lieu").compareTo(ville)==0){
+                if (resVilla.getString("Lieu").compareTo(ville) == 0) {
                     searchVilla.add(resVilla.getString("Nom"));
                 }
                 /*if (resVilla.getString("Nom").compareTo(...)==0){
@@ -250,9 +246,9 @@ public class BaseDeDonnee {
 
             }
 
-            while(resAppart.next()){
+            while (resAppart.next()) {
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resAppart.getString("Lieu").compareTo(ville)==0){
+                if (resAppart.getString("Lieu").compareTo(ville) == 0) {
                     searchAppart.add(resAppart.getString("Nom"));
                 }
                 /*if (resAppart.getString("Nom").compareTo(...)==0){
@@ -290,9 +286,9 @@ public class BaseDeDonnee {
                 }*/
             }
 
-            while(resChalet.next()){
+            while (resChalet.next()) {
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resChalet.getString("Lieu").compareTo(ville)==0){
+                if (resChalet.getString("Lieu").compareTo(ville) == 0) {
                     searchChalet.add(resChalet.getString("Nom"));
                 }
                 /*if (resChalet.getString("Nom").compareTo(ville)==0){
@@ -341,31 +337,9 @@ public class BaseDeDonnee {
 
             con.close();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error :" + e.getMessage());
         }
-        System.out.println("C3");
-
-        System.out.println("Voici les hotels présents à "+ville+ " : ");
-        for (String s : searchHotel) {
-            System.out.println(s);
-        }
-
-        System.out.println("Voici les villas présentes à "+ville+ " : ");
-        for (String s : searchVilla) {
-            System.out.println(s);
-        }
-
-        System.out.println("Voici les appartements présents à "+ville+ " : ");
-        for (String s : searchAppart) {
-            System.out.println(s);
-        }
-
-        System.out.println("Voici les chalets présents à "+ville+ " : ");
-        for (String s : searchChalet) {
-            System.out.println(s);
-        }
-
     }
     public void InscriptionClient(){
 
