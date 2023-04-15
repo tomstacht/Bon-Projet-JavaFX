@@ -30,17 +30,17 @@
             </font>
         </MenuButton>
         <Line endX="1248.9998779296875" endY="1.52587890625E-5" layoutX="190.0" layoutY="51.0" startX="-191.00003051757812" startY="1.52587890625E-5" stroke="#83bced" strokeWidth="5.0" />
-        <Button layoutX="1142.0" mnemonicParsing="false" onAction="#BoutonActionSeConnecter" prefHeight="52.0" prefWidth="151.0" style="-fx-background-color: #83BCED;" text="SE CONNECTER" textFill="WHITE" underline="true">
+        <Button layoutX="1092.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="151.0" style="-fx-background-color: #83BCED;" text="HISTORIQUE" textFill="WHITE" underline="true">
             <font>
                 <Font size="17.0" />
             </font>
         </Button>
-        <Button layoutX="1296.0" layoutY="-3.0" mnemonicParsing="false" onAction="#ButtonOnActionInscription" prefHeight="52.0" prefWidth="146.0" style="-fx-background-color: #83BCED;" text="S'INSCRIRE" textFill="WHITE" underline="true">
+        <Button layoutX="1258.0" layoutY="-3.0" mnemonicParsing="false" onAction="#BoutonSeDeconnecter" prefHeight="52.0" prefWidth="184.0" style="-fx-background-color: #83BCED;" text="SE DECONNECTER" textFill="WHITE" underline="true">
             <font>
                 <Font size="17.0" />
             </font>
         </Button>
-        <ImageView fitHeight="78.0" fitWidth="138.0" layoutX="663.0" layoutY="-14.0" onMouseClicked="#retourPremierePage" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="78.0" fitWidth="138.0" layoutX="363.0" layoutY="-14.0" onMouseClicked="#retourPremierePage" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../../../../LogoGetAway.png" />
             </image>
@@ -171,5 +171,10 @@
                 <Font name="System Bold" size="16.0" />
             </font>
         </Label>
+      <Button layoutX="672.0" layoutY="7.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="365.0" style="-fx-background-color: black;" text="VOUS ÊTES CONNECTÉ" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
     </children>
 </Pane>

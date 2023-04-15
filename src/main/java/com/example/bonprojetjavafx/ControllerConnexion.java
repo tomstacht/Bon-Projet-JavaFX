@@ -38,7 +38,7 @@ public class ControllerConnexion {
         Scene scene = new Scene(root);
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Stage newStage = new Stage();
-        newStage.setTitle("GetAway/Home.com");
+        newStage.setTitle("GetAway/Home/Connecte.com");
         newStage.setScene(scene);
         newStage.show();
         currentStage.close();

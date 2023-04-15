@@ -23,18 +23,6 @@ import javafx.scene.control.DatePicker;
 
 
 public class ControllerConnecte {
-    @FXML
-    private void handleButtonAction(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Stage newStage = new Stage();
-        newStage.setTitle("GetAway/Home.com");
-        newStage.setScene(scene);
-        newStage.show();
-        currentStage.close();
-    }
 
     @FXML
     private void retourPremierePage(MouseEvent event) throws IOException{
@@ -50,27 +38,15 @@ public class ControllerConnecte {
     }
 
     @FXML
-    private void BoutonActionSeConnecter(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
+    private void BoutonSeDeconnecter(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        Stage stage = new Stage();
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("GetAway/Home/Connexion.com");
-        stage.setScene(scene);
-        stage.show();
-        currentStage.close();
-    }
-    @FXML
-    private void ButtonOnActionInscription(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-inscription.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setTitle("GetAway/Home/Inscription.com");
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway.com");
+        newStage.setScene(scene);
+        newStage.show();
         currentStage.close();
     }
 

@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
-
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.stage.StageStyle;
