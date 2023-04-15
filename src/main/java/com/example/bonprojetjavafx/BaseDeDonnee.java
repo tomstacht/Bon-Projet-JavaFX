@@ -403,18 +403,16 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public void Connexion_Client() {
+    public boolean Connexion_Client(String identification,String mdp) {
 
+        boolean verif=false;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Veuillez saisir votre adresse mail ou votre pseudo : ");
-        String identification = sc.nextLine();
-        System.out.println("Veuillez saisir votre mot de passe : ");
-        String mdp = sc.nextLine();
-
+        System.out.println(identification);
+        System.out.println(mdp);
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/proyecto", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
             //lire un élément de la bdd
             Statement stConnexion = con.createStatement();
             ResultSet resConnexion = stConnexion.executeQuery("select * from Connexion_Client");
@@ -423,10 +421,11 @@ public class BaseDeDonnee {
             while(resConnexion.next()){
                 //System.out.println("Pays : " + resHotel.getString("pays"));
                 if ((resConnexion.getString("Email").compareTo(identification)==0) || (resConnexion.getString("Pseudo").compareTo(identification)==0) && (resConnexion.getString("Password").compareTo(mdp)==0)){
-                    System.out.println("Bienvenue sur votre compte client " + resConnexion.getString("Prenom") + " " + resConnexion.getString("Nom") + " !!!");
+                    //System.out.println("Bienvenue sur votre compte client " + resConnexion.getString("Prenom") + " " + resConnexion.getString("Nom") + " !!!");
+                    verif=true;
                 }
                 else {
-                    System.out.println("Vous n'avez pas encore de compte, je vous invite à en créer un :)");
+                    verif=false;
                 }
             }
             con.close();
@@ -434,8 +433,7 @@ public class BaseDeDonnee {
         } catch (Exception e){
             System.out.println("Error :" + e.getMessage());
         }
-
+        return verif;
     }
-
 }
 

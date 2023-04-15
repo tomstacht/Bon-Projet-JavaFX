@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import java.lang.reflect.InvocationTargetException;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -23,7 +24,8 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        //BaseDeDonnee b1 = new BaseDeDonnee();
+        BaseDeDonnee b1 = new BaseDeDonnee();
+       // b1.rechercheFiltre();
         launch();
     }
 }
