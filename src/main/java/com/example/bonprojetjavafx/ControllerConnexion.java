@@ -19,12 +19,10 @@ public class ControllerConnexion {
 
     @FXML
     private Button CancelButton;
-
     public void CancelButtonOnAction(ActionEvent e){
         Stage stage3 = (Stage) CancelButton.getScene().getWindow();
         stage3.close();
     }
-
     private boolean test;
     @FXML
     private Label loginMessageLabel;
@@ -43,9 +41,7 @@ public class ControllerConnexion {
             }else
             {
                 loginMessageLabel.setText("Vous avez essayé de vous connecter !");
-
             }
-
         }else{
             loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:");
         }
