@@ -98,16 +98,18 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="216.0" layoutY="182.0" prefHeight="603.0" prefWidth="1192.0">
+      <ScrollPane fx:id="afficherNbDefinitHebergement" layoutX="216.0" layoutY="182.0" prefHeight="603.0" prefWidth="1192.0">
          <content>
             <VBox>
                <children>
-                  <Pane prefHeight="200.0" prefWidth="1170.0" style="-fx-background-color: red;" />
-                  <Pane prefHeight="200.0" prefWidth="1170.0" style="-fx-background-color: blue;" />
-                  <Pane prefHeight="200.0" prefWidth="1170.0" style="-fx-background-color: red;" />
-                  <Pane prefHeight="200.0" prefWidth="1170.0" style="-fx-background-color: blue;" />
-                  <Pane prefHeight="200.0" prefWidth="1170.0" style="-fx-background-color: red;" />
-                  <Pane prefHeight="200.0" prefWidth="1170.0" style="-fx-background-color: blue;" />
+                  <Pane fx:id="modeleAffichageScrollBar" prefHeight="200.0" prefWidth="1170.0" style="-fx-background-color: #DCDCDC;">
+                     <children>
+                        <Label layoutX="208.0" layoutY="4.0" prefHeight="33.0" prefWidth="957.0" text="Label" textFill="#83bced" underline="true">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
                </children></VBox>
          </content>
       </ScrollPane>

@@ -2,20 +2,20 @@ package com.example.bonprojetjavafx;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import java.io.IOException;
 import java.time.LocalDate;
-import javafx.scene.control.Button;
+import javafx.geometry.Insets;
 import javafx.stage.StageStyle;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.DatePicker;
-
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.paint.Paint;
 
 public class HelloController {
     @FXML
@@ -74,6 +74,35 @@ public class HelloController {
             System.out.println(NbAdulteBdd);
             String NbEnfantsBdd = NombreEnfantTextField.getText();
             System.out.println(NbEnfantsBdd);
+    }
+    /*
+    @FXML
+    private Pane ModelAffichageScrollBar;
+    @FXML
+    private Pane VboxModelScrollBar;
+    @FXML
+    private Label NomHebergement;
+    @FXML
+    private ScrollPane ScrollPaneModelHebergement;*/
+
+    @FXML
+    private ScrollPane afficherNbDefinitHebergement;
+    @FXML
+    private Pane modeleAffichageScrollBar;
+
+    public void start(Stage primaryStage) throws Exception {
+        // Création du VBox contenant plusieurs fois la Pane
+        VBox vBox = new VBox();
+        for (int i = 0; i < 6; i++) {
+            vBox.getChildren().add(modeleAffichageScrollBar);
+        }
+
+        // Mise à jour de la ScrollPane avec le contenu modifié
+        afficherNbDefinitHebergement.setContent(vBox);
+
+        // Affichage de la scène
+        primaryStage.setScene(new Scene(afficherNbDefinitHebergement));
+        primaryStage.show();
     }
 
     @FXML
