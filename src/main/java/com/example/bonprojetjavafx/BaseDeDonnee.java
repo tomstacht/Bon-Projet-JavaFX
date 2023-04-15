@@ -1,8 +1,16 @@
 package com.example.bonprojetjavafx;
 import java.sql.*;
 import java.util.*;
+import classes.*;
 public class BaseDeDonnee {
     String type_Logement;
+
+    ArrayList<Hebergement> listeHebergements = new ArrayList<Hebergement>();
+    ArrayList<Appartement> listeAppart = new ArrayList<Appartement>();
+    ArrayList<Chalet> listeChalet = new ArrayList<Chalet>();
+    ArrayList<Hotel> listeHotel = new ArrayList<Hotel>();
+    ArrayList<Villa> listeVilla = new ArrayList<Villa>();
+
     ArrayList<String> searchHotel = new ArrayList<>();
     ArrayList<String> searchVilla = new ArrayList<>();
     ArrayList<String> searchAppart = new ArrayList<>();
@@ -91,6 +99,118 @@ public class BaseDeDonnee {
             System.out.println("Table supprimée.");
 
             conn.close();
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void initBdd(){
+        String url = "jdbc:mysql://localhost:8889/bdd";
+        String user = "root";
+        String password = "root";
+
+        try{
+            Connection conn = DriverManager.getConnection(url, user, password);
+
+            Statement stmtAppart = conn.createStatement();
+            ResultSet rsAppart = stmtAppart.executeQuery("SELECT * FROM Appartement");
+            while(rsAppart.next()){
+                int id=rsAppart.getInt("ID");
+                String nom=rsAppart.getString("Nom");
+                int prix=rsAppart.getInt("Prix");
+                String lieu=rsAppart.getString("Lieu");
+                int numEtage=rsAppart.getInt("Num_Etage");
+                boolean balcon=rsAppart.getBoolean("Balcon");
+                float distanceAppartCentre=rsAppart.getFloat("D_Appart-Centre");
+                int nbChambre=rsAppart.getInt("NB_Chambre");
+                int nbSdb=rsAppart.getInt("NB_SDB");
+                int nbM2=rsAppart.getInt("NB_M2");
+                int nbPers=rsAppart.getInt("NB_Personne");
+                float noteClient=rsAppart.getFloat("Note_Client");
+                boolean wifi=rsAppart.getBoolean("Wifi");
+                boolean clim=rsAppart.getBoolean("Climatisation");
+                boolean fumeur=rsAppart.getBoolean("Fumeur");
+                boolean animaux=rsAppart.getBoolean("Animaux");
+                boolean parking=rsAppart.getBoolean("Parking");
+                listeAppart.add(new Appartement(id, nom, prix, lieu, distanceAppartCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, numEtage, balcon, nbChambre, nbSdb));
+            }
+
+            Statement stmtChalet = conn.createStatement();
+            ResultSet rsChalet = stmtChalet.executeQuery("SELECT * FROM Chalet");
+            while(rsChalet.next()){
+                int id=rsChalet.getInt("ID");
+                String nom=rsChalet.getString("Nom");
+                int prix=rsChalet.getInt("Prix");
+                String lieu=rsChalet.getString("Lieu");
+                boolean localSki=rsChalet.getBoolean("Local_Ski");
+                boolean cheminee=rsChalet.getBoolean("Cheminer");
+                float distanceChaletPiste=rsChalet.getFloat("D_Chalet-Piste");
+                float distanceChaletCentre=rsChalet.getFloat("D_Chalet-Centre");
+                int nbChambres=rsChalet.getInt("NB_CHAMBRE");
+                int nbSDB=rsChalet.getInt("NB_SDB");
+                int nbM2=rsChalet.getInt("NB_M2");
+                int nbPers=rsChalet.getInt("NB_Personne");
+                float noteClient=rsChalet.getFloat("Note_Client");
+                boolean wifi=rsChalet.getBoolean("Wifi");
+                boolean clim=rsChalet.getBoolean("Climatisation");
+                boolean fumeur=rsChalet.getBoolean("Fumeur");
+                boolean animaux=rsChalet.getBoolean("Animaux");
+                boolean parking=rsChalet.getBoolean("Parking");
+                listeChalet.add(new Chalet(id, nom, prix, lieu, distanceChaletCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, cheminee, localSki, distanceChaletPiste, nbChambres, nbSDB));
+            }
+
+            Statement stmtHotel = conn.createStatement();
+            ResultSet rsHotel = stmtHotel.executeQuery("SELECT * FROM Hotel");
+            while(rsHotel.next()){
+                int id=rsHotel.getInt("ID");
+                String nom=rsHotel.getString("Nom");
+                int prix=rsHotel.getInt("Prix");
+                String lieu=rsHotel.getString("Lieu");
+                int nbEtoile=rsHotel.getInt("NB_Etoile");
+                boolean petitDej=rsHotel.getBoolean("Petit-Dej");
+                boolean restaurant=rsHotel.getBoolean("Restaurant");
+                String companie=rsHotel.getString("Marque");
+                float distanceHotelCentre=rsHotel.getFloat("D_Hotel-Centre");
+                int nbM2=rsHotel.getInt("NB_M2");
+                int nbPers=rsHotel.getInt("NB_Pers");
+                float noteClient=rsHotel.getFloat("Note_Client");
+                boolean wifi=rsHotel.getBoolean("WIFI");
+                boolean clim=rsHotel.getBoolean("Clim");
+                boolean animaux=rsHotel.getBoolean("Animaux");
+                boolean parking=rsHotel.getBoolean("Parking");
+                boolean fumeur=rsHotel.getBoolean("Fumeur");
+                listeHotel.add(new Hotel(id, nom, prix, lieu, distanceHotelCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, nbEtoile, petitDej, restaurant, companie));
+            }
+
+            Statement stmtVilla = conn.createStatement();
+            ResultSet rsVilla = stmtVilla.executeQuery("SELECT * FROM Villa");
+            while(rsVilla.next()){
+                int id=rsVilla.getInt("ID");
+                String nom=rsVilla.getString("Nom");
+                int prix=rsVilla.getInt("Prix");
+                String lieu=rsVilla.getString("Lieu");
+                boolean piscine=rsVilla.getBoolean("Piscine");
+                float distanceVillaMer=rsVilla.getFloat("D_Villa-Mer");
+                float distanceVillaCentre=rsVilla.getFloat("D_Villa-Centre");
+                int nbChambres=rsVilla.getInt("NB_CHAMBRE");
+                int nbSDB=rsVilla.getInt("NB_SDB");
+                int nbM2=rsVilla.getInt("NB_M2");
+                int nbPers=rsVilla.getInt("NB_Personne");
+                float noteClient=rsVilla.getFloat("Note_Client");
+                boolean wifi=rsVilla.getBoolean("Wifi");
+                boolean clim=rsVilla.getBoolean("Climatisation");
+                boolean fumeur=rsVilla.getBoolean("Fumeur");
+                boolean animaux=rsVilla.getBoolean("Animaux");
+                boolean parking=rsVilla.getBoolean("Parking");
+                listeVilla.add(new Villa(id, nom, prix, lieu, distanceVillaCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, piscine, distanceVillaMer, nbChambres, nbSDB));
+            }
+
+            listeHebergements.addAll(listeHotel);
+            listeHebergements.addAll(listeAppart);
+            listeHebergements.addAll(listeChalet);
+            listeHebergements.addAll(listeVilla);
+
         } catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
@@ -340,44 +460,42 @@ public class BaseDeDonnee {
             System.out.println("Error :" + e.getMessage());
         }
     }
-    public void InscriptionClient(String firstname,String lastname,String email, String username, String wordtopass){
+    public void InscriptionClient(String firstname,String lastname,String username, String email, String wordtopass){
 
         String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
         String password = "";
-        boolean exist=false;
 
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
             Scanner sc = new Scanner(System.in);
-            ResultSet resConnexion = stmt.executeQuery("select * from Connexion_Client");
+            String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement statement = conn.prepareStatement(query);
 
-            //lire un élément de la bdd
-            while(resConnexion.next()){
-                if ((resConnexion.getString("Email").compareTo(email)==0) || (resConnexion.getString("Pseudo").compareTo(username)==0) && (resConnexion.getString("Password").compareTo(wordtopass)==0))
-                {
-                    exist=true;
-                }
-            }
-            if(exist)
-            {
-                System.out.println("vous avez deja un compte");
-            }
-            if(!exist)
-            {
-                String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
-                PreparedStatement statement = conn.prepareStatement(query);
-                statement.setString(1, firstname);
-                statement.setString(2, lastname);
-                statement.setString(3, email);
-                statement.setString(4, username);
-                statement.setString(5, wordtopass);
-                statement.executeUpdate();
-                System.out.println("ligne ajouter.");
-            }
+            /*System.out.println("Quel est votre prénom ?");
+            String prenom = sc.nextLine();
+            System.out.println("Quel est votre nom ?");
+            String nom = sc.nextLine();
+            System.out.println("Quel est votre adresse mail ?");
+            String email = sc.nextLine();
+            System.out.println("Quel est votre pseudo ?");
+            String pseudo = sc.nextLine();
+            System.out.println("Quel est votre mot de passe ?");
+            String mdp = sc.nextLine();*/
+
+            statement.setString(1, firstname);
+            statement.setString(2, lastname);
+            statement.setString(3, email);
+            statement.setString(4, username);
+            statement.setString(5, wordtopass);
+
+            statement.executeUpdate();
+
+
+            System.out.println("ligne ajouter.");
             conn.close();
-        }  catch (Exception e) {
+        } catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
         }
