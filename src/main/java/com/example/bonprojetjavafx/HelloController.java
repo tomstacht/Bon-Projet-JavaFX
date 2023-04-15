@@ -33,6 +33,7 @@ public class HelloController {
         Parent root2 = loader2.load();
         Scene scene2 = new Scene(root2);
         Stage stage2 = new Stage();
+        stage2.setTitle("GetAway/Connexion.com");
         stage2.setScene(scene2);
         stage2.show();
     }
@@ -42,6 +43,7 @@ public class HelloController {
         Parent root2 = loader2.load();
         Scene scene2 = new Scene(root2);
         Stage stage2 = new Stage();
+        stage2.setTitle("GetAway/Inscription.com");
         stage2.setScene(scene2);
         stage2.show();
     }

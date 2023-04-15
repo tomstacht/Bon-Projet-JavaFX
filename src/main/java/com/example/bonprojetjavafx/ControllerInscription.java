@@ -14,5 +14,22 @@ import javafx.stage.StageStyle;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 public class ControllerInscription {
+    @FXML
+    private Button CancelButton;
+    @FXML
+    private TextField UsernameTextField;
+    @FXML
+    private TextField PasswordTextField;
 
+    public void CancelButtonOnAction(ActionEvent e) {
+        Stage stage3 = (Stage) CancelButton.getScene().getWindow();
+        stage3.close();
+    }
+
+    public void InscriptionButtonOnAction(ActionEvent e) {
+        if (UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false) {
+            String id = UsernameTextField.getText();
+            String mdpp = PasswordTextField.getText();
+        }
+    }
 }
