@@ -89,9 +89,7 @@ public class HelloController {
     private TextField NombreEnfantTextField;
 
     public void RechercherButtonOnAction(ActionEvent e){
-        b1.initBdd();
         MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
-        listeCheckbox.clear();
         listeCheckbox.add(hotel);
         listeCheckbox.add(villa);
         listeCheckbox.add(chalet);

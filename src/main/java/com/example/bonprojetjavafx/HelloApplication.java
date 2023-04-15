@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class HelloApplication extends Application {
+    BaseDeDonnee b1 = new BaseDeDonnee();
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -21,10 +22,10 @@ public class HelloApplication extends Application {
         stage.setTitle("GetAway.com");
         stage.setScene(scene);
         stage.show();
+        b1.initBdd();
     }
 
     public static void main(String[] args) {
-
         launch();
     }
 }
