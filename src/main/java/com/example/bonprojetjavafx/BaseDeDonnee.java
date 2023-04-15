@@ -265,6 +265,84 @@ public class BaseDeDonnee {
         }
     }
     public void filtrageBox(ArrayList<Boolean> listeBool){
+        ArrayList<Hebergement> listeFiltre = new ArrayList<>();
+        listeFiltre.clear();
+        listeFiltre.addAll(listeHebergements);
+
+        for(int i=0;i<listeBool.size();i++){
+            if(listeBool.get(0)==false){
+                for(int j=0;j<listeFiltre.size();j++){
+                    if(listeFiltre.get(j) instanceof Hotel){
+                        listeFiltre.remove(listeFiltre.get(j));
+                    }
+                }
+            }
+            if(listeBool.get(1)==false){
+                for(int j=0;j<listeFiltre.size();j++){
+                    if(listeFiltre.get(j) instanceof Villa){
+                        listeFiltre.remove(listeFiltre.get(j));
+                    }
+                }
+            }
+            if(listeBool.get(2)==false){
+                for(int j=0;j<listeFiltre.size();j++){
+                    if(listeFiltre.get(j) instanceof Chalet){
+                        listeFiltre.remove(listeFiltre.get(j));
+                    }
+                }
+            }
+            if(listeBool.get(3)==false){
+                for(int j=0;j<listeFiltre.size();j++){
+                    if(listeFiltre.get(j) instanceof Appartement){
+                        listeFiltre.remove(listeFiltre.get(j));
+                    }
+                }
+            }/*
+            if(listeBool.get(5)==false){
+                for(int j=0;j<listeFiltre.size();j++){
+                    if(listeFiltre.get(j).getPrix()<150){
+                        listeFiltre.remove(listeFiltre.get(j));
+                    }
+                }
+            }
+            if(listeBool.get(6)==false){
+                for(int j=0;j<listeFiltre.size();j++){
+                    if(listeFiltre.get(j).getPrix()<300 && listeFiltre.get(j).getPrix()>150){
+                        listeFiltre.remove(listeFiltre.get(j));
+                    }
+                }
+            }
+            if(listeBool.get(7)==false){
+                for(int j=0;j<listeFiltre.size();j++){
+                    if(listeFiltre.get(j).getPrix()>300){
+                        listeFiltre.remove(listeFiltre.get(j));
+                    }
+                }
+            }*/
+
+        }
+
+        /*for(Hebergement item: listeFiltre)
+        {
+            System.out.println("Aziz");
+            if(listeBool.get(0)==false && (item instanceof Hotel))
+            {
+                System.out.println("hotel supprime");
+                //listeFiltre.remove(item);
+            }else if(listeBool.get(1)==false && (item instanceof Villa))
+            {
+                System.out.println("villa suprimee");
+                //listeFiltre.remove(item);
+            }
+        }*/
+
+        for(int k=0;k<listeFiltre.size();k++)
+        {
+            System.out.println("kader");
+            System.out.println(listeFiltre.get(k).getNom()+"/");
+        }
+        System.out.println(listeFiltre.size());
+
 
     }
     public void InscriptionClient(String firstname,String lastname,String username, String email, String wordtopass){
