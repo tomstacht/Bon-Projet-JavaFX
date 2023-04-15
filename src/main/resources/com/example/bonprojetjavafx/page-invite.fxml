@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -76,65 +77,13 @@
         <CheckBox fx:id="MyCheckBoxParking" layoutX="13.0" layoutY="660.0" mnemonicParsing="false" onAction="#ChangeParking" prefHeight="18.0" prefWidth="170.0" text="PARKING" />
         <CheckBox fx:id="MyCheckBoxLocalSki" layoutX="13.0" layoutY="680.0" mnemonicParsing="false" onAction="#ChangeLocalSki" prefHeight="18.0" prefWidth="170.0" text="LOCAL À SKIS" />
         <CheckBox fx:id="MyCheckBoxCheminee" layoutX="13.0" layoutY="700.0" mnemonicParsing="false" onAction="#ChangeCheminee" prefHeight="18.0" prefWidth="170.0" text="CHEMINÉE" />
-        <MenuButton layoutX="222.0" layoutY="85.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="202.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK;" text="OÙ ALLEZ VOUS ? ">
-            <items>
-                <MenuItem mnemonicParsing="false" text="LONDRES" />
-                <MenuItem mnemonicParsing="false" text="PARIS" />
-                <MenuItem mnemonicParsing="false" text="MADRID" />
-                <MenuItem mnemonicParsing="false" text="VENISE" />
-                <MenuItem mnemonicParsing="false" text="NEW YORK" />
-                <MenuItem mnemonicParsing="false" text="LOS ANGELES" />
-                <MenuItem mnemonicParsing="false" text="BARCELONE" />
-                <MenuItem mnemonicParsing="false" text="NICE" />
-                <MenuItem mnemonicParsing="false" text="AMSTERDAM " />
-                <MenuItem mnemonicParsing="false" text="MARSEILLE" />
-                <MenuItem mnemonicParsing="false" text="BORDEAUX" />
-                <MenuItem mnemonicParsing="false" text="NAPLES" />
-            </items>
-        </MenuButton>
-        <DatePicker layoutX="488.0" layoutY="86.0" prefHeight="44.0" prefWidth="169.0" promptText=".. / .. / ....." style="-fx-background-color: white; -fx-border-color: black;" />
+        <DatePicker fx:id="DateArriveeDatePicker" layoutX="488.0" layoutY="86.0" prefHeight="44.0" prefWidth="169.0" promptText=".. / .. / ....." style="-fx-background-color: white; -fx-border-color: black;" />
         <Label layoutX="489.0" layoutY="70.0" prefHeight="17.0" prefWidth="124.0" text="DATE D'ARRIVÉE : " />
-        <DatePicker layoutX="678.0" layoutY="86.0" prefHeight="44.0" prefWidth="169.0" promptText=".. / .. / ....." style="-fx-background-color: white; -fx-border-color: black;" />
+        <DatePicker fx:id="DateDepartDatePicker" layoutX="678.0" layoutY="86.0" prefHeight="44.0" prefWidth="169.0" promptText=".. / .. / ....." style="-fx-background-color: white; -fx-border-color: black;" />
         <Label layoutX="679.0" layoutY="70.0" prefHeight="17.0" prefWidth="124.0" text="DATE DE DÉPART : " />
         <Label layoutX="903.0" layoutY="70.0" prefHeight="17.0" prefWidth="137.0" text="NOMBRE D'ADULTES :" />
-        <MenuButton layoutX="903.0" layoutY="86.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="137.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK;" text="SELECTIONNER">
-            <items>
-                <MenuItem mnemonicParsing="false" text="1" />
-                <MenuItem mnemonicParsing="false" text="2" />
-                <MenuItem mnemonicParsing="false" text="3" />
-                <MenuItem mnemonicParsing="false" text="4" />
-                <MenuItem mnemonicParsing="false" text="5" />
-                <MenuItem mnemonicParsing="false" text="6" />
-                <MenuItem mnemonicParsing="false" text="7" />
-                <MenuItem mnemonicParsing="false" text="8" />
-                <MenuItem mnemonicParsing="false" text="9" />
-                <MenuItem mnemonicParsing="false" text="10" />
-                <MenuItem mnemonicParsing="false" text="12" />
-                <MenuItem mnemonicParsing="false" text="13" />
-                <MenuItem mnemonicParsing="false" text="14" />
-                <MenuItem mnemonicParsing="false" text="15" />
-            </items>
-        </MenuButton>
         <Label layoutX="1063.0" layoutY="70.0" prefHeight="17.0" prefWidth="137.0" text="NOMBRE D'ENFANTS :" />
-        <MenuButton layoutX="1063.0" layoutY="86.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="137.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK;" text="SELECTIONNER">
-            <items>
-                <MenuItem mnemonicParsing="false" text="1" />
-                <MenuItem mnemonicParsing="false" text="2" />
-                <MenuItem mnemonicParsing="false" text="3" />
-                <MenuItem mnemonicParsing="false" text="4" />
-                <MenuItem mnemonicParsing="false" text="5" />
-                <MenuItem mnemonicParsing="false" text="6" />
-                <MenuItem mnemonicParsing="false" text="7" />
-                <MenuItem mnemonicParsing="false" text="8" />
-                <MenuItem mnemonicParsing="false" text="9" />
-                <MenuItem mnemonicParsing="false" text="10" />
-                <MenuItem mnemonicParsing="false" text="12" />
-                <MenuItem mnemonicParsing="false" text="13" />
-                <MenuItem mnemonicParsing="false" text="14" />
-                <MenuItem mnemonicParsing="false" text="15" />
-            </items>
-        </MenuButton>
-        <Button layoutX="1256.0" layoutY="77.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="146.0" style="-fx-background-color: #83BCED;" text="RECHERCHER" textFill="WHITE">
+        <Button layoutX="1256.0" layoutY="77.0" mnemonicParsing="false" onAction="#RechercherButtonOnAction" prefHeight="52.0" prefWidth="146.0" style="-fx-background-color: #83BCED;" text="RECHERCHER" textFill="WHITE">
             <font>
                 <Font size="17.0" />
             </font>
@@ -213,5 +162,14 @@
                 </VBox>
             </content>
         </ScrollPane>
+      <Label layoutX="229.0" layoutY="70.0" prefHeight="17.0" prefWidth="124.0" text="OÙ ALLEZ-VOUS ? " />
+      <TextField fx:id="DestinantionTextField" layoutX="229.0" layoutY="91.0" prefHeight="41.0" prefWidth="173.0" />
+      <TextField fx:id="NombreAdulteTextField" layoutX="903.0" layoutY="88.0" prefHeight="41.0" prefWidth="137.0" />
+      <TextField fx:id="NombreEnfantTextField" layoutX="1063.0" layoutY="88.0" prefHeight="41.0" prefWidth="137.0" />
+      <Label fx:id="MessageErreurRechercheLabel" alignment="CENTER" layoutX="227.0" layoutY="136.0" prefHeight="24.0" prefWidth="974.0" textFill="#83bced">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
     </children>
 </Pane>

@@ -9,10 +9,12 @@ import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import java.io.IOException;
+import java.time.LocalDate;
 import javafx.scene.control.Button;
 import javafx.stage.StageStyle;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.DatePicker;
 
 
 public class HelloController {
@@ -34,6 +36,33 @@ public class HelloController {
         Stage stage2 = new Stage();
         stage2.setScene(scene2);
         stage2.show();
+    }
+
+    @FXML
+    private Label MessageErreurRechercheLabel;
+    @FXML
+    private TextField DestinantionTextField;
+    @FXML
+    private DatePicker DateArriveeDatePicker;
+    @FXML
+    private DatePicker DateDepartDatePicker;
+    @FXML
+    private TextField NombreAdulteTextField;
+    @FXML
+    private TextField NombreEnfantTextField;
+
+    public void RechercherButtonOnAction(ActionEvent e){
+            MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
+            String destinationbdd = DestinantionTextField.getText();
+            System.out.println(destinationbdd);
+            LocalDate dateArriveebdd = DateArriveeDatePicker.getValue();
+            System.out.println(dateArriveebdd);
+            LocalDate dateDepartbdd = DateDepartDatePicker.getValue();
+            System.out.println(dateDepartbdd);
+            String NbAdulteBdd = NombreAdulteTextField.getText();
+            System.out.println(NbAdulteBdd);
+            String NbEnfantsBdd = NombreEnfantTextField.getText();
+            System.out.println(NbEnfantsBdd);
     }
 
     @FXML
