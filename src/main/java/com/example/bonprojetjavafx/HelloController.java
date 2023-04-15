@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+
 import javafx.scene.control.Button;
 import javafx.stage.StageStyle;
 import javafx.scene.control.TextField;
@@ -38,6 +40,31 @@ public class HelloController {
         stage2.show();
     }
 
+    private BaseDeDonnee b1 = new BaseDeDonnee();
+
+    private boolean hotel;
+    private boolean chalet;
+    private boolean villa;
+    private boolean appartement;
+    private boolean pasCher;
+    private boolean moyenCher;
+    private boolean cher;
+    private boolean etoiles1_2_3;
+    private boolean etoiles4_5;
+    private boolean petitDej;
+    private boolean restau;
+    private boolean noteClientInf8;
+    private boolean noteClientSup8;
+    private boolean piscine;
+    private boolean wifi;
+    private boolean clim;
+    private boolean fumeur;
+    private boolean animaux;
+    private boolean parking;
+    private boolean localSkis;
+    private boolean cheminee;
+    ArrayList<Boolean> listeCheckbox = new ArrayList<>();
+
     @FXML
     private Label MessageErreurRechercheLabel;
     @FXML
@@ -52,7 +79,34 @@ public class HelloController {
     private TextField NombreEnfantTextField;
 
     public void RechercherButtonOnAction(ActionEvent e){
-            MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
+        MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
+        listeCheckbox.add(hotel);
+        listeCheckbox.add(villa);
+        listeCheckbox.add(chalet);
+        listeCheckbox.add(appartement);
+        listeCheckbox.add(pasCher);
+        listeCheckbox.add(moyenCher);
+        listeCheckbox.add(cher);
+        listeCheckbox.add(etoiles1_2_3);
+        listeCheckbox.add(etoiles4_5);
+        listeCheckbox.add(petitDej);
+        listeCheckbox.add(restau);
+        listeCheckbox.add(noteClientInf8);
+        listeCheckbox.add(noteClientSup8);
+        listeCheckbox.add(piscine);
+        listeCheckbox.add(wifi);
+        listeCheckbox.add(clim);
+        listeCheckbox.add(fumeur);
+        listeCheckbox.add(animaux);
+        listeCheckbox.add(parking);
+        listeCheckbox.add(localSkis);
+        listeCheckbox.add(cheminee);
+
+        for (int i=0;i<listeCheckbox.size();i++)
+            {
+                System.out.print(listeCheckbox.get(i)+"/");
+            }
+            System.out.println("");
             System.out.println("ButtonPushed=1");
             String destinationbdd = DestinantionTextField.getText();
             System.out.println(destinationbdd);
@@ -64,6 +118,7 @@ public class HelloController {
             System.out.println(NbAdulteBdd);
             String NbEnfantsBdd = NombreEnfantTextField.getText();
             System.out.println(NbEnfantsBdd);
+           // b1.rechercheFiltre();
     }
 
     @FXML
@@ -110,171 +165,166 @@ public class HelloController {
     private CheckBox MyCheckBoxCheminee ;
 
     public void ChangeHotel(ActionEvent eventHotel){
-        if(MyCheckBoxHotel.isSelected()){
-            System.out.println("Hotel=1");
-        }
-        else{
-            System.out.println("Hotel=0");
-        }
+        if(MyCheckBoxHotel.isSelected())
+            hotel=true;
+        else
+            hotel=false;
     }
     public void ChangeVilla(ActionEvent eventVilla){
-        if(MyCheckBoxVilla.isSelected()){
-            System.out.println("Villa=1");
-        }
-        else{
-            System.out.println("Villa=0");
-        }
+        if(MyCheckBoxVilla.isSelected())
+            villa=true;
+        else
+            villa=false;
     }
     public void ChangeChalet(ActionEvent eventChalet){
-        if(MyCheckBoxChalet.isSelected()){
-            System.out.println("Chalet=1");
-        }
-        else{
-            System.out.println("Chalet=0");
-        }
+        if(MyCheckBoxChalet.isSelected())
+            chalet=true;
+        else
+            chalet=false;
+
     }
     public void ChangeAppart(ActionEvent eventAppart){
         if(MyCheckBoxAppartement.isSelected()){
-            System.out.println("Appart=1");
+            appartement=true;
         }
         else{
-            System.out.println("Appart=0");
+            appartement=false;
         }
     }
     public void ChangePasChere(ActionEvent eventPasChere){
         if(MyCheckBoxPaschere.isSelected()){
-            System.out.println("PasChere=1");
+            pasCher=true;
         }
         else{
-            System.out.println("PasChere=0");
+            pasCher=false;
         }
     }
     public void ChangeMoyen(ActionEvent eventMoyen){
         if(MyCheckBoxMoyen.isSelected()){
-            System.out.println("Moyen=1");
+            moyenCher=true;
         }
         else{
-            System.out.println("Moyen=0");
+            moyenCher=false;
         }
     }
     public void ChangeChere(ActionEvent eventChere){
         if(MyCheckBoxChere.isSelected()){
-            System.out.println("Chere=1");
+            cher=true;
         }
         else{
-            System.out.println("Chere=0");
+            cher=false;
         }
     }
     public void Change123Etoiles(ActionEvent event123Etoiles){
         if(MyCheckBox123Etoiles.isSelected()){
-            System.out.println("123Etoiles=1");
+            etoiles1_2_3=true;
         }
         else{
-            System.out.println("123 Etoiles=0");
+            etoiles1_2_3=false;
         }
     }
     public void Change45Etoiles(ActionEvent event45Etoiles){
         if(MyCheckBox45Etoiles.isSelected()){
-            System.out.println("45Etoiles=1");
+            etoiles4_5=true;
         }
         else{
-            System.out.println("45Etoiles=0");
+            etoiles4_5=false;
         }
     }
     public void ChangeP_D(ActionEvent eventP_D){
         if(MyCheckBoxP_D.isSelected()){
-            System.out.println("P_D=1");
+            petitDej=true;
         }
         else{
-            System.out.println("P_D=0");
+            petitDej=false;
         }
     }
     public void ChangeRestaurant(ActionEvent eventRestaurant){
         if(MyCheckBoxRestaurant.isSelected()){
-            System.out.println("resto=1");
+            restau=true;
         }
         else{
-            System.out.println("resto=0");
+            restau=false;
         }
     }
     public void ChangeNoteClientNul(ActionEvent eventNoteClientNul){
         if(MyCheckBoxNoteClientNul.isSelected()){
-            System.out.println("client nul=1");
+            noteClientInf8=true;
         }
         else{
-            System.out.println("client nul=0");
+            noteClientInf8=false;
         }
     }
     public void ChangeNoteClientBien(ActionEvent eventNoteClientBien){
         if(MyCheckBoxNoteClientBien.isSelected()){
-            System.out.println("client bien=1");
+            noteClientSup8=true;
         }
         else{
-            System.out.println("note client bien=0");
+            noteClientSup8=false;
         }
     }
     public void ChangePiscine(ActionEvent eventPiscine){
         if(MyCheckBoxPiscine.isSelected()){
-            System.out.println("piscine=1");
+            piscine=true;
         }
         else{
-            System.out.println("piscine=0");
+            piscine=false;
         }
     }
     public void ChangeWifi(ActionEvent eventWifi){
         if(MyCheckBoxWifi.isSelected()){
-            System.out.println("wifi=1");
+            wifi=true;
         }
         else{
-            System.out.println("wifi=0");
+            wifi=false;
         }
     }
     public void ChangeClim(ActionEvent eventClim){
         if(MyCheckBoxClim.isSelected()){
-            System.out.println("clim=1");
+            clim=true;
         }
         else{
-            System.out.println("clim=0");
+            clim=false;
         }
     }
     public void ChangeFumeur(ActionEvent eventFumeur){
         if(MyCheckBoxFumeur.isSelected()){
-            System.out.println("fumeur=1");
+            fumeur=true;
         }
         else{
-            System.out.println("fumeur=0");
+            fumeur=false;
         }
     }
     public void ChangeAnimaux(ActionEvent eventAnimaux){
         if(MyCheckBoxAnimaux.isSelected()){
-            System.out.println("animaux=1");
+            animaux=true;
         }
         else{
-            System.out.println("animaux=0");
+            animaux=false;
         }
     }
     public void ChangeParking(ActionEvent eventParking){
         if(MyCheckBoxParking.isSelected()){
-            System.out.println("parking=1");
+            parking=true;
         }
         else{
-            System.out.println("parking=0");
+            parking=false;
         }
     }
     public void ChangeLocalSki(ActionEvent eventLocalSki){
         if(MyCheckBoxLocalSki.isSelected()){
-            System.out.println("loacalski=1");
+            localSkis=true;
         }
         else{
-            System.out.println("localski=0");
+            localSkis=false;
         }
     }
     public void ChangeCheminee(ActionEvent eventCheminee){
         if(MyCheckBoxCheminee.isSelected()){
-            System.out.println("cheminee=1");
+            cheminee=true;
         }
         else{
-            System.out.println("cheminee=0");
+            cheminee=false;
         }
     }
 
