@@ -355,19 +355,16 @@ public class BaseDeDonnee {
 
             //lire un élément de la bdd
             while(resConnexion.next()){
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if ((resConnexion.getString("Email").compareTo(email)==0) || (resConnexion.getString("Pseudo").compareTo(username)==0) && (resConnexion.getString("Password").compareTo(wordtopass)==0)) {
+                if ((resConnexion.getString("Email").compareTo(email)==0) || (resConnexion.getString("Pseudo").compareTo(username)==0) && (resConnexion.getString("Password").compareTo(wordtopass)==0))
+                {
                     exist=true;
-                }else{
-                    exist=false;
                 }
             }
-
-            if(exist==true)
+            if(exist)
             {
                 System.out.println("vous avez deja un compte");
             }
-            if(exist==false)
+            if(!exist)
             {
                 String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement statement = conn.prepareStatement(query);
