@@ -3,7 +3,6 @@ import java.sql.*;
 import java.util.*;
 public class BaseDeDonnee {
     String type_Logement;
-
     ArrayList<String> searchHotel = new ArrayList<>();
     ArrayList<String> searchVilla = new ArrayList<>();
     ArrayList<String> searchAppart = new ArrayList<>();
