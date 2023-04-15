@@ -33,6 +33,10 @@ public class ControllerConnexion {
     public void loginButtonOnAction(ActionEvent e){
         if(UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false){
             loginMessageLabel.setText("Vous avez essayé de vous connecter !");
+            String usernamebdd = UsernameTextField.getText();
+            System.out.println(usernamebdd);
+            String passwordbdd = PasswordTextField.getText();
+            System.out.println(passwordbdd);
         }else{
             loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:");
         }
