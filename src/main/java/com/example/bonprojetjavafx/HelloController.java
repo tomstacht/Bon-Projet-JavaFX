@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javafx.scene.control.Button;
 import javafx.stage.StageStyle;
 import javafx.scene.control.TextField;
@@ -16,6 +18,8 @@ import javafx.scene.control.PasswordField;
 
 
 public class HelloController {
+
+    ArrayList<Boolean> listeBool = new ArrayList<>();
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
