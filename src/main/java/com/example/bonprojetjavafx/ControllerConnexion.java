@@ -64,13 +64,22 @@ public class ControllerConnexion {
     private TextField UsernameTextField;
     @FXML
     private TextField PasswordTextField;
-    public void loginButtonOnAction(ActionEvent e) {
+    public void loginButtonOnAction(ActionEvent e) throws IOException {
         if(UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false){
             String id = UsernameTextField.getText();
             String mdpp = PasswordTextField.getText();
             test=base.Connexion_Client(id,mdpp);
             if (test==true)
             {
+                /*FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connecte.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                Stage newStage = new Stage();
+                newStage.setTitle("GetAway/Home/Connecte.com");
+                newStage.setScene(scene);
+                newStage.show();
+                currentStage.close();*/
                 loginMessageLabel.setText("bienvenue"+id);
             }else
             {

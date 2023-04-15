@@ -22,4 +22,17 @@ import javafx.scene.control.DatePicker;
 
 public class ControllerAdministrateur {
 
+    @FXML
+    private void BoutonAnnulerAdmin(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
+
 }

@@ -10,7 +10,7 @@
         <Pane layoutX="1.0" layoutY="391.0" prefHeight="410.0" prefWidth="1440.0" style="-fx-background-color: #83BCED;">
             <children>
                 <Button layoutX="648.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="59.0" prefWidth="167.0" style="-fx-background-color: white;" text="INVITÉ" />
-                <Button layoutX="595.0" layoutY="99.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="261.0" style="-fx-background-color: white;" text="ADMINITRATEURS" />
+                <Button layoutX="595.0" layoutY="99.0" mnemonicParsing="false" onAction="#BoutonAdministrateur" prefHeight="83.0" prefWidth="261.0" style="-fx-background-color: white;" text="ADMINITRATEURS" />
             </children>
         </Pane>
         <ImageView fitHeight="365.0" fitWidth="554.0" layoutX="526.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
