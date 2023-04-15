@@ -21,7 +21,7 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="93.0" layoutY="412.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="AJOUTER" textFill="WHITE">
+      <Button layoutX="93.0" layoutY="412.0" mnemonicParsing="false" onAction="#BoutonAdminAjouter" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="AJOUTER" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>
