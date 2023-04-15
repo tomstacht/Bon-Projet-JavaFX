@@ -1,9 +1,11 @@
 package com.example.bonprojetjavafx;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -19,10 +21,20 @@ public class ControllerConnexion {
 
     @FXML
     private Button CancelButton;
-    public void CancelButtonOnAction(ActionEvent e){
-        Stage stage3 = (Stage) CancelButton.getScene().getWindow();
-        stage3.close();
+    public void CancelButtonOnAction(ActionEvent event) throws IOException {
+        /*Stage stage3 = (Stage) CancelButton.getScene().getWindow();
+        stage3.close();*/
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway/Home.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
     }
+
     private boolean test;
     @FXML
     private Label loginMessageLabel;

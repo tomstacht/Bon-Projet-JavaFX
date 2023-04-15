@@ -106,7 +106,7 @@ public class BaseDeDonnee {
     }
 
     public void initBdd(){
-        String url = "jdbc:mysql://localhost:8889/bdd";
+        String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
         String password = "root";
 

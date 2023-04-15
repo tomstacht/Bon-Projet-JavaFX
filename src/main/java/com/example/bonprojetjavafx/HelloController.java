@@ -2,6 +2,7 @@ package com.example.bonprojetjavafx;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -11,7 +12,9 @@ import javafx.scene.Parent;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.stage.StageStyle;
 import javafx.scene.control.TextField;
@@ -25,19 +28,38 @@ public class HelloController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway/Home.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
+
+    @FXML
+    private void retourPremierePage(MouseEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
+
+    @FXML
+    private void BoutonActionSeConnecter(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
         Stage stage = new Stage();
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("GetAway/Invite/Connexion.com");
         stage.setScene(scene);
         stage.show();
-    }
-    @FXML
-    private void BoutonActionSeConnecter(ActionEvent event2) throws IOException{
-        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
-        Parent root2 = loader2.load();
-        Scene scene2 = new Scene(root2);
-        Stage stage2 = new Stage();
-        stage2.setTitle("GetAway/Connexion.com");
-        stage2.setScene(scene2);
-        stage2.show();
+        currentStage.close();
     }
     @FXML
     private void ButtonOnActionInscription(ActionEvent event2) throws IOException{
