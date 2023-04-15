@@ -145,12 +145,12 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public void rechercheFiltre(){
+    public void rechercheFiltre(ArrayList<Boolean> listeCheckbox) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Ou souhaitez-vous aller ?");
         String ville = sc.nextLine();
-        try{
+        try {
             //Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd", "root", "root");
             //lire un élément de la bdd
@@ -173,9 +173,9 @@ public class BaseDeDonnee {
 
 
             //lire un élément de la bdd
-            while(resHotel.next()){
+            while (resHotel.next()) {
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resHotel.getString("Lieu").compareTo(ville)==0){
+                if (resHotel.getString("Lieu").compareTo(ville) == 0) {
                     searchHotel.add(resHotel.getString("Nom"));
                 }
                 /*if (resHotel.getString("Nom").compareTo("...")==0){
@@ -202,9 +202,9 @@ public class BaseDeDonnee {
                 }*/
             }
 
-            while(resVilla.next()){
+            while (resVilla.next()) {
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resVilla.getString("Lieu").compareTo(ville)==0){
+                if (resVilla.getString("Lieu").compareTo(ville) == 0) {
                     searchVilla.add(resVilla.getString("Nom"));
                 }
                 /*if (resVilla.getString("Nom").compareTo(...)==0){
@@ -246,9 +246,9 @@ public class BaseDeDonnee {
 
             }
 
-            while(resAppart.next()){
+            while (resAppart.next()) {
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resAppart.getString("Lieu").compareTo(ville)==0){
+                if (resAppart.getString("Lieu").compareTo(ville) == 0) {
                     searchAppart.add(resAppart.getString("Nom"));
                 }
                 /*if (resAppart.getString("Nom").compareTo(...)==0){
@@ -286,9 +286,9 @@ public class BaseDeDonnee {
                 }*/
             }
 
-            while(resChalet.next()){
+            while (resChalet.next()) {
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resChalet.getString("Lieu").compareTo(ville)==0){
+                if (resChalet.getString("Lieu").compareTo(ville) == 0) {
                     searchChalet.add(resChalet.getString("Nom"));
                 }
                 /*if (resChalet.getString("Nom").compareTo(ville)==0){
@@ -337,31 +337,9 @@ public class BaseDeDonnee {
 
             con.close();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error :" + e.getMessage());
         }
-        System.out.println("C3");
-
-        System.out.println("Voici les hotels présents à "+ville+ " : ");
-        for (String s : searchHotel) {
-            System.out.println(s);
-        }
-
-        System.out.println("Voici les villas présentes à "+ville+ " : ");
-        for (String s : searchVilla) {
-            System.out.println(s);
-        }
-
-        System.out.println("Voici les appartements présents à "+ville+ " : ");
-        for (String s : searchAppart) {
-            System.out.println(s);
-        }
-
-        System.out.println("Voici les chalets présents à "+ville+ " : ");
-        for (String s : searchChalet) {
-            System.out.println(s);
-        }
-
     }
     public void InscriptionClient(){
 
