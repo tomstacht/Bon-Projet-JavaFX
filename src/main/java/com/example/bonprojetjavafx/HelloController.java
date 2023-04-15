@@ -56,20 +56,22 @@ public class HelloController {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("GetAway/Invite/Connexion.com");
+        stage.setTitle("GetAway/Home/Connexion.com");
         stage.setScene(scene);
         stage.show();
         currentStage.close();
     }
     @FXML
-    private void ButtonOnActionInscription(ActionEvent event2) throws IOException{
-        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("page-inscription.fxml"));
-        Parent root2 = loader2.load();
-        Scene scene2 = new Scene(root2);
-        Stage stage2 = new Stage();
-        stage2.setTitle("GetAway/Inscription.com");
-        stage2.setScene(scene2);
-        stage2.show();
+    private void ButtonOnActionInscription(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-inscription.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setTitle("GetAway/Home/Inscription.com");
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+        currentStage.close();
     }
 
     private BaseDeDonnee b1 = new BaseDeDonnee();

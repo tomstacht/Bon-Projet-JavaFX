@@ -22,14 +22,25 @@ public class ControllerConnexion {
     @FXML
     private Button CancelButton;
     public void CancelButtonOnAction(ActionEvent event) throws IOException {
-        /*Stage stage3 = (Stage) CancelButton.getScene().getWindow();
-        stage3.close();*/
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Stage newStage = new Stage();
         newStage.setTitle("GetAway/Home.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
+
+    @FXML
+    private void retourPremierePage(MouseEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway.com");
         newStage.setScene(scene);
         newStage.show();
         currentStage.close();
@@ -55,7 +66,7 @@ public class ControllerConnexion {
                 loginMessageLabel.setText("Erreur dans la saisie de l'identifiant ou du mot de passe");
             }
         }else{
-            loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:");
+            loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe :");
         }
     }
 }
