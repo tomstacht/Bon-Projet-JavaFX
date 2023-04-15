@@ -89,7 +89,7 @@ public class BaseDeDonnee {
         }
     }
     public void ajouterLigne() {
-        String url = "jdbc:mysql://localhost:3306/projet";
+        String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
         String password = "";
 
@@ -97,10 +97,15 @@ public class BaseDeDonnee {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
             Scanner sc = new Scanner(System.in);
-            String query = "INSERT INTO villa (piscine, distanceMer, prix) VALUES (?, ?, ?)";
+            String query = "INSERT INTO connexion_admin (Login, MotDePasse) VALUES (?, ?)";
             PreparedStatement statement = conn.prepareStatement(query);
+            String login="clotilde";
+            String mdpp="clocloche";
+            statement.setString(1,login);
+            statement.setString(2,mdpp);
+            statement.executeUpdate();
 
-            System.out.println("Quel est le type de logement que vous allez creer ? ");
+            /*System.out.println("Quel est le type de logement que vous allez creer ? ");
             System.out.println("1. Hotel");
             System.out.println("2. Appartement");
             System.out.println("3. Chalet");
@@ -132,9 +137,10 @@ public class BaseDeDonnee {
                     statement.setFloat(3, prix);
                     statement.executeUpdate();
                     break;
-            }
+            }*/
             System.out.println("ligne ajouter.");
             conn.close();
+            System.out.println("ligne ajouter.");
         } catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
