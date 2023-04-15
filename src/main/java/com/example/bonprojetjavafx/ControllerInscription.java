@@ -57,7 +57,7 @@ public class ControllerInscription {
         currentStage.close();
     }
 
-    public void InscriptionButtonOnAction(ActionEvent e) {
+    public void InscriptionButtonOnAction(ActionEvent e) throws IOException{
         if (UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false && MailTextField.getText().isBlank()==false && PrenomTextField.getText().isBlank()==false && NomTextField.getText().isBlank()==false)
         {
             String prenom=PrenomTextField.getText();
@@ -67,6 +67,17 @@ public class ControllerInscription {
             String mdpp = PasswordTextField.getText();
             baseinscription.InscriptionClient(prenom,nom,Mail,pseudo,mdpp);
             InscriptionMessageLabel.setText("VOUS ETES BIEN INSCRIT !");
+
+            //Ouverture page connexion
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            Stage newStage = new Stage();
+            newStage.setTitle("GetAway/Connexion.com");
+            newStage.setScene(scene);
+            newStage.show();
+            currentStage.close();
         }
         else
         {
