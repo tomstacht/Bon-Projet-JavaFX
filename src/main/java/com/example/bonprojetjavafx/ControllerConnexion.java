@@ -40,7 +40,7 @@ public class ControllerConnexion {
                 loginMessageLabel.setText("bienvenue"+id);
             }else
             {
-                loginMessageLabel.setText("Vous avez essayé de vous connecter !");
+                loginMessageLabel.setText("Erreur dans la saisie de l'identifiant ou du mot de passe");
             }
         }else{
             loginMessageLabel.setText("Veuillez entrer votre adresse mail et votre mot de passe:");
