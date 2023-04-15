@@ -17,10 +17,9 @@ public class BaseDeDonnee {
     ArrayList<String> searchChalet = new ArrayList<>();
 
     public void ajouterTable() {
-        String url = "jdbc:mysql://localhost:8889/bdd";
+        String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
-        String password = "root";
-
+        String password = "";
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
 
@@ -106,7 +105,7 @@ public class BaseDeDonnee {
     }
 
     public void initBdd(){
-        String url = "jdbc:mysql://localhost:8889/bdd";
+        String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
         String password = "root";
 
@@ -350,37 +349,38 @@ public class BaseDeDonnee {
         String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
         String password = "";
-
+        boolean exist=false;
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
             Scanner sc = new Scanner(System.in);
-            String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement statement = conn.prepareStatement(query);
+            ResultSet resConnexion = stmt.executeQuery("select * from Connexion_Client");
 
-            /*System.out.println("Quel est votre prénom ?");
-            String prenom = sc.nextLine();
-            System.out.println("Quel est votre nom ?");
-            String nom = sc.nextLine();
-            System.out.println("Quel est votre adresse mail ?");
-            String email = sc.nextLine();
-            System.out.println("Quel est votre pseudo ?");
-            String pseudo = sc.nextLine();
-            System.out.println("Quel est votre mot de passe ?");
-            String mdp = sc.nextLine();*/
-
-            statement.setString(1, firstname);
-            statement.setString(2, lastname);
-            statement.setString(3, email);
-            statement.setString(4, username);
-            statement.setString(5, wordtopass);
-
-            statement.executeUpdate();
-
-
-            System.out.println("ligne ajouter.");
+            //lire un élément de la bdd
+            while(resConnexion.next()){
+                if ((resConnexion.getString("Email").compareTo(email)==0) || (resConnexion.getString("Pseudo").compareTo(username)==0) && (resConnexion.getString("Password").compareTo(wordtopass)==0))
+                {
+                    exist=true;
+                }
+            }
+            if(exist)
+            {
+                System.out.println("ERREUR 404 ! PSEUDO OU ADRESSE MAIL DEJA UTILISÉ ! ");
+            }
+            if(!exist)
+            {
+                String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
+                PreparedStatement statement = conn.prepareStatement(query);
+                statement.setString(1, firstname);
+                statement.setString(2, lastname);
+                statement.setString(3, email);
+                statement.setString(4, username);
+                statement.setString(5, wordtopass);
+                statement.executeUpdate();
+                System.out.println("ligne ajouter.");
+            }
             conn.close();
-        } catch (Exception e) {
+        }  catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
         }
