@@ -50,14 +50,14 @@ public class ControllerAdministrateur {
 
     @FXML
     private void BoutonConnexionAdmin(ActionEvent event) throws IOException{
-        if(AdminLogin.getText().isBlank() == false && MotDePasseAdmin.getText().isBlank() == false){
+        /*if(AdminLogin.getText().isBlank() == false && MotDePasseAdmin.getText().isBlank() == false){
             adminn.setLogin(AdminLogin.getText());
             adminn.setMotDePasse(MotDePasseAdmin.getText());
             onvatester=labase.Connexion_Admin(adminn);
             System.out.println(onvatester);
 
             if(onvatester==true)
-            {
+            {*/
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("page-choix-admin.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
@@ -67,11 +67,11 @@ public class ControllerAdministrateur {
                 newStage.setScene(scene);
                 newStage.show();
                 currentStage.close();
-            }
+            /*}
             if (onvatester==false)
             {
                 ErrorAdministrateur.setText("ERROR 404! erreur mot de passe ou pseudo");
             }
-    }
+    }*/
 }
 }

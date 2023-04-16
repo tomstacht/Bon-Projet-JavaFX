@@ -2,6 +2,8 @@ package com.example.bonprojetjavafx;
 import java.sql.*;
 import java.util.*;
 import classes.*;
+import java.util.Random;
+
 public class BaseDeDonnee {
     String type_Logement;
 
@@ -413,5 +415,47 @@ public class BaseDeDonnee {
         }
         return verif;
     }
+    public void ajoutligneChalet(Chalet newchalet){
+        String url = "jdbc:mysql://localhost:8889/bdd";
+        String user = "root";
+        String password = "root";
+
+        Random rand = new Random();
+        int min = 50;
+        int max = 300;
+        int randomNumber = rand.nextInt((max - min) + 1) + min;
+
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            String queryC = "INSERT INTO Chalet (ID, Nom, Prix, Lieu, Local_Ski, Cheminer, D_Chalet_Piste, D_Chalet_Centre, NB_CHAMBRE, NB_SDB, NB_M2, NB_Personne, Note_Client, Wifi, Climatisation, Fumeur, Animaux, Parking) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statementC = conn.prepareStatement(queryC);
+            statementC.setInt(1, randomNumber);
+            statementC.setString(2, newchalet.getNom());
+            statementC.setInt(3, newchalet.getPrix());
+            statementC.setString(4, newchalet.getLieu());
+            statementC.setBoolean(5, newchalet.isLocalSki());
+            statementC.setBoolean(6, newchalet.isCheminer());
+            statementC.setFloat(7, newchalet.getDistance_piste());
+            statementC.setFloat(8, newchalet.getDistanceCentre());
+            statementC.setInt(9, newchalet.getNbChambres());
+            statementC.setInt(10, newchalet.getNbSDB());
+            statementC.setInt(11, newchalet.getM2());
+            statementC.setInt(12, newchalet.getNbPersonnes());
+            statementC.setFloat(13, newchalet.getNote());
+            statementC.setBoolean(14, newchalet.isWifi());
+            statementC.setBoolean(15, newchalet.isClim());
+            statementC.setBoolean(16, newchalet.isFumeur());
+            statementC.setBoolean(17, newchalet.isAnimaux());
+            statementC.setBoolean(18, newchalet.isParking());
+            statementC.executeUpdate();
+            System.out.println("Hébergement ajouté.");
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
+    }
 }
+
 

@@ -22,6 +22,7 @@ import javafx.scene.control.DatePicker;
 
 public class ControllerAjouterChalet {
     private Chalet ajoutchalet = new Chalet();
+    private BaseDeDonnee pourlechalet = new BaseDeDonnee();
     @FXML
     private TextField NomChaletAjoutTextField;
     @FXML
@@ -58,41 +59,42 @@ public class ControllerAjouterChalet {
     private TextField ParkingChaletAjoutTextField;
 
     public void AjouterChalet(ActionEvent event) {
-
         ajoutchalet.setNom(NomChaletAjoutTextField.getText());
         System.out.println(ajoutchalet.getNom());
-        ajoutchalet.setPrix(PrixChaletAjoutTextField.getInt());!!int
+        ajoutchalet.setPrix(Integer.parseInt(PrixChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.getPrix());
         ajoutchalet.setLieu(LieuChaletAjoutTextField.getText());
         System.out.println(ajoutchalet.getLieu());
-        ajoutchalet.setLocalSki(LocalSkiChaletAjoutTextField.equals());!!booleen
+        ajoutchalet.setLocalSki(Boolean.parseBoolean(LocalSkiChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.isLocalSki());
-        ajoutchalet.setCheminer(ChemineChaletAjoutTextField.get());!!booleen
+        ajoutchalet.setCheminer(Boolean.parseBoolean(ChemineChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.isCheminer());
-        ajoutchalet.setDistance_piste(DistPisteChaletAjoutTextField.getText());!!float
+        ajoutchalet.setDistance_piste(Float.parseFloat(DistPisteChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.getDistance_piste());
-        ajoutchalet.setDistanceCentre(DistCentreChaletAjoutTextField.getText());!!float
+        ajoutchalet.setDistanceCentre(Float.parseFloat(DistCentreChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.getDistanceCentre());
-        ajoutchalet.setNbChambres(NBChambreChaletAjoutTextField.getText());!!int
+        ajoutchalet.setNbChambres(Integer.parseInt(NBChambreChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.getNbChambres());
-        ajoutchalet.setNbSDB(NBSalleDeBainChaletAjoutTextField.getText());!!int
+        ajoutchalet.setNbSDB(Integer.parseInt(NBSalleDeBainChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.getNbSDB());
-        ajoutchalet.setM2(SurfaceChaletAjoutTextField.getText());!!int
+        ajoutchalet.setM2(Integer.parseInt(SurfaceChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.getM2());
-        ajoutchalet.setNbPersonnes(NBPersoChaletAjoutTextField.getText());!!int
+        ajoutchalet.setNbPersonnes(Integer.parseInt(NBPersoChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.getNbPersonnes());
-        ajoutchalet.setNote(NoteClientChaletAjoutTextField.getText());!!float
+        ajoutchalet.setNote(Float.parseFloat(NoteClientChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.getNote());
-        ajoutchalet.setWifi(WifiChaletAjoutTextField.getText());!!booleen
+        ajoutchalet.setWifi(Boolean.parseBoolean(WifiChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.isWifi());
-        ajoutchalet.setClim(ClimChaletAjoutTextField.getText());!!booleen
+        ajoutchalet.setClim(Boolean.parseBoolean(ClimChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.isClim());
-        ajoutchalet.setFumeur(FumeurChaletAjoutTextField.getText());!!booleen
+        ajoutchalet.setFumeur(Boolean.parseBoolean(FumeurChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.isFumeur());
-        ajoutchalet.setAnimaux(AnnimauxChaletAjoutTextField.getText());!!booleen
+        ajoutchalet.setAnimaux(Boolean.parseBoolean(AnnimauxChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.isAnimaux());
-        ajoutchalet.setParking(ParkingChaletAjoutTextField.getText());!!booleen
+        ajoutchalet.setParking(Boolean.parseBoolean(ParkingChaletAjoutTextField.getText()));
         System.out.println(ajoutchalet.isParking());
+        pourlechalet.ajoutligneChalet(ajoutchalet);
+
     }
 
     @FXML
