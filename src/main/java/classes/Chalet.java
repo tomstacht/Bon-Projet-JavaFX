@@ -50,8 +50,8 @@ public class Chalet extends Hebergement{
         this.localSki = localSki;
     }
 
-    public Chalet(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur, boolean cheminer, boolean localSki, float distance_piste, int nbChambres, int nbSDB) {
-        super(id, nom, prix, lieu, distanceCentre, m2, nbPersonnes, note, wifi, clim, animaux, parking, fumeur);
+    public Chalet(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur, boolean cheminer, boolean localSki, float distance_piste, int nbChambres, int nbSDB, String image) {
+        super(id, nom, prix, lieu, distanceCentre, m2, nbPersonnes, note, wifi, clim, animaux, parking, fumeur,image);
         this.cheminer = cheminer;
         this.localSki = localSki;
         this.distance_piste = distance_piste;

@@ -40,8 +40,8 @@ public class Appartement extends Hebergement{
         this.nbSDB = nbSDB;
     }
 
-    public Appartement(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur, int etage, boolean balcon, int nbChambres, int nbSDB) {
-        super(id, nom, prix, lieu, distanceCentre, m2, nbPersonnes, note, wifi, clim, animaux, parking, fumeur);
+    public Appartement(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur, int etage, boolean balcon, int nbChambres, int nbSDB, String image) {
+        super(id, nom, prix, lieu, distanceCentre, m2, nbPersonnes, note, wifi, clim, animaux, parking, fumeur, image);
         this.etage = etage;
         this.balcon = balcon;
         this.nbChambres = nbChambres;

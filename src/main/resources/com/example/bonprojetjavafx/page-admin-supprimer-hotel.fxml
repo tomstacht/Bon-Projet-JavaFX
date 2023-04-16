@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -49,10 +50,16 @@
          <content>
             <VBox prefWidth="516.0">
                <children>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" onMousePressed="#afficherPane" prefHeight="100.0" prefWidth="525.0" style="-fx-background-color: red;" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                        <VBox prefHeight="150.0" prefWidth="358.0" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </content>
       </ScrollPane>
+      <Button fx:id="monBouton" layoutX="906.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleClick" text="Button" />
    </children>
 </Pane>

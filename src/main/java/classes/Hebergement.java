@@ -17,11 +17,16 @@ public class  Hebergement {
     protected boolean animaux;
     protected boolean parking;
     protected boolean fumeur;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
 
     public Hebergement() {
     }
 
-    public Hebergement(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur) {
+    public Hebergement(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur, String image) {
         this.id = id;
         this.nom = nom;
         this.prix = prix;
@@ -35,6 +40,11 @@ public class  Hebergement {
         this.animaux = animaux;
         this.parking = parking;
         this.fumeur = fumeur;
+        this.image = image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getId() {

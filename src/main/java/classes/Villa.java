@@ -8,8 +8,8 @@ public class Villa extends Hebergement{
     private int nbChambres;
     private int nbSDB;
 
-    public Villa(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur, boolean piscine, float distance_mer, int nbChambres, int nbSDB) {
-        super(id, nom, prix, lieu, distanceCentre, m2, nbPersonnes, note, wifi, clim, animaux, parking, fumeur);
+    public Villa(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur, boolean piscine, float distance_mer, int nbChambres, int nbSDB, String image) {
+        super(id, nom, prix, lieu, distanceCentre, m2, nbPersonnes, note, wifi, clim, animaux, parking, fumeur, image);
         this.piscine = piscine;
         this.distance_mer = distance_mer;
         this.nbChambres = nbChambres;

@@ -9,8 +9,8 @@ public class Hotel extends Hebergement {
     private boolean restaurant;
     private String compagnie;
 
-    public Hotel(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur, float nb_etoile, boolean petitDej, boolean restaurant, String compagnie) {
-        super(id, nom, prix, lieu, distanceCentre, m2, nbPersonnes, note, wifi, clim, animaux, parking, fumeur);
+    public Hotel(int id, String nom, int prix, String lieu, float distanceCentre, int m2, int nbPersonnes, float note, boolean wifi, boolean clim, boolean animaux, boolean parking, boolean fumeur, float nb_etoile, boolean petitDej, boolean restaurant, String compagnie, String image) {
+        super(id, nom, prix, lieu, distanceCentre, m2, nbPersonnes, note, wifi, clim, animaux, parking, fumeur, image);
         this.nb_etoile = nb_etoile;
         this.petitDej = petitDej;
         this.restaurant = restaurant;
