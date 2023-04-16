@@ -4,6 +4,8 @@ import java.util.*;
 import classes.*;
 public class BaseDeDonnee {
     String type_Logement;
+
+    ArrayList<Administrateur> listeAmdin = new ArrayList<Administrateur>();
     ArrayList<Client> listeClient = new ArrayList<Client>();
     ArrayList<Hebergement> listeHebergements = new ArrayList<Hebergement>();
     ArrayList<Appartement> listeAppart = new ArrayList<Appartement>();
@@ -102,6 +104,26 @@ public class BaseDeDonnee {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
         }
+    }
+    public void intibddAdmin(){
+        String url = "jdbc:mysql://localhost/projet ";
+        String user = "root";
+        String password = "";
+        try{
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmtAdmin = conn.createStatement();
+            ResultSet rsAdmin = stmtAdmin.executeQuery("SELECT * FROM Connexion_Admin");
+            while(rsAdmin.next()){
+                String log=rsAdmin.getString("Login");
+                String mdpp=rsAdmin.getString("MotDePasse");
+                listeAmdin.add(new Administrateur(log,mdpp);
+            }
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
+        for(int i=0;i<listeAmdin.size();i++)
+            System.out.println(listeAmdin.get(i).getLogin());
     }
     public void initBddClient(){
         String url = "jdbc:mysql://localhost/projet ";
