@@ -24,23 +24,12 @@ public class ControllerConnexion {
     @FXML
     private Button CancelButton;
     public void CancelButtonOnAction(ActionEvent event) throws IOException {
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Stage newStage = new Stage();
         newStage.setTitle("GetAway/Home.com");
-        newStage.setScene(scene);
-        newStage.show();
-        currentStage.close();*/
-
-        //Provisoir (avant de connecter BDD Raph)
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connecte.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Stage newStage = new Stage();
-        newStage.setTitle("GetAway/Home/Connecte.com");
         newStage.setScene(scene);
         newStage.show();
         currentStage.close();
@@ -72,7 +61,7 @@ public class ControllerConnexion {
             System.out.println(test);
             if (test==true)
             {
-                /*FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connecte.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connecte.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
                 Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -80,8 +69,7 @@ public class ControllerConnexion {
                 newStage.setTitle("GetAway/Home/Connecte.com");
                 newStage.setScene(scene);
                 newStage.show();
-                currentStage.close();*/
-                loginMessageLabel.setText("Bienvenue "+clientfidel.getPseudo());
+                currentStage.close();
             }else
             {
                 loginMessageLabel.setText("Erreur dans la saisie de l'identifiant ou du mot de passe");

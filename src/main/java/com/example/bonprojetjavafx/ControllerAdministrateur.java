@@ -40,6 +40,8 @@ public class ControllerAdministrateur {
         currentStage.close();
     }
     @FXML
+    private Label ErrorAdministrateur;
+    @FXML
     private TextField AdminLogin;
     @FXML
     private TextField MotDePasseAdmin;
@@ -65,6 +67,10 @@ public class ControllerAdministrateur {
                 newStage.setScene(scene);
                 newStage.show();
                 currentStage.close();
+            }
+            if (onvatester==false)
+            {
+                ErrorAdministrateur.setText("ERROR 404! erreur mot de passe ou pseudo");
             }
     }
 }
