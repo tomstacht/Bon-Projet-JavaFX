@@ -22,7 +22,7 @@ import java.net.URISyntaxException;
 
 public class ControllerSupprimerHotel {
 
-    private BaseDeDonnee b1 = new BaseDeDonnee();
+    /*private BaseDeDonnee b1 = new BaseDeDonnee();
     @FXML
     private void retourMenuPrincipal(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
@@ -88,7 +88,7 @@ public class ControllerSupprimerHotel {
             System.out.println(titre);
 
         }
-    }
+    }*/
 
 }
 
