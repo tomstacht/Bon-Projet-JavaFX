@@ -31,9 +31,6 @@ public class BaseDeDonnee {
         return listeVilla;
     }
 
-    public ArrayList<Reservation> getListeReservations() {
-        return listeReservations;
-    }
     public void initHebergements(){
         String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
