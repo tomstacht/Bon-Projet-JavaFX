@@ -535,7 +535,6 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-
     public void ajoutligneVilla(Villa newvilla){
         String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
