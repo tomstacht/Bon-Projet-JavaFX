@@ -121,7 +121,7 @@ public class BaseDeDonnee {
                 String lieuAppart=rsAppart.getString("Lieu");
                 int numEtageAppart=rsAppart.getInt("Num_Etage");
                 boolean balconAppart=rsAppart.getBoolean("Balcon");
-                float distanceAppartCentreAppart=rsAppart.getFloat("D_Appart-Centre");
+                float distanceAppartCentreAppart=rsAppart.getFloat("D_Appart_Centre");
                 int nbChambreAppart=rsAppart.getInt("NB_Chambre");
                 int nbSdbAppart=rsAppart.getInt("NB_SDB");
                 int nbM2Appart=rsAppart.getInt("NB_M2");
@@ -145,8 +145,8 @@ public class BaseDeDonnee {
                 String lieuChalet=rsChalet.getString("Lieu");
                 boolean localSkiChalet=rsChalet.getBoolean("Local_Ski");
                 boolean chemineeChalet=rsChalet.getBoolean("Cheminer");
-                float distanceChaletPisteChalet=rsChalet.getFloat("D_Chalet-Piste");
-                float distanceChaletCentreChalet=rsChalet.getFloat("D_Chalet-Centre");
+                float distanceChaletPisteChalet=rsChalet.getFloat("D_Chalet_Piste");
+                float distanceChaletCentreChalet=rsChalet.getFloat("D_Chalet_Centre");
                 int nbChambresChalet=rsChalet.getInt("NB_CHAMBRE");
                 int nbSDBChalet=rsChalet.getInt("NB_SDB");
                 int nbM2Chalet=rsChalet.getInt("NB_M2");
@@ -169,10 +169,10 @@ public class BaseDeDonnee {
                 int prixHotel=rsHotel.getInt("Prix");
                 String lieuHotel=rsHotel.getString("Lieu");
                 int nbEtoileHotel=rsHotel.getInt("NB_Etoile");
-                boolean petitDejHotel=rsHotel.getBoolean("Petit-Dej");
+                boolean petitDejHotel=rsHotel.getBoolean("Petit_Dej");
                 boolean restaurantHotel=rsHotel.getBoolean("Restaurant");
                 String companieHotel=rsHotel.getString("Marque");
-                float distanceHotelCentreHotel=rsHotel.getFloat("D_Hotel-Centre");
+                float distanceHotelCentreHotel=rsHotel.getFloat("D_Hotel_Centre");
                 int nbM2Hotel=rsHotel.getInt("NB_M2");
                 int nbPersHotel=rsHotel.getInt("NB_Pers");
                 float noteClientHotel=rsHotel.getFloat("Note_Client");
@@ -193,8 +193,8 @@ public class BaseDeDonnee {
                 int prixVilla=rsVilla.getInt("Prix");
                 String lieuVilla=rsVilla.getString("Lieu");
                 boolean piscineVilla=rsVilla.getBoolean("Piscine");
-                float distanceVillaMerVilla=rsVilla.getFloat("D_Villa-Mer");
-                float distanceVillaCentreVilla=rsVilla.getFloat("D_Villa-Centre");
+                float distanceVillaMerVilla=rsVilla.getFloat("D_Villa_Mer");
+                float distanceVillaCentreVilla=rsVilla.getFloat("D_Villa_Centre");
                 int nbChambresVilla=rsVilla.getInt("NB_CHAMBRE");
                 int nbSDBVilla=rsVilla.getInt("NB_SDB");
                 int nbM2Villa=rsVilla.getInt("NB_M2");
