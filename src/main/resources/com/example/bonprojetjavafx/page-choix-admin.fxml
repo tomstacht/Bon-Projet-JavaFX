@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bonprojetjavafx.ControllerChoixAdmin">
    <children>
       <Pane layoutY="338.0" prefHeight="464.0" prefWidth="1440.0" style="-fx-background-color: #83BCED;" />
@@ -26,7 +25,7 @@
             <Font size="32.0" />
          </font>
       </Button>
-      <Button layoutX="563.0" layoutY="412.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="SUPPRIMER" textFill="WHITE">
+      <Button layoutX="563.0" layoutY="412.0" mnemonicParsing="false" onAction="#BoutonAdminSupprimer" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="SUPPRIMER" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>

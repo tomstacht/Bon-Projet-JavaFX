@@ -1,5 +1,6 @@
 package com.example.bonprojetjavafx;
 
+import classes.Client;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -22,9 +23,6 @@ import javafx.scene.control.DatePicker;
 
 
 public class HelloController {
-
-    private BaseDeDonnee b1 = new BaseDeDonnee();
-
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
@@ -37,7 +35,6 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
-
     @FXML
     private void BoutonAdministrateur(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-administrateur.fxml"));
@@ -50,7 +47,6 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
-
     @FXML
     private void retourPremierePage(MouseEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
@@ -63,7 +59,6 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
-
     @FXML
     private void BoutonActionSeConnecter(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
@@ -88,7 +83,8 @@ public class HelloController {
         stage.show();
         currentStage.close();
     }
-
+    private BaseDeDonnee b1 = new BaseDeDonnee();
+    private Client clientel = new Client();
     private boolean hotel;
     private boolean chalet;
     private boolean villa;
@@ -125,9 +121,7 @@ public class HelloController {
     @FXML
     private TextField NombreEnfantTextField;
 
-    public void RechercherButtonOnAction(ActionEvent e) throws IOException{
-        b1.initHebergements();
-        listeCheckbox.clear();
+    public void RechercherButtonOnAction(ActionEvent e){
         MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
         listeCheckbox.add(hotel);
         listeCheckbox.add(villa);
@@ -151,8 +145,12 @@ public class HelloController {
         listeCheckbox.add(localSkis);
         listeCheckbox.add(cheminee);
 
-        System.out.println("Recherche lancée...");
-        /*String destinationbdd = DestinantionTextField.getText();
+        for (int i=0;i<listeCheckbox.size();i++) {
+            System.out.print(listeCheckbox.get(i)+"/");
+        }
+        System.out.println("");
+        System.out.println("ButtonPushed=1");
+        String destinationbdd = DestinantionTextField.getText();
         System.out.println(destinationbdd);
         LocalDate dateArriveebdd = DateArriveeDatePicker.getValue();
         System.out.println(dateArriveebdd);
@@ -161,18 +159,8 @@ public class HelloController {
         String NbAdulteBdd = NombreAdulteTextField.getText();
         System.out.println(NbAdulteBdd);
         String NbEnfantsBdd = NombreEnfantTextField.getText();
-        System.out.println(NbEnfantsBdd);*/
-        b1.filtrageBox(listeCheckbox);
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        stage.setTitle("GetAway/Home.com");
-        stage.setScene(scene);
-        stage.show();
-        currentStage.close();
+        System.out.println(NbEnfantsBdd);
+        //b1.rechercheFiltre(listeCheckbox);
     }
 
     @FXML
