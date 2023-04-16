@@ -23,6 +23,11 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
+            <Label fx:id="ErrorAdministrateur" alignment="CENTER" layoutX="88.0" layoutY="249.0" prefHeight="34.0" prefWidth="620.0" textFill="#dd3b3b">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <ImageView fitHeight="266.0" fitWidth="408.0" layoutX="132.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
