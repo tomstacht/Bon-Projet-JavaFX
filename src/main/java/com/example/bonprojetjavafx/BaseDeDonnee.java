@@ -302,12 +302,12 @@ public class BaseDeDonnee {
             }
         }
 
-        if(listeFiltre.isEmpty()){
+        if(listeFiltre.isEmpty()) {
             System.out.println("liste vide");
-            for(Hebergement h : listeHebergements)
-                if(h.getLieu().equals(choixVille))
+            for (Hebergement h : listeHebergements)
+                if (h.getLieu().equals(choixVille))
                     listeFiltre.add(h);
-
+        }
 
         else{
             System.out.println("liste non vide");
