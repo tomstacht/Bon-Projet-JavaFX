@@ -150,9 +150,9 @@ public class BaseDeDonnee {
             System.out.println(listeClient.get(i).getNom());
     }
      public void initHebergements(){
-        String url = "jdbc:mysql://localhost:8889/bdd";
-        String user = "root";
-        String password = "root";
+         String url = "jdbc:mysql://localhost/projet ";
+         String user = "root";
+         String password = "";
 
         try{
             Connection conn = DriverManager.getConnection(url, user, password);
