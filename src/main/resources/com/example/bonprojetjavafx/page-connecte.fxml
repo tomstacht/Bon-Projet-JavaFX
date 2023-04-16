@@ -4,8 +4,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -17,25 +15,13 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bonprojetjavafx.ControllerConnecte">
     <children>
-        <MenuButton layoutX="-1.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="145.0" style="-fx-background-color: #83BCED;" text="MENU" textAlignment="CENTER" textFill="WHITE">
-            <items>
-                <MenuItem mnemonicParsing="false" text="HISTORIQUE" />
-                <MenuItem mnemonicParsing="false" text="ADMINISTRATEURS" />
-                <MenuItem mnemonicParsing="false" text="VISITEURS" />
-                <MenuItem mnemonicParsing="false" text="QUI SOMMES NOUS ?" />
-                <MenuItem mnemonicParsing="false" text="AIDES" />
-            </items>
-            <font>
-                <Font name="System Bold" size="24.0" />
-            </font>
-        </MenuButton>
         <Line endX="1248.9998779296875" endY="1.52587890625E-5" layoutX="190.0" layoutY="51.0" startX="-191.00003051757812" startY="1.52587890625E-5" stroke="#83bced" strokeWidth="5.0" />
-        <Button layoutX="1092.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="151.0" style="-fx-background-color: #83BCED;" text="HISTORIQUE" textFill="WHITE" underline="true">
+        <Button layoutX="1094.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="151.0" style="-fx-background-color: #83BCED;" text="HISTORIQUE" textFill="WHITE">
             <font>
                 <Font size="17.0" />
             </font>
         </Button>
-        <Button layoutX="1258.0" layoutY="-3.0" mnemonicParsing="false" onAction="#BoutonSeDeconnecter" prefHeight="52.0" prefWidth="184.0" style="-fx-background-color: #83BCED;" text="SE DECONNECTER" textFill="WHITE" underline="true">
+        <Button layoutX="1263.0" layoutY="-3.0" mnemonicParsing="false" onAction="#BoutonSeDeconnecter" prefHeight="52.0" prefWidth="178.0" style="-fx-background-color: #83BCED;" text="SE DECONNECTER" textFill="WHITE">
             <font>
                 <Font size="17.0" />
             </font>
@@ -172,6 +158,11 @@
             </font>
         </Label>
       <Button layoutX="672.0" layoutY="7.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="365.0" style="-fx-background-color: black;" text="VOUS ÊTES CONNECTÉ" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="-8.0" mnemonicParsing="false" onAction="#retourPremierePageMenu" prefHeight="52.0" prefWidth="151.0" style="-fx-background-color: #83BCED;" text="MENU" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>

@@ -1,5 +1,6 @@
 package com.example.bonprojetjavafx;
 
+import classes.Client;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -24,7 +25,6 @@ import javafx.scene.control.DatePicker;
 public class HelloController {
 
     private BaseDeDonnee b1 = new BaseDeDonnee();
-
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
@@ -37,7 +37,6 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
-
     @FXML
     private void BoutonAdministrateur(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-administrateur.fxml"));
@@ -50,7 +49,6 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
-
     @FXML
     private void retourPremierePage(MouseEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
@@ -63,7 +61,18 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
-
+    @FXML
+    private void retourPremierePageMenu(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
     @FXML
     private void BoutonActionSeConnecter(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
