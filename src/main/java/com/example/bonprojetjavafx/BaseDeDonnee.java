@@ -303,12 +303,12 @@ public class BaseDeDonnee {
         for(Hebergement elem : listeFiltre)
             System.out.println(elem.getNom());
     }
-    public void InscriptionClient(String firstname,String lastname,String username, String email, String wordtopass){
+    public void InscriptionClient(Client iencli) {
 
         String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
         String password = "";
-        boolean exist=false;
+        boolean exist = false;
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
@@ -316,41 +316,37 @@ public class BaseDeDonnee {
             ResultSet resConnexion = stmt.executeQuery("select * from Connexion_Client");
 
             //lire un élément de la bdd
-            while(resConnexion.next()){
-                if ((resConnexion.getString("Email").compareTo(email)==0) || (resConnexion.getString("Pseudo").compareTo(username)==0) && (resConnexion.getString("Password").compareTo(wordtopass)==0))
-                {
-                    exist=true;
+            while (resConnexion.next()) {
+                if ((resConnexion.getString("Email").compareTo(iencli.getEmail()) == 0) || (resConnexion.getString("Pseudo").compareTo(iencli.getPseudo()) == 0) && (resConnexion.getString("Password").compareTo(iencli.getPassword()) == 0)) {
+                    exist = true;
                 }
             }
-            if(exist)
-            {
+            if (exist) {
                 System.out.println("ERREUR 404 ! PSEUDO OU ADRESSE MAIL DEJA UTILISÉ ! ");
             }
-            if(!exist)
-            {
+            if (!exist) {
                 String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement statement = conn.prepareStatement(query);
-                statement.setString(1, firstname);
-                statement.setString(2, lastname);
-                statement.setString(3, email);
-                statement.setString(4, username);
-                statement.setString(5, wordtopass);
+                statement.setString(1, iencli.getPrenom());
+                statement.setString(2, iencli.getNom());
+                statement.setString(3, iencli.getEmail());
+                statement.setString(4, iencli.getPseudo());
+                statement.setString(5, iencli.getPassword());
                 statement.executeUpdate();
                 System.out.println("ligne ajouter.");
             }
             conn.close();
-        }  catch (Exception e) {
+        } catch (Exception e) {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
         }
     }
-    public boolean Connexion_Client(String identification,String mdp) {
+    public boolean Connexion_Client(Client yenkli) {
 
         boolean verif=false;
         Scanner sc = new Scanner(System.in);
-        System.out.println(identification);
-        System.out.println(mdp);
-
+        System.out.println(yenkli.getPseudo());
+        System.out.println(yenkli.getPassword());
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
@@ -361,11 +357,45 @@ public class BaseDeDonnee {
             //lire un élément de la bdd
             while(resConnexion.next()){
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if ((resConnexion.getString("Email").compareTo(identification)==0) || (resConnexion.getString("Pseudo").compareTo(identification)==0) && (resConnexion.getString("Password").compareTo(mdp)==0)){
-                    //System.out.println("Bienvenue sur votre compte client " + resConnexion.getString("Prenom") + " " + resConnexion.getString("Nom") + " !!!");
-                    verif=true;
+                if ((resConnexion.getString("Email").compareTo(yenkli.getPseudo())==0) || (resConnexion.getString("Pseudo").compareTo(yenkli.getPseudo())==0) && (resConnexion.getString("Password").compareTo(yenkli.getPassword())==0)){
+                    System.out.println("a");
+                    return true;
                 }
                 else {
+                    System.out.println("b");
+                    verif=false;
+                }
+            }
+            con.close();
+
+        } catch (Exception e){
+            System.out.println("Error :" + e.getMessage());
+        }
+        return verif;
+    }
+
+    public boolean Connexion_Admin(Administrateur ad) {
+
+        boolean verif=false;
+        Scanner sc = new Scanner(System.in);
+        System.out.println(ad.getLogin());
+        System.out.println(ad.getMotDePasse());
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
+            //lire un élément de la bdd
+            Statement stConnexion = con.createStatement();
+            ResultSet resConnexion = stConnexion.executeQuery("select * from Connexion_Admin");
+
+            //lire un élément de la bdd
+            while(resConnexion.next()){
+                //System.out.println("Pays : " + resHotel.getString("pays"));
+                if ((resConnexion.getString("Login").compareTo(ad.toString())==0) || (resConnexion.getString("MotDePasse").compareTo(ad.getMotDePasse())==0)){
+                    System.out.println("a");
+                    return true;
+                }
+                else {
+                    System.out.println("b");
                     verif=false;
                 }
             }
