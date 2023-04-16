@@ -18,12 +18,12 @@
          </image>
       </ImageView>
       <Label layoutX="571.0" layoutY="54.0" text="ADMINISTRATEUR" />
-      <Button layoutX="1071.0" layoutY="21.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="356.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AUX CHOIX D'HEBERGEMENT" textFill="WHITE">
+      <Button layoutX="1071.0" layoutY="21.0" mnemonicParsing="false" onAction="#retourChoixHebergement" prefHeight="37.0" prefWidth="356.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AUX CHOIX D'HEBERGEMENT" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="22.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AU MENU PRINCIPAL" textFill="WHITE">
+      <Button layoutX="37.0" layoutY="22.0" mnemonicParsing="false" onAction="#retourMenuPrincipal" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AU MENU PRINCIPAL" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
@@ -44,7 +44,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="NomDuLogementTextField" layoutX="223.0" layoutY="295.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NomAppartAjoutTextField" layoutX="223.0" layoutY="295.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
       <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="295.0" prefHeight="22.0" prefWidth="155.0" text="Nom du logement :">
          <font>
             <Font size="16.0" />
@@ -85,14 +85,14 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="223.0" layoutY="345.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="223.0" layoutY="395.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="223.0" layoutY="445.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="223.0" layoutY="495.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="223.0" layoutY="545.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="223.0" layoutY="595.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="223.0" layoutY="645.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="963.0" layoutY="295.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="PrixAppartAjoutTextField" layoutX="223.0" layoutY="345.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="LieuAppartAjoutTextField" layoutX="223.0" layoutY="395.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NumEtageAppartAjoutTextField" layoutX="223.0" layoutY="445.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="BalconAppartAjoutTextField" layoutX="223.0" layoutY="495.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="DistCentreAppartAjoutTextField" layoutX="223.0" layoutY="545.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NBChambreAppartAjoutTextField" layoutX="223.0" layoutY="595.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NBSalleDeBainAppartAjoutTextField" layoutX="223.0" layoutY="645.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="SurfaceAppartAjoutTextField" layoutX="963.0" layoutY="295.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
       <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="295.0" prefHeight="22.0" prefWidth="155.0" text="Surface :">
          <font>
             <Font size="16.0" />
@@ -133,14 +133,14 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="963.0" layoutY="345.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="963.0" layoutY="395.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="963.0" layoutY="445.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="963.0" layoutY="495.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="963.0" layoutY="545.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="963.0" layoutY="595.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <TextField layoutX="963.0" layoutY="645.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
-      <Button layoutX="756.0" layoutY="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AUX CHOIX D'ACTION" textFill="WHITE">
+      <TextField fx:id="NBPersoAppartAjoutTextField" layoutX="963.0" layoutY="345.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NoteClientAppartAjoutTextField" layoutX="963.0" layoutY="395.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="WifiAppartAjoutTextField" layoutX="963.0" layoutY="445.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="ClimAppartAjoutTextField" layoutX="963.0" layoutY="495.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="FumeurAppartAjoutTextField" layoutX="963.0" layoutY="545.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="AnnimauxAppartAjoutTextField" layoutX="963.0" layoutY="595.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="ParkingAppartAjoutTextField" layoutX="963.0" layoutY="645.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <Button layoutX="756.0" layoutY="21.0" mnemonicParsing="false" onAction="#retourChoixAction" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AUX CHOIX D'ACTION" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
