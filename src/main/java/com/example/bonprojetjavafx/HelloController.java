@@ -23,6 +23,8 @@ import javafx.scene.control.DatePicker;
 
 
 public class HelloController {
+
+    private BaseDeDonnee b1 = new BaseDeDonnee();
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
