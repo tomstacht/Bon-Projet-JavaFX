@@ -308,7 +308,7 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public void InscriptionClient(String firstname,String lastname,String username, String email, String wordtopass){
+    public void InscriptionClient(Client iencli){
 
         String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
@@ -322,7 +322,7 @@ public class BaseDeDonnee {
 
             //lire un élément de la bdd
             while(resConnexion.next()){
-                if ((resConnexion.getString("Email").compareTo(email)==0) || (resConnexion.getString("Pseudo").compareTo(username)==0) && (resConnexion.getString("Password").compareTo(wordtopass)==0))
+                if ((resConnexion.getString("Email").compareTo(iencli.getEmail())==0) || (resConnexion.getString("Pseudo").compareTo(iencli.getPseudo())==0) && (resConnexion.getString("Password").compareTo(iencli.getPassword())==0))
                 {
                     exist=true;
                 }
@@ -335,11 +335,11 @@ public class BaseDeDonnee {
             {
                 String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement statement = conn.prepareStatement(query);
-                statement.setString(1, firstname);
-                statement.setString(2, lastname);
-                statement.setString(3, email);
-                statement.setString(4, username);
-                statement.setString(5, wordtopass);
+                statement.setString(1, iencli.getPrenom());
+                statement.setString(2, iencli.getNom());
+                statement.setString(3, iencli.getEmail());
+                statement.setString(4, iencli.getPseudo());
+                statement.setString(5, iencli.getPassword());
                 statement.executeUpdate();
                 System.out.println("ligne ajouter.");
             }
