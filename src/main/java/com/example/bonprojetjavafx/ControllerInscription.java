@@ -1,5 +1,6 @@
 package com.example.bonprojetjavafx;
 
+import classes.Client;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 public class ControllerInscription {
     BaseDeDonnee baseinscription=new BaseDeDonnee();
+    Client inscriptionclient= new Client();
     @FXML
     private Button CancelButton;
     @FXML
@@ -60,12 +62,12 @@ public class ControllerInscription {
     public void InscriptionButtonOnAction(ActionEvent e) throws IOException{
         if (UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false && MailTextField.getText().isBlank()==false && PrenomTextField.getText().isBlank()==false && NomTextField.getText().isBlank()==false)
         {
-            String prenom=PrenomTextField.getText();
-            String nom = NomTextField.getText();
-            String pseudo = UsernameTextField.getText();
-            String Mail = MailTextField.getText();
-            String mdpp = PasswordTextField.getText();
-            baseinscription.InscriptionClient(prenom,nom,Mail,pseudo,mdpp);
+            inscriptionclient.setPrenom(PrenomTextField.getText());
+            inscriptionclient.setNom(NomTextField.getText());
+            inscriptionclient.setPseudo(UsernameTextField.getText());
+            inscriptionclient.setEmail(MailTextField.getText());
+            inscriptionclient.setPassword(PasswordTextField.getText());
+            baseinscription.InscriptionClient(inscriptionclient);
             InscriptionMessageLabel.setText("VOUS ETES BIEN INSCRIT !");
 
             //Ouverture page connexion

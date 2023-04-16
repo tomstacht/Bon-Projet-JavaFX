@@ -1,5 +1,6 @@
 package com.example.bonprojetjavafx;
 
+import classes.Client;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -34,7 +35,6 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
-
     @FXML
     private void BoutonAdministrateur(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-administrateur.fxml"));
@@ -47,7 +47,6 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
-
     @FXML
     private void retourPremierePage(MouseEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
@@ -60,7 +59,6 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
-
     @FXML
     private void BoutonActionSeConnecter(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
@@ -85,9 +83,8 @@ public class HelloController {
         stage.show();
         currentStage.close();
     }
-
     private BaseDeDonnee b1 = new BaseDeDonnee();
-
+    private Client clientel = new Client();
     private boolean hotel;
     private boolean chalet;
     private boolean villa;
@@ -163,7 +160,7 @@ public class HelloController {
         System.out.println(NbAdulteBdd);
         String NbEnfantsBdd = NombreEnfantTextField.getText();
         System.out.println(NbEnfantsBdd);
-        b1.rechercheFiltre(listeCheckbox);
+        //b1.rechercheFiltre(listeCheckbox);
     }
 
     @FXML

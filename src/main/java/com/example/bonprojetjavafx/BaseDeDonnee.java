@@ -5,6 +5,8 @@ import classes.*;
 public class BaseDeDonnee {
     String type_Logement;
 
+    ArrayList<Administrateur> listeAmdin = new ArrayList<Administrateur>();
+    ArrayList<Client> listeClient = new ArrayList<Client>();
     ArrayList<Hebergement> listeHebergements = new ArrayList<Hebergement>();
     ArrayList<Appartement> listeAppart = new ArrayList<Appartement>();
     ArrayList<Chalet> listeChalet = new ArrayList<Chalet>();
@@ -103,8 +105,51 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
+    public void initBddAdmin(){
+        String url = "jdbc:mysql://localhost/projet ";
+        String user = "root";
+        String password = "";
+        try{
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmtAdmin = conn.createStatement();
+            ResultSet rsAdmin = stmtAdmin.executeQuery("SELECT * FROM Connexion_Admin");
+            while(rsAdmin.next()){
+                String log=rsAdmin.getString("Login");
+                String mdpp=rsAdmin.getString("MotDePasse");
+                listeAmdin.add(new Administrateur(log,mdpp));
+            }
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
+        for(int i=0;i<listeAmdin.size();i++)
+            System.out.println(listeAmdin.get(i).getLogin());
+    }
+    public void initBddClient(){
+        String url = "jdbc:mysql://localhost/projet ";
+        String user = "root";
+        String password = "";
+        try{
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmtClient = conn.createStatement();
+            ResultSet rsClient = stmtClient.executeQuery("SELECT * FROM Connexion_Client");
+            while(rsClient.next()){
+                String prenom=rsClient.getString("Prenom");
+                String nom=rsClient.getString("Nom");
+                String mail=rsClient.getString("Email");
+                String pseudo=rsClient.getString("Pseudo");
+                String passworde =rsClient.getString("Password");
+                listeClient.add(new Client(prenom,nom,mail,pseudo,passworde));
+            }
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
 
-    public void initBdd(){
+        for(int i=0;i<listeClient.size();i++)
+            System.out.println(listeClient.get(i).getNom());
+    }
+     public void initBdd(){
         String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
         String password = "root";
@@ -263,203 +308,7 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public void rechercheFiltre(ArrayList<Boolean> listeCheckbox) {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ou souhaitez-vous aller ?");
-        String ville = sc.nextLine();
-        try {
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd", "root", "root");
-            //lire un élément de la bdd
-            Statement stHotel = con.createStatement();
-            ResultSet resHotel = stHotel.executeQuery("select * from Hotel");
-
-            Statement stVilla = con.createStatement();
-            ResultSet resVilla = stVilla.executeQuery("select * from Villa");
-
-            Statement stAppart = con.createStatement();
-            ResultSet resAppart = stAppart.executeQuery("select * from Appartement");
-
-            Statement stChalet = con.createStatement();
-            ResultSet resChalet = stChalet.executeQuery("select * from Chalet");
-
-            //ajouter un élément dans la bdd
-            //String query = "INSERT INTO Hotel (pays, ville, nom_hotel, nb_etoile) values ('usa','nyc','manhattan','5')";
-            //PreparedStatement statement = con.prepareStatement(query);
-            //statement.executeUpdate();
-
-
-            //lire un élément de la bdd
-            while (resHotel.next()) {
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resHotel.getString("Lieu").compareTo(ville) == 0) {
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                /*if (resHotel.getString("Nom").compareTo("...")==0){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("NB_Etoile") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("Petit-Dej") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("Restaurant") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-
-                if (resHotel.getString("Marque").compareTo("...")==0){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("NB_Pers") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }
-                if (resHotel.getString("Note_Client") == ...){
-                    searchHotel.add(resHotel.getString("Nom"));
-                }*/
-            }
-
-            while (resVilla.next()) {
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resVilla.getString("Lieu").compareTo(ville) == 0) {
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                /*if (resVilla.getString("Nom").compareTo(...)==0){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Prix") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Piscine") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("NB_Chambre") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("NB_SDB") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("NB_Personne") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Note_Client") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Wifi") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Climatisation") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Fumeur") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Animaux") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }
-                if (resVilla.getString("Parking") == ...){
-                    searchVilla.add(resVilla.getString("Nom"));
-                }*/
-
-            }
-
-            while (resAppart.next()) {
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resAppart.getString("Lieu").compareTo(ville) == 0) {
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                /*if (resAppart.getString("Nom").compareTo(...)==0){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Prix") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("NB_Chambre") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("NB_SDB") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("NB_Personne") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Note_Client") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Wifi") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Climatisation") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Fumeur") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Animaux") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }
-                if (resAppart.getString("Parking") == ...){
-                    searchAppart.add(resAppart.getString("Nom"));
-                }*/
-            }
-
-            while (resChalet.next()) {
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if (resChalet.getString("Lieu").compareTo(ville) == 0) {
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                /*if (resChalet.getString("Nom").compareTo(ville)==0){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Prix") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Local_Ski") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Cheminer") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("D_Chalet-Piste") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("NB_Chambre") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("NB_SDB") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("NB_Personne") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Note_Client") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Wifi") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Climatisation") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Fumeur") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Animaux") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }
-                if (resChalet.getString("Parking") == ...){
-                    searchChalet.add(resChalet.getString("Nom"));
-                }*/
-            }
-
-            con.close();
-
-        } catch (Exception e) {
-            System.out.println("Error :" + e.getMessage());
-        }
-    }
-    public void InscriptionClient(String firstname,String lastname,String username, String email, String wordtopass){
+    public void InscriptionClient(Client iencli){
 
         String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
@@ -473,7 +322,7 @@ public class BaseDeDonnee {
 
             //lire un élément de la bdd
             while(resConnexion.next()){
-                if ((resConnexion.getString("Email").compareTo(email)==0) || (resConnexion.getString("Pseudo").compareTo(username)==0) && (resConnexion.getString("Password").compareTo(wordtopass)==0))
+                if ((resConnexion.getString("Email").compareTo(iencli.getEmail())==0) || (resConnexion.getString("Pseudo").compareTo(iencli.getPseudo())==0) && (resConnexion.getString("Password").compareTo(iencli.getPassword())==0))
                 {
                     exist=true;
                 }
@@ -486,11 +335,11 @@ public class BaseDeDonnee {
             {
                 String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement statement = conn.prepareStatement(query);
-                statement.setString(1, firstname);
-                statement.setString(2, lastname);
-                statement.setString(3, email);
-                statement.setString(4, username);
-                statement.setString(5, wordtopass);
+                statement.setString(1, iencli.getPrenom());
+                statement.setString(2, iencli.getNom());
+                statement.setString(3, iencli.getEmail());
+                statement.setString(4, iencli.getPseudo());
+                statement.setString(5, iencli.getPassword());
                 statement.executeUpdate();
                 System.out.println("ligne ajouter.");
             }
@@ -500,13 +349,12 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public boolean Connexion_Client(String identification,String mdp) {
+    public boolean Connexion_Client(Client yenkli) {
 
         boolean verif=false;
         Scanner sc = new Scanner(System.in);
-        System.out.println(identification);
-        System.out.println(mdp);
-
+        System.out.println(yenkli.getPseudo());
+        System.out.println(yenkli.getPassword());
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
@@ -517,11 +365,12 @@ public class BaseDeDonnee {
             //lire un élément de la bdd
             while(resConnexion.next()){
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if ((resConnexion.getString("Email").compareTo(identification)==0) || (resConnexion.getString("Pseudo").compareTo(identification)==0) && (resConnexion.getString("Password").compareTo(mdp)==0)){
-                    //System.out.println("Bienvenue sur votre compte client " + resConnexion.getString("Prenom") + " " + resConnexion.getString("Nom") + " !!!");
-                    verif=true;
+                if ((resConnexion.getString("Email").compareTo(yenkli.getPseudo())==0) || (resConnexion.getString("Pseudo").compareTo(yenkli.getPseudo())==0) && (resConnexion.getString("Password").compareTo(yenkli.getPassword())==0)){
+                    System.out.println("a");
+                    return true;
                 }
                 else {
+                    System.out.println("b");
                     verif=false;
                 }
             }

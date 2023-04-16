@@ -1,5 +1,6 @@
 package com.example.bonprojetjavafx;
 
+import classes.Client;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -18,6 +19,7 @@ import javafx.scene.control.PasswordField;
 
 public class ControllerConnexion {
     BaseDeDonnee base=new BaseDeDonnee();
+    Client clientfidel= new Client();
 
     @FXML
     private Button CancelButton;
@@ -43,7 +45,6 @@ public class ControllerConnexion {
         newStage.show();
         currentStage.close();
     }
-
     @FXML
     private void retourPremierePage(MouseEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
@@ -56,7 +57,6 @@ public class ControllerConnexion {
         newStage.show();
         currentStage.close();
     }
-
     private boolean test;
     @FXML
     private Label loginMessageLabel;
@@ -66,9 +66,10 @@ public class ControllerConnexion {
     private TextField PasswordTextField;
     public void loginButtonOnAction(ActionEvent e) throws IOException {
         if(UsernameTextField.getText().isBlank() == false && PasswordTextField.getText().isBlank() == false){
-            String id = UsernameTextField.getText();
-            String mdpp = PasswordTextField.getText();
-            test=base.Connexion_Client(id,mdpp);
+            clientfidel.setPseudo(UsernameTextField.getText());
+            clientfidel.setPassword(PasswordTextField.getText());
+            test=base.Connexion_Client(clientfidel);
+            System.out.println(test);
             if (test==true)
             {
                 /*FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connecte.fxml"));
@@ -80,7 +81,7 @@ public class ControllerConnexion {
                 newStage.setScene(scene);
                 newStage.show();
                 currentStage.close();*/
-                loginMessageLabel.setText("bienvenue"+id);
+                loginMessageLabel.setText("Bienvenue "+clientfidel.getPseudo());
             }else
             {
                 loginMessageLabel.setText("Erreur dans la saisie de l'identifiant ou du mot de passe");

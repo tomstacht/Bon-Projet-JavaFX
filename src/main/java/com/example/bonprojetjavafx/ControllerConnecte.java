@@ -127,7 +127,7 @@ public class ControllerConnecte {
         System.out.println(NbAdulteBdd);
         String NbEnfantsBdd = NombreEnfantTextField.getText();
         System.out.println(NbEnfantsBdd);
-        b1.rechercheFiltre(listeCheckbox);
+        //b1.rechercheFiltre(listeCheckbox);
     }
 
     @FXML
