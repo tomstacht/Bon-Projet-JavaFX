@@ -88,8 +88,9 @@ public class ControllerConnecte {
     @FXML
     private TextField NombreEnfantTextField;
 
-    public void RechercherButtonOnAction(ActionEvent e){
+    /*public void RechercherButtonOnAction(ActionEvent e){
         MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
+        listeCheckbox.clear();
         listeCheckbox.add(hotel);
         listeCheckbox.add(villa);
         listeCheckbox.add(chalet);
@@ -127,8 +128,8 @@ public class ControllerConnecte {
         System.out.println(NbAdulteBdd);
         String NbEnfantsBdd = NombreEnfantTextField.getText();
         System.out.println(NbEnfantsBdd);
-        //b1.rechercheFiltre(listeCheckbox);
-    }
+        b1.filtrageBox(listeCheckbox);
+    }*/
 
     @FXML
     private CheckBox MyCheckBoxHotel;

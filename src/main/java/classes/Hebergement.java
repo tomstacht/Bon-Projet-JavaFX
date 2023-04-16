@@ -1,4 +1,5 @@
 package classes;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class  Hebergement {
@@ -139,4 +140,23 @@ public class  Hebergement {
     public void setFumeur(boolean fumeur) {
         this.fumeur = fumeur;
     }
+
+    /*public boolean satisfaitFiltres(ArrayList<Boolean> listeBool){
+        boolean satisfactionFinale=false;
+
+        for(int i=0;i<listeBool.size();i++){
+            {
+                satisfactionFinale=sat
+
+
+
+            }
+            if(listeBool.get(i)==true && i==0 && this instanceof Villa){
+                if(listeBool.get(i)==true && i==0 && this.getPrix()<150)
+                    if
+            }
+
+        }
+        return satisfactionFinale;
+    }*/
 }
