@@ -61,5 +61,6 @@
          </content>
       </ScrollPane>
       <Button fx:id="monBouton" layoutX="906.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleClick" text="Button" />
+      <Label fx:id="affichertitreHotel" layoutX="722.0" layoutY="365.0" prefHeight="17.0" prefWidth="591.0" />
    </children>
 </Pane>

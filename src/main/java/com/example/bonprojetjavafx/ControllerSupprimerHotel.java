@@ -64,6 +64,8 @@ public class ControllerSupprimerHotel {
 
     @FXML
     private Button monBouton;
+    @FXML
+    private Label affichertitreHotel;
 
     @FXML
     private void handleClick(ActionEvent event) {
@@ -80,13 +82,12 @@ public class ControllerSupprimerHotel {
             //String image = b1.getListeHotel().get(i).getImage();
             //hotel.setAlignment(Pos.CENTER_LEFT);
 
-
             //Label titre = new Label();
             String titre = b1.getListeHotel().get(i).getNom();
            // hotel.getChildren().addAll(titre);
-            System.out.println(titre);
+            affichertitreHotel.setText(titre);
 
-            System.out.println("Hamid");
+            System.out.println(titre);
 
         }
     }
