@@ -127,7 +127,7 @@ public class BaseDeDonnee {
         for(int i=0;i<listeClient.size();i++)
             System.out.println(listeClient.get(i).getNom());
     }
-    public void initBdd(){
+     public void initBdd(){
         String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
         String password = "root";

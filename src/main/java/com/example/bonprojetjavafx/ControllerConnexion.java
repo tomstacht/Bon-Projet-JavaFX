@@ -1,5 +1,6 @@
 package com.example.bonprojetjavafx;
 
+import classes.Client;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -18,6 +19,7 @@ import javafx.scene.control.PasswordField;
 
 public class ControllerConnexion {
     BaseDeDonnee base=new BaseDeDonnee();
+    Client clientfidel= new Client();
 
     @FXML
     private Button CancelButton;

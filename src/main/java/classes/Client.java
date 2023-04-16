@@ -14,6 +14,11 @@ public class Client {
         Pseudo = pseudo;
         Password = password;
     }
+
+    public Client() {
+
+    }
+
     public String getPrenom() {
         return Prenom;
     }
