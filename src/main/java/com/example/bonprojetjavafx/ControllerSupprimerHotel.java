@@ -76,7 +76,6 @@ public class ControllerSupprimerHotel {
         b1.initHebergements();
         System.out.println("fff");
 
-
         for(int i=0; i<b1.getListeHotel().size();i++){
             HBox hotel = new HBox();
             //String image = b1.getListeHotel().get(i).getImage();
@@ -84,9 +83,8 @@ public class ControllerSupprimerHotel {
 
             //Label titre = new Label();
             String titre = b1.getListeHotel().get(i).getNom();
-           // hotel.getChildren().addAll(titre);
             affichertitreHotel.setText(titre);
-
+            hotel.getChildren().addAll(affichertitreHotel);
             System.out.println(titre);
 
         }
