@@ -3,23 +3,15 @@ package com.example.bonprojetjavafx;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class ControllerSupprimerHotel implements Initializable {
+
+public class ControllerSupprimerHotel{
 
     private BaseDeDonnee b1 = new BaseDeDonnee();
     @FXML
@@ -86,8 +78,7 @@ public class ControllerSupprimerHotel implements Initializable {
         }
     }*/
 
-    @FXML
-    private VBox inteVbox;
+
 
     /*public void initialize(){
         b1.initHebergements();
@@ -98,32 +89,50 @@ public class ControllerSupprimerHotel implements Initializable {
             inteVbox.getChildren().addAll(titre);
         }
     }*/
-
+    /*@FXML
+    private VBox inteVbox;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         b1.initHebergements();
         for(int i=0; i<b1.getListeHotel().size();i++){
-            Label titre = new Label();
+            ImageView imageView = new ImageView();
+
+            //Image image = new Image("/Users/tomstachtchenko/Documents/ECE INGE3/SEMESTRE 2/PROJET INFO/Bon-Projet-JavaFX/LogoGetAway.png");
+            titre.setText(b1.getListeHotel().get(i).getImage());
+
+            /*imageView.setImage(image);
+            imageView.setFitWidth(200);
+            imageView.setFitHeight(200);
+
+            //Pane PaneTest = new Pane();
+            inteVbox.getChildren().addAll(imageView);
+
+
+            /*Label image = new Label();
+            Pane PaneTest = new Pane();
+            PaneTest.setPadding(new Insets(80,0,0,0));
+            //image.setText(b1.getListeHotel().get(i).getImage());
+            inteVbox.getChildren().addAll(PaneTest);*/
+
+            /*Label titre = new Label();
             titre.setText(b1.getListeHotel().get(i).getImage());
             titre.setTextFill(Color.BLACK);
-            titre.setPadding(new Insets(80,0,10,0));
+            titre.setPadding(new Insets(80,0,0,0));
             inteVbox.getChildren().addAll(titre);
 
             ScrollPane paneTest = new ScrollPane();
             HBox BoxTest = new HBox();
             paneTest.setContent(BoxTest);
-            paneTest.setMinHeight(310);
-            paneTest.setStyle("fx-background-color:blue");
+            paneTest.setMinHeight(100);
+            //paneTest.setStyle(String.valueOf(Color.BLUE));
             paneTest.setFitToWidth(true);
 
             BoxTest.setFillHeight(true);
-            BoxTest.setStyle("fx-background-color:red");
+            //BoxTest.setStyle(String.valueOf(Color.RED));
             BoxTest.setSpacing(15);
-            inteVbox.getChildren().addAll(paneTest);
-
-        }
-    }
+            inteVbox.getChildren().addAll(paneTest);*/
 }
+
 
 
 

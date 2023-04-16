@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -46,15 +47,14 @@
          </font>
       </Button>
       <Label fx:id="recupNomHotel" alignment="CENTER" layoutX="39.0" layoutY="203.0" prefHeight="25.0" prefWidth="498.0" />
-      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="51.0" layoutY="179.0" prefHeight="584.0" prefWidth="535.0">
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="51.0" layoutY="179.0" prefHeight="584.0" prefWidth="694.0">
          <content>
-            <VBox alignment="TOP_CENTER" prefWidth="516.0" spacing="20.0">
+            <VBox fx:id="inteVbox" alignment="TOP_CENTER" opacity="0.39" prefWidth="516.0" spacing="20.0">
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" />
                </padding>
                <children>
-                  <Label text="COUCOU" />
-                  <VBox fx:id="inteVbox" prefHeight="200.0" prefWidth="100.0" />
+                  <HBox fx:id="inteHbox" prefHeight="100.0" prefWidth="200.0" />
                </children>
             </VBox>
          </content>
