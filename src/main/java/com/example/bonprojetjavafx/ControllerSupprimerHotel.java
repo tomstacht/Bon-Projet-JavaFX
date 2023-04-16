@@ -1,6 +1,5 @@
 package com.example.bonprojetjavafx;
 
-import com.sun.javafx.menu.MenuItemBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
