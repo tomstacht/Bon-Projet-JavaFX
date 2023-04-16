@@ -16,6 +16,27 @@ public class BaseDeDonnee {
     ArrayList<String> searchAppart = new ArrayList<>();
     ArrayList<String> searchChalet = new ArrayList<>();
 
+    public ArrayList<Hebergement> getListeHebergements() {
+        return listeHebergements;
+    }
+
+    public ArrayList<Appartement> getListeAppart() {
+        return listeAppart;
+    }
+
+    public ArrayList<Chalet> getListeChalet() {
+        return listeChalet;
+    }
+
+
+    public ArrayList<Hotel> getListeHotel() {
+        return listeHotel;
+    }
+
+    public ArrayList<Villa> getListeVilla() {
+        return listeVilla;
+    }
+
     public void ajouterTable() {
         String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
@@ -132,7 +153,10 @@ public class BaseDeDonnee {
                 boolean fumeurAppart=rsAppart.getBoolean("Fumeur");
                 boolean animauxAppart=rsAppart.getBoolean("Animaux");
                 boolean parkingAppart=rsAppart.getBoolean("Parking");
-                listeAppart.add(new Appartement(idAppart, nomAppart, prixAppart, lieuAppart, distanceAppartCentreAppart, nbM2Appart, nbPersAppart, noteClientAppart, wifiAppart, climAppart, animauxAppart, parkingAppart, fumeurAppart, numEtageAppart, balconAppart, nbChambreAppart, nbSdbAppart));
+               // String lienAppart=rsAppart.getString("Lien");
+                String lienAppart="https://www.google.fr/imgres?imgurl=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2Fa2edd3_ba1b46617f6949629190e38eba2bf254~mv2.jpg%2Fv1%2Ffill%2Fw_636%2Ch_424%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_auto%2Fa2edd3_ba1b46617f6949629190e38eba2bf254~mv2.jpg&tbnid=bO5uOHScNQxCRM&vet=12ahUKEwik46L_qq7-AhW2nCcCHV_vDVYQMygAegUIARCeAQ..i&imgrefurl=https%3A%2F%2Fwww.manolitaparis.com%2Fbar&docid=RtRutuRB-SI0AM&w=636&h=424&q=manolita%20paris&hl=fr&authuser=0&ved=2ahUKEwik46L_qq7-AhW2nCcCHV_vDVYQMygAegUIARCeAQ";
+
+                listeAppart.add(new Appartement(idAppart, nomAppart, prixAppart, lieuAppart, distanceAppartCentreAppart, nbM2Appart, nbPersAppart, noteClientAppart, wifiAppart, climAppart, animauxAppart, parkingAppart, fumeurAppart, numEtageAppart, balconAppart, nbChambreAppart, nbSdbAppart, lienAppart));
             }
 
             Statement stmtChalet = conn.createStatement();
@@ -156,7 +180,10 @@ public class BaseDeDonnee {
                 boolean fumeurChalet=rsChalet.getBoolean("Fumeur");
                 boolean animauxChalet=rsChalet.getBoolean("Animaux");
                 boolean parkingChalet=rsChalet.getBoolean("Parking");
-                listeChalet.add(new Chalet(idChalet, nomChalet, prixChalet, lieuChalet, distanceChaletCentreChalet, nbM2Chalet, nbPersChalet, noteClientChalet, wifiChalet, climChalet, animauxChalet, parkingChalet, fumeurChalet, chemineeChalet, localSkiChalet, distanceChaletPisteChalet, nbChambresChalet, nbSDBChalet));
+                //String lienChalet=rsChalet.getString("Lien");
+                String lienChalet="https://www.google.fr/imgres?imgurl=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2Fa2edd3_ba1b46617f6949629190e38eba2bf254~mv2.jpg%2Fv1%2Ffill%2Fw_636%2Ch_424%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_auto%2Fa2edd3_ba1b46617f6949629190e38eba2bf254~mv2.jpg&tbnid=bO5uOHScNQxCRM&vet=12ahUKEwik46L_qq7-AhW2nCcCHV_vDVYQMygAegUIARCeAQ..i&imgrefurl=https%3A%2F%2Fwww.manolitaparis.com%2Fbar&docid=RtRutuRB-SI0AM&w=636&h=424&q=manolita%20paris&hl=fr&authuser=0&ved=2ahUKEwik46L_qq7-AhW2nCcCHV_vDVYQMygAegUIARCeAQ";
+
+                listeChalet.add(new Chalet(idChalet, nomChalet, prixChalet, lieuChalet, distanceChaletCentreChalet, nbM2Chalet, nbPersChalet, noteClientChalet, wifiChalet, climChalet, animauxChalet, parkingChalet, fumeurChalet, chemineeChalet, localSkiChalet, distanceChaletPisteChalet, nbChambresChalet, nbSDBChalet, lienChalet));
             }
 
             Statement stmtHotel = conn.createStatement();
@@ -179,7 +206,9 @@ public class BaseDeDonnee {
                 boolean animauxHotel=rsHotel.getBoolean("Animaux");
                 boolean parkingHotel=rsHotel.getBoolean("Parking");
                 boolean fumeurHotel=rsHotel.getBoolean("Fumeur");
-                listeHotel.add(new Hotel(idHotel, nomHotel, prixHotel, lieuHotel, distanceHotelCentreHotel, nbM2Hotel, nbPersHotel, noteClientHotel, wifiHotel, climHotel, animauxHotel, parkingHotel, fumeurHotel, nbEtoileHotel, petitDejHotel, restaurantHotel, companieHotel));
+               // String lienHotel=rsHotel.getString("Lien");
+                String lienHotel="https://www.google.fr/imgres?imgurl=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2Fa2edd3_ba1b46617f6949629190e38eba2bf254~mv2.jpg%2Fv1%2Ffill%2Fw_636%2Ch_424%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_auto%2Fa2edd3_ba1b46617f6949629190e38eba2bf254~mv2.jpg&tbnid=bO5uOHScNQxCRM&vet=12ahUKEwik46L_qq7-AhW2nCcCHV_vDVYQMygAegUIARCeAQ..i&imgrefurl=https%3A%2F%2Fwww.manolitaparis.com%2Fbar&docid=RtRutuRB-SI0AM&w=636&h=424&q=manolita%20paris&hl=fr&authuser=0&ved=2ahUKEwik46L_qq7-AhW2nCcCHV_vDVYQMygAegUIARCeAQ";
+                listeHotel.add(new Hotel(idHotel, nomHotel, prixHotel, lieuHotel, distanceHotelCentreHotel, nbM2Hotel, nbPersHotel, noteClientHotel, wifiHotel, climHotel, animauxHotel, parkingHotel, fumeurHotel, nbEtoileHotel, petitDejHotel, restaurantHotel, companieHotel, lienHotel));
             }
 
             Statement stmtVilla = conn.createStatement();
@@ -202,7 +231,10 @@ public class BaseDeDonnee {
                 boolean fumeurVilla=rsVilla.getBoolean("Fumeur");
                 boolean animauxVilla=rsVilla.getBoolean("Animaux");
                 boolean parkingVilla=rsVilla.getBoolean("Parking");
-                listeVilla.add(new Villa(idVilla, nomVilla, prixVilla, lieuVilla, distanceVillaCentreVilla, nbM2Villa, nbPersVilla, noteClientVilla, wifiVilla, climVilla, animauxVilla, parkingVilla, fumeurVilla, piscineVilla, distanceVillaMerVilla, nbChambresVilla, nbSDBVilla));
+              //  String lienVilla=rsVilla.getString("Lien");
+                String lienVilla="https://www.google.fr/imgres?imgurl=https%3A%2F%2Fstatic.wixstatic.com%2Fmedia%2Fa2edd3_ba1b46617f6949629190e38eba2bf254~mv2.jpg%2Fv1%2Ffill%2Fw_636%2Ch_424%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_auto%2Fa2edd3_ba1b46617f6949629190e38eba2bf254~mv2.jpg&tbnid=bO5uOHScNQxCRM&vet=12ahUKEwik46L_qq7-AhW2nCcCHV_vDVYQMygAegUIARCeAQ..i&imgrefurl=https%3A%2F%2Fwww.manolitaparis.com%2Fbar&docid=RtRutuRB-SI0AM&w=636&h=424&q=manolita%20paris&hl=fr&authuser=0&ved=2ahUKEwik46L_qq7-AhW2nCcCHV_vDVYQMygAegUIARCeAQ";
+
+                listeVilla.add(new Villa(idVilla, nomVilla, prixVilla, lieuVilla, distanceVillaCentreVilla, nbM2Villa, nbPersVilla, noteClientVilla, wifiVilla, climVilla, animauxVilla, parkingVilla, fumeurVilla, piscineVilla, distanceVillaMerVilla, nbChambresVilla, nbSDBVilla, lienVilla));
             }
 
             listeHebergements.clear();

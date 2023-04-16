@@ -1,4 +1,5 @@
 package com.example.bonprojetjavafx;
+import classes.Chalet;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -20,6 +21,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.DatePicker;
 
 public class ControllerAjouterChalet {
+    private Chalet ajoutchalet = new Chalet();
+    private BaseDeDonnee pourlechalet = new BaseDeDonnee();
     @FXML
     private TextField NomChaletAjoutTextField;
     @FXML
@@ -56,41 +59,42 @@ public class ControllerAjouterChalet {
     private TextField ParkingChaletAjoutTextField;
 
     public void AjouterChalet(ActionEvent event) {
+        ajoutchalet.setNom(NomChaletAjoutTextField.getText());
+        System.out.println(ajoutchalet.getNom());
+        ajoutchalet.setPrix(Integer.parseInt(PrixChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.getPrix());
+        ajoutchalet.setLieu(LieuChaletAjoutTextField.getText());
+        System.out.println(ajoutchalet.getLieu());
+        ajoutchalet.setLocalSki(Boolean.parseBoolean(LocalSkiChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.isLocalSki());
+        ajoutchalet.setCheminer(Boolean.parseBoolean(ChemineChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.isCheminer());
+        ajoutchalet.setDistance_piste(Float.parseFloat(DistPisteChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.getDistance_piste());
+        ajoutchalet.setDistanceCentre(Float.parseFloat(DistCentreChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.getDistanceCentre());
+        ajoutchalet.setNbChambres(Integer.parseInt(NBChambreChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.getNbChambres());
+        ajoutchalet.setNbSDB(Integer.parseInt(NBSalleDeBainChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.getNbSDB());
+        ajoutchalet.setM2(Integer.parseInt(SurfaceChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.getM2());
+        ajoutchalet.setNbPersonnes(Integer.parseInt(NBPersoChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.getNbPersonnes());
+        ajoutchalet.setNote(Float.parseFloat(NoteClientChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.getNote());
+        ajoutchalet.setWifi(Boolean.parseBoolean(WifiChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.isWifi());
+        ajoutchalet.setClim(Boolean.parseBoolean(ClimChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.isClim());
+        ajoutchalet.setFumeur(Boolean.parseBoolean(FumeurChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.isFumeur());
+        ajoutchalet.setAnimaux(Boolean.parseBoolean(AnnimauxChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.isAnimaux());
+        ajoutchalet.setParking(Boolean.parseBoolean(ParkingChaletAjoutTextField.getText()));
+        System.out.println(ajoutchalet.isParking());
+        pourlechalet.ajoutligneChalet(ajoutchalet);
 
-        String NomChaletAjoutTextFieldBDD = NomChaletAjoutTextField.getText();
-        System.out.println(NomChaletAjoutTextFieldBDD);
-        String PrixChaletAjoutTextFieldBDD = PrixChaletAjoutTextField.getText();
-        System.out.println(PrixChaletAjoutTextFieldBDD);
-        String LieuChaletAjoutTextFieldBDD = LieuChaletAjoutTextField.getText();
-        System.out.println(LieuChaletAjoutTextFieldBDD);
-        String LocalSkiChaletAjoutTextFieldBDD = LocalSkiChaletAjoutTextField.getText();
-        System.out.println(LocalSkiChaletAjoutTextFieldBDD);
-        String ChemineChaletAjoutTextFieldBDD = ChemineChaletAjoutTextField.getText();
-        System.out.println(ChemineChaletAjoutTextFieldBDD);
-        String DistPisteChaletAjoutTextFieldBDD = DistPisteChaletAjoutTextField.getText();
-        System.out.println(DistPisteChaletAjoutTextFieldBDD);
-        String DistCentreChaletAjoutTextFieldBDD = DistCentreChaletAjoutTextField.getText();
-        System.out.println(DistCentreChaletAjoutTextFieldBDD);
-        String NBChambreChaletAjoutTextFieldBDD = NBChambreChaletAjoutTextField.getText();
-        System.out.println(NBChambreChaletAjoutTextFieldBDD);
-        String NBSalleDeBainChaletAjoutTextFieldBDD = NBSalleDeBainChaletAjoutTextField.getText();
-        System.out.println(NBSalleDeBainChaletAjoutTextFieldBDD);
-        String SurfaceChaletAjoutTextFieldBDD = SurfaceChaletAjoutTextField.getText();
-        System.out.println(SurfaceChaletAjoutTextFieldBDD);
-        String NBPersoChaletAjoutTextFieldBDD = NBPersoChaletAjoutTextField.getText();
-        System.out.println(NBPersoChaletAjoutTextFieldBDD);
-        String NoteClientChaletAjoutTextFieldBDD = NoteClientChaletAjoutTextField.getText();
-        System.out.println(NoteClientChaletAjoutTextFieldBDD);
-        String WifiChaletAjoutTextFieldBDD = WifiChaletAjoutTextField.getText();
-        System.out.println(WifiChaletAjoutTextFieldBDD);
-        String ClimChaletAjoutTextFieldBDD = ClimChaletAjoutTextField.getText();
-        System.out.println(ClimChaletAjoutTextFieldBDD);
-        String FumeurChaletAjoutTextFieldBDD = FumeurChaletAjoutTextField.getText();
-        System.out.println(FumeurChaletAjoutTextFieldBDD);
-        String AnnimauxChaletAjoutTextFieldBDD = AnnimauxChaletAjoutTextField.getText();
-        System.out.println(AnnimauxChaletAjoutTextFieldBDD);
-        String ParkingChaletAjoutTextFieldBDD = ParkingChaletAjoutTextField.getText();
-        System.out.println(ParkingChaletAjoutTextFieldBDD);
     }
 
     @FXML
