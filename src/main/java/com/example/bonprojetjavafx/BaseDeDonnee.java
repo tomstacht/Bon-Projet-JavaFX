@@ -10,6 +10,7 @@ public class BaseDeDonnee {
     ArrayList<Chalet> listeChalet = new ArrayList<Chalet>();
     ArrayList<Hotel> listeHotel = new ArrayList<Hotel>();
     ArrayList<Villa> listeVilla = new ArrayList<Villa>();
+    ArrayList<Reservation> listeReservations = new ArrayList<Reservation>();
 
     ArrayList<String> searchHotel = new ArrayList<>();
     ArrayList<String> searchVilla = new ArrayList<>();
@@ -264,7 +265,7 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public void filtrageBox(ArrayList<Boolean> listeBool) {
+    public void filtrage(ArrayList<Boolean> listeBool, String choixVille, String nbAdultes, String nbEnfants) {
         ArrayList<Hebergement> listeFiltre = new ArrayList<>();
         ArrayList<Integer> listeintermediaire= new ArrayList<>();
 
@@ -300,8 +301,54 @@ public class BaseDeDonnee {
                 }
             }
         }
-        for(Hebergement elem : listeFiltre)
-            System.out.println(elem.getNom());
+
+        if(listeFiltre.isEmpty()) {
+            for (Hebergement h : listeHebergements)
+                if (h.getLieu().equals(choixVille))
+                    listeFiltre.add(h);
+        }
+
+        else if (!(listeFiltre.isEmpty())&& !(choixVille.isEmpty())) {
+            Iterator<Hebergement> it = listeFiltre.iterator();
+            while (it.hasNext()) {
+                Hebergement h = it.next();
+                if (!h.getLieu().equals(choixVille)) {
+                    it.remove();
+                }
+            }
+        }
+        System.out.println("Avant filtrage NBpers");
+        for(Hebergement item : listeFiltre)
+            System.out.println(item.getNom());
+
+        int nbFinal=0;
+
+        if(!(nbAdultes.isEmpty()) && !(nbEnfants.isEmpty())){
+            int nombreAdultes=Integer.parseInt(nbAdultes);
+            int nombreEnfants=Integer.parseInt(nbEnfants);
+            nbFinal=nombreAdultes+nombreEnfants;
+        }
+        else if(!(nbAdultes.isEmpty()) && (nbEnfants.isEmpty())){
+            nbFinal=Integer.parseInt(nbAdultes);
+        }
+        else if((nbAdultes.isEmpty()) && !(nbEnfants.isEmpty())){
+            nbFinal=Integer.parseInt(nbEnfants);
+        }
+
+        if(nbFinal!=0){
+            Iterator<Hebergement> ite = listeFiltre.iterator();
+            while (ite.hasNext()) {
+                Hebergement he = ite.next();
+                if (he.getNbPersonnes()!=nbFinal) {
+                    ite.remove();
+                }
+            }
+        }
+
+        System.out.println("Après le filtre personnes : ");
+        for(Hebergement item : listeFiltre)
+            System.out.println(item.getNom());
+
     }
     public void InscriptionClient(Client iencli) {
 
@@ -405,6 +452,33 @@ public class BaseDeDonnee {
             System.out.println("Error :" + e.getMessage());
         }
         return verif;
+    }
+
+    public void initReservation(){
+        String url = "jdbc:mysql://localhost:8889/bdd";
+        String user = "root";
+        String password = "root";
+
+        try{
+            Connection conn = DriverManager.getConnection(url, user, password);
+
+            Statement stmtReservation = conn.createStatement();
+            ResultSet rsReservation = stmtReservation.executeQuery("SELECT * FROM Reservation");
+            while(rsReservation.next()){
+                int idReservation=rsReservation.getInt("ID");
+                String nomAppart=rsReservation.getString("Nom");
+                String lieuAppart=rsReservation.getString("Ville");
+                String pseudo=rsReservation.getString("Pseudo");
+                String mail=rsReservation.getString("Mail");
+                String dateDebut=rsReservation.getString("Date_debut");
+                String dateFin=rsReservation.getString("Date_fin");
+                listeReservations.add(new Reservation(idReservation, nomAppart, lieuAppart, pseudo, mail, dateDebut, dateFin));
+            }
+
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
     }
 }
 
