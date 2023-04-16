@@ -4,8 +4,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -17,25 +15,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bonprojetjavafx.HelloController">
     <children>
-        <MenuButton layoutX="-1.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="145.0" style="-fx-background-color: #83BCED;" text="MENU" textAlignment="CENTER" textFill="WHITE">
-            <items>
-                <MenuItem mnemonicParsing="false" text="HISTORIQUE" />
-                <MenuItem mnemonicParsing="false" text="ADMINISTRATEURS" />
-                <MenuItem mnemonicParsing="false" text="VISITEURS" />
-                <MenuItem mnemonicParsing="false" text="QUI SOMMES NOUS ?" />
-                <MenuItem mnemonicParsing="false" text="AIDES" />
-            </items>
-            <font>
-                <Font name="System Bold" size="24.0" />
-            </font>
-        </MenuButton>
-        <Line endX="1248.9998779296875" endY="1.52587890625E-5" layoutX="190.0" layoutY="51.0" startX="-191.00003051757812" startY="1.52587890625E-5" stroke="#83bced" strokeWidth="5.0" />
-        <Button layoutX="1142.0" mnemonicParsing="false" onAction="#BoutonActionSeConnecter" prefHeight="52.0" prefWidth="151.0" style="-fx-background-color: #83BCED;" text="SE CONNECTER" textFill="WHITE" underline="true">
+        <Button layoutX="1142.0" mnemonicParsing="false" onAction="#BoutonActionSeConnecter" prefHeight="48.0" prefWidth="151.0" style="-fx-background-color: #83BCED;" text="SE CONNECTER" textFill="WHITE">
             <font>
                 <Font size="17.0" />
             </font>
         </Button>
-        <Button layoutX="1296.0" layoutY="-3.0" mnemonicParsing="false" onAction="#ButtonOnActionInscription" prefHeight="52.0" prefWidth="146.0" style="-fx-background-color: #83BCED;" text="S'INSCRIRE" textFill="WHITE" underline="true">
+        <Button layoutX="1296.0" layoutY="-3.0" mnemonicParsing="false" onAction="#ButtonOnActionInscription" prefHeight="53.0" prefWidth="146.0" style="-fx-background-color: #83BCED;" text="S'INSCRIRE" textFill="WHITE">
             <font>
                 <Font size="17.0" />
             </font>
@@ -171,5 +156,11 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
+      <Button layoutX="-8.0" mnemonicParsing="false" onAction="#retourPremierePageMenu" prefHeight="52.0" prefWidth="151.0" style="-fx-background-color: #83BCED;" text="MENU" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Line endX="1248.9998779296875" endY="1.52587890625E-5" layoutX="190.0" layoutY="50.0" startX="-191.00003051757812" startY="1.52587890625E-5" stroke="#83bced" strokeWidth="5.0" />
     </children>
 </Pane>
