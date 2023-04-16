@@ -31,12 +31,12 @@
             <Font size="32.0" />
          </font>
       </Button>
-      <Button layoutX="753.0" layoutY="442.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="APPARTEMENT" textFill="WHITE">
+      <Button layoutX="753.0" layoutY="442.0" mnemonicParsing="false" onAction="#BoutonAdminSupprimerAppartement" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="APPARTEMENT" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>
       </Button>
-      <Button layoutX="1113.0" layoutY="442.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="CHALET" textFill="WHITE">
+      <Button layoutX="1113.0" layoutY="442.0" mnemonicParsing="false" onAction="#BoutonAdminSupprimerChalet" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="CHALET" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>

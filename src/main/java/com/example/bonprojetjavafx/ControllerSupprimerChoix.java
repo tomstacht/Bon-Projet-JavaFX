@@ -48,4 +48,30 @@ public class ControllerSupprimerChoix {
         newStage.show();
         currentStage.close();
     }
+    @FXML
+    private void BoutonAdminSupprimerAppartement(ActionEvent event) throws IOException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-admin-supprimer-appartement.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway/ADMIN/Choix/Supprimer/Appartement.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
+    @FXML
+    private void BoutonAdminSupprimerChalet(ActionEvent event) throws IOException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-admin-supprimer-chalet.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway/ADMIN/Choix/Supprimer/Chalet.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
 }
