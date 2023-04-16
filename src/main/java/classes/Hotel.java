@@ -89,7 +89,7 @@ public class Hotel extends Hebergement {
                 note=0;
                 variable++;
             }
-            if (listeBool.get(i) == true && i == 11 && this.getNote() < 8) {
+            if (listeBool.get(i) == true && i == 12 && this.getNote() > 8) {
                 note=1;
                 variable++;
             }
