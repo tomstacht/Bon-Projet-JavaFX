@@ -22,4 +22,12 @@ import javafx.scene.control.DatePicker;
 
 public class ControllerAdminAjouter {
 
+    @FXML
+    private TextField NomDuLogementTextField;
+
+    public void AjouterAppartement(ActionEvent event) {
+        String AjoutNoDuLogementBDD = NomDuLogementTextField.getText();
+        System.out.println(AjoutNoDuLogementBDD);
+    }
+
 }

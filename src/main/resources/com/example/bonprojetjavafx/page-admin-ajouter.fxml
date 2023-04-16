@@ -44,7 +44,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField layoutX="223.0" layoutY="295.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NomDuLogementTextField" layoutX="223.0" layoutY="295.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
       <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="295.0" prefHeight="22.0" prefWidth="155.0" text="Nom du logement :">
          <font>
             <Font size="16.0" />
@@ -145,7 +145,7 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <Button layoutX="1192.0" layoutY="708.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: BLACK; -fx-border-radius: 30;" text="AJOUTER" textFill="WHITE">
+      <Button layoutX="1192.0" layoutY="708.0" mnemonicParsing="false" onAction="#AjouterAppartement" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: BLACK; -fx-border-radius: 30;" text="AJOUTER" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
