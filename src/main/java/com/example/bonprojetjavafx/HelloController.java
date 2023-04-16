@@ -162,17 +162,10 @@ public class HelloController {
         listeCheckbox.add(cheminee);
 
         System.out.println("Recherche lancée...");
-        /*String destinationbdd = DestinantionTextField.getText();
-        System.out.println(destinationbdd);
-        LocalDate dateArriveebdd = DateArriveeDatePicker.getValue();
-        System.out.println(dateArriveebdd);
-        LocalDate dateDepartbdd = DateDepartDatePicker.getValue();
-        System.out.println(dateDepartbdd);
+        String destinationbdd = DestinantionTextField.getText();
         String NbAdulteBdd = NombreAdulteTextField.getText();
-        System.out.println(NbAdulteBdd);
         String NbEnfantsBdd = NombreEnfantTextField.getText();
-        System.out.println(NbEnfantsBdd);*/
-        b1.filtrageBox(listeCheckbox);
+        b1.filtrage(listeCheckbox, destinationbdd, NbAdulteBdd, NbEnfantsBdd);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
         Parent root = loader.load();
