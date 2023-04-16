@@ -1,11 +1,14 @@
 package com.example.bonprojetjavafx;
 
 import classes.Client;
+import classes.Hebergement;
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -37,6 +40,7 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
+
     @FXML
     private void BoutonAdministrateur(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-administrateur.fxml"));
@@ -128,13 +132,21 @@ public class HelloController {
     @FXML
     private DatePicker DateArriveeDatePicker;
     @FXML
-    private DatePicker DateDepartDatePicker;
+    private Label NomLogement1;
+    @FXML
+    private Label NomLogement2;
+    @FXML
+    private Label NomLogement3;
+    @FXML
+    private Label NomLogement4;
+
     @FXML
     private TextField NombreAdulteTextField;
     @FXML
     private TextField NombreEnfantTextField;
 
     public void RechercherButtonOnAction(ActionEvent e) throws IOException{
+        ArrayList<Hebergement> listeFiltre = new ArrayList<>();
         b1.initHebergements();
         listeCheckbox.clear();
         MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
@@ -164,7 +176,12 @@ public class HelloController {
         String destinationbdd = DestinantionTextField.getText();
         String NbAdulteBdd = NombreAdulteTextField.getText();
         String NbEnfantsBdd = NombreEnfantTextField.getText();
-        b1.filtrage(listeCheckbox, destinationbdd, NbAdulteBdd, NbEnfantsBdd);
+        listeFiltre=b1.filtrage(listeCheckbox, destinationbdd, NbAdulteBdd, NbEnfantsBdd);
+
+        /*NomLogement1.setText(listeFiltre.get(0).getNom());
+        NomLogement2.setText(listeFiltre.get(1).getNom());
+        NomLogement3.setText(listeFiltre.get(2).getNom());
+        NomLogement4.setText(listeFiltre.get(3).getNom());*/
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
         Parent root = loader.load();

@@ -195,7 +195,7 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public void filtrage(ArrayList<Boolean> listeBool, String choixVille, String nbAdultes, String nbEnfants) {
+    public ArrayList<Hebergement> filtrage(ArrayList<Boolean> listeBool, String choixVille, String nbAdultes, String nbEnfants) {
         ArrayList<Hebergement> listeFiltre = new ArrayList<>();
         ArrayList<Integer> listeintermediaire= new ArrayList<>();
 
@@ -245,9 +245,6 @@ public class BaseDeDonnee {
                 }
             }
         }
-        System.out.println("Avant filtrage NBpers");
-        for(Hebergement item : listeFiltre)
-            System.out.println(item.getNom());
 
         int nbFinal=0;
 
@@ -271,9 +268,11 @@ public class BaseDeDonnee {
                 }
             }
         }
-        System.out.println("Après le filtre personnes : ");
+        System.out.println("Voici les hébergements filtrés : ");
         for(Hebergement item : listeFiltre)
             System.out.println(item.getNom());
+
+        return listeFiltre;
     }
     public void InscriptionClient(Client iencli) {
 
