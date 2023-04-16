@@ -5,8 +5,6 @@ import classes.*;
 public class BaseDeDonnee {
     String type_Logement;
 
-    ArrayList<Administrateur> listeAmdin = new ArrayList<Administrateur>();
-    ArrayList<Client> listeClient = new ArrayList<Client>();
     ArrayList<Hebergement> listeHebergements = new ArrayList<Hebergement>();
     ArrayList<Appartement> listeAppart = new ArrayList<Appartement>();
     ArrayList<Chalet> listeChalet = new ArrayList<Chalet>();
@@ -105,51 +103,8 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public void initBddAdmin(){
-        String url = "jdbc:mysql://localhost/projet ";
-        String user = "root";
-        String password = "";
-        try{
-            Connection conn = DriverManager.getConnection(url, user, password);
-            Statement stmtAdmin = conn.createStatement();
-            ResultSet rsAdmin = stmtAdmin.executeQuery("SELECT * FROM Connexion_Admin");
-            while(rsAdmin.next()){
-                String log=rsAdmin.getString("Login");
-                String mdpp=rsAdmin.getString("MotDePasse");
-                listeAmdin.add(new Administrateur(log,mdpp));
-            }
-        } catch (Exception e) {
-            System.err.println("Exception relevée...");
-            System.err.println(e.getMessage());
-        }
-        for(int i=0;i<listeAmdin.size();i++)
-            System.out.println(listeAmdin.get(i).getLogin());
-    }
-    public void initBddClient(){
-        String url = "jdbc:mysql://localhost/projet ";
-        String user = "root";
-        String password = "";
-        try{
-            Connection conn = DriverManager.getConnection(url, user, password);
-            Statement stmtClient = conn.createStatement();
-            ResultSet rsClient = stmtClient.executeQuery("SELECT * FROM Connexion_Client");
-            while(rsClient.next()){
-                String prenom=rsClient.getString("Prenom");
-                String nom=rsClient.getString("Nom");
-                String mail=rsClient.getString("Email");
-                String pseudo=rsClient.getString("Pseudo");
-                String passworde =rsClient.getString("Password");
-                listeClient.add(new Client(prenom,nom,mail,pseudo,passworde));
-            }
-        } catch (Exception e) {
-            System.err.println("Exception relevée...");
-            System.err.println(e.getMessage());
-        }
 
-        for(int i=0;i<listeClient.size();i++)
-            System.out.println(listeClient.get(i).getNom());
-    }
-     public void initHebergements(){
+    public void initHebergements(){
         String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
         String password = "root";
@@ -160,96 +115,97 @@ public class BaseDeDonnee {
             Statement stmtAppart = conn.createStatement();
             ResultSet rsAppart = stmtAppart.executeQuery("SELECT * FROM Appartement");
             while(rsAppart.next()){
-                int id=rsAppart.getInt("ID");
-                String nom=rsAppart.getString("Nom");
-                int prix=rsAppart.getInt("Prix");
-                String lieu=rsAppart.getString("Lieu");
-                int numEtage=rsAppart.getInt("Num_Etage");
-                boolean balcon=rsAppart.getBoolean("Balcon");
-                float distanceAppartCentre=rsAppart.getFloat("D_Appart-Centre");
-                int nbChambre=rsAppart.getInt("NB_Chambre");
-                int nbSdb=rsAppart.getInt("NB_SDB");
-                int nbM2=rsAppart.getInt("NB_M2");
-                int nbPers=rsAppart.getInt("NB_Personne");
-                float noteClient=rsAppart.getFloat("Note_Client");
-                boolean wifi=rsAppart.getBoolean("Wifi");
-                boolean clim=rsAppart.getBoolean("Climatisation");
-                boolean fumeur=rsAppart.getBoolean("Fumeur");
-                boolean animaux=rsAppart.getBoolean("Animaux");
-                boolean parking=rsAppart.getBoolean("Parking");
-                listeAppart.add(new Appartement(id, nom, prix, lieu, distanceAppartCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, numEtage, balcon, nbChambre, nbSdb));
+                int idAppart=rsAppart.getInt("ID");
+                String nomAppart=rsAppart.getString("Nom");
+                int prixAppart=rsAppart.getInt("Prix");
+                String lieuAppart=rsAppart.getString("Lieu");
+                int numEtageAppart=rsAppart.getInt("Num_Etage");
+                boolean balconAppart=rsAppart.getBoolean("Balcon");
+                float distanceAppartCentreAppart=rsAppart.getFloat("D_Appart-Centre");
+                int nbChambreAppart=rsAppart.getInt("NB_Chambre");
+                int nbSdbAppart=rsAppart.getInt("NB_SDB");
+                int nbM2Appart=rsAppart.getInt("NB_M2");
+                int nbPersAppart=rsAppart.getInt("NB_Personne");
+                float noteClientAppart=rsAppart.getFloat("Note_Client");
+                boolean wifiAppart=rsAppart.getBoolean("Wifi");
+                boolean climAppart=rsAppart.getBoolean("Climatisation");
+                boolean fumeurAppart=rsAppart.getBoolean("Fumeur");
+                boolean animauxAppart=rsAppart.getBoolean("Animaux");
+                boolean parkingAppart=rsAppart.getBoolean("Parking");
+                listeAppart.add(new Appartement(idAppart, nomAppart, prixAppart, lieuAppart, distanceAppartCentreAppart, nbM2Appart, nbPersAppart, noteClientAppart, wifiAppart, climAppart, animauxAppart, parkingAppart, fumeurAppart, numEtageAppart, balconAppart, nbChambreAppart, nbSdbAppart));
             }
 
             Statement stmtChalet = conn.createStatement();
             ResultSet rsChalet = stmtChalet.executeQuery("SELECT * FROM Chalet");
             while(rsChalet.next()){
-                int id=rsChalet.getInt("ID");
-                String nom=rsChalet.getString("Nom");
-                int prix=rsChalet.getInt("Prix");
-                String lieu=rsChalet.getString("Lieu");
-                boolean localSki=rsChalet.getBoolean("Local_Ski");
-                boolean cheminee=rsChalet.getBoolean("Cheminer");
-                float distanceChaletPiste=rsChalet.getFloat("D_Chalet-Piste");
-                float distanceChaletCentre=rsChalet.getFloat("D_Chalet-Centre");
-                int nbChambres=rsChalet.getInt("NB_CHAMBRE");
-                int nbSDB=rsChalet.getInt("NB_SDB");
-                int nbM2=rsChalet.getInt("NB_M2");
-                int nbPers=rsChalet.getInt("NB_Personne");
-                float noteClient=rsChalet.getFloat("Note_Client");
-                boolean wifi=rsChalet.getBoolean("Wifi");
-                boolean clim=rsChalet.getBoolean("Climatisation");
-                boolean fumeur=rsChalet.getBoolean("Fumeur");
-                boolean animaux=rsChalet.getBoolean("Animaux");
-                boolean parking=rsChalet.getBoolean("Parking");
-                listeChalet.add(new Chalet(id, nom, prix, lieu, distanceChaletCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, cheminee, localSki, distanceChaletPiste, nbChambres, nbSDB));
+                int idChalet=rsChalet.getInt("ID");
+                String nomChalet=rsChalet.getString("Nom");
+                int prixChalet=rsChalet.getInt("Prix");
+                String lieuChalet=rsChalet.getString("Lieu");
+                boolean localSkiChalet=rsChalet.getBoolean("Local_Ski");
+                boolean chemineeChalet=rsChalet.getBoolean("Cheminer");
+                float distanceChaletPisteChalet=rsChalet.getFloat("D_Chalet-Piste");
+                float distanceChaletCentreChalet=rsChalet.getFloat("D_Chalet-Centre");
+                int nbChambresChalet=rsChalet.getInt("NB_CHAMBRE");
+                int nbSDBChalet=rsChalet.getInt("NB_SDB");
+                int nbM2Chalet=rsChalet.getInt("NB_M2");
+                int nbPersChalet=rsChalet.getInt("NB_Personne");
+                float noteClientChalet=rsChalet.getFloat("Note_Client");
+                boolean wifiChalet=rsChalet.getBoolean("Wifi");
+                boolean climChalet=rsChalet.getBoolean("Climatisation");
+                boolean fumeurChalet=rsChalet.getBoolean("Fumeur");
+                boolean animauxChalet=rsChalet.getBoolean("Animaux");
+                boolean parkingChalet=rsChalet.getBoolean("Parking");
+                listeChalet.add(new Chalet(idChalet, nomChalet, prixChalet, lieuChalet, distanceChaletCentreChalet, nbM2Chalet, nbPersChalet, noteClientChalet, wifiChalet, climChalet, animauxChalet, parkingChalet, fumeurChalet, chemineeChalet, localSkiChalet, distanceChaletPisteChalet, nbChambresChalet, nbSDBChalet));
             }
 
             Statement stmtHotel = conn.createStatement();
             ResultSet rsHotel = stmtHotel.executeQuery("SELECT * FROM Hotel");
             while(rsHotel.next()){
-                int id=rsHotel.getInt("ID");
-                String nom=rsHotel.getString("Nom");
-                int prix=rsHotel.getInt("Prix");
-                String lieu=rsHotel.getString("Lieu");
-                int nbEtoile=rsHotel.getInt("NB_Etoile");
-                boolean petitDej=rsHotel.getBoolean("Petit-Dej");
-                boolean restaurant=rsHotel.getBoolean("Restaurant");
-                String companie=rsHotel.getString("Marque");
-                float distanceHotelCentre=rsHotel.getFloat("D_Hotel-Centre");
-                int nbM2=rsHotel.getInt("NB_M2");
-                int nbPers=rsHotel.getInt("NB_Pers");
-                float noteClient=rsHotel.getFloat("Note_Client");
-                boolean wifi=rsHotel.getBoolean("WIFI");
-                boolean clim=rsHotel.getBoolean("Clim");
-                boolean animaux=rsHotel.getBoolean("Animaux");
-                boolean parking=rsHotel.getBoolean("Parking");
-                boolean fumeur=rsHotel.getBoolean("Fumeur");
-                listeHotel.add(new Hotel(id, nom, prix, lieu, distanceHotelCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, nbEtoile, petitDej, restaurant, companie));
+                int idHotel=rsHotel.getInt("ID");
+                String nomHotel=rsHotel.getString("Nom");
+                int prixHotel=rsHotel.getInt("Prix");
+                String lieuHotel=rsHotel.getString("Lieu");
+                int nbEtoileHotel=rsHotel.getInt("NB_Etoile");
+                boolean petitDejHotel=rsHotel.getBoolean("Petit-Dej");
+                boolean restaurantHotel=rsHotel.getBoolean("Restaurant");
+                String companieHotel=rsHotel.getString("Marque");
+                float distanceHotelCentreHotel=rsHotel.getFloat("D_Hotel-Centre");
+                int nbM2Hotel=rsHotel.getInt("NB_M2");
+                int nbPersHotel=rsHotel.getInt("NB_Pers");
+                float noteClientHotel=rsHotel.getFloat("Note_Client");
+                boolean wifiHotel=rsHotel.getBoolean("WIFI");
+                boolean climHotel=rsHotel.getBoolean("Clim");
+                boolean animauxHotel=rsHotel.getBoolean("Animaux");
+                boolean parkingHotel=rsHotel.getBoolean("Parking");
+                boolean fumeurHotel=rsHotel.getBoolean("Fumeur");
+                listeHotel.add(new Hotel(idHotel, nomHotel, prixHotel, lieuHotel, distanceHotelCentreHotel, nbM2Hotel, nbPersHotel, noteClientHotel, wifiHotel, climHotel, animauxHotel, parkingHotel, fumeurHotel, nbEtoileHotel, petitDejHotel, restaurantHotel, companieHotel));
             }
 
             Statement stmtVilla = conn.createStatement();
             ResultSet rsVilla = stmtVilla.executeQuery("SELECT * FROM Villa");
             while(rsVilla.next()){
-                int id=rsVilla.getInt("ID");
-                String nom=rsVilla.getString("Nom");
-                int prix=rsVilla.getInt("Prix");
-                String lieu=rsVilla.getString("Lieu");
-                boolean piscine=rsVilla.getBoolean("Piscine");
-                float distanceVillaMer=rsVilla.getFloat("D_Villa-Mer");
-                float distanceVillaCentre=rsVilla.getFloat("D_Villa-Centre");
-                int nbChambres=rsVilla.getInt("NB_CHAMBRE");
-                int nbSDB=rsVilla.getInt("NB_SDB");
-                int nbM2=rsVilla.getInt("NB_M2");
-                int nbPers=rsVilla.getInt("NB_Personne");
-                float noteClient=rsVilla.getFloat("Note_Client");
-                boolean wifi=rsVilla.getBoolean("Wifi");
-                boolean clim=rsVilla.getBoolean("Climatisation");
-                boolean fumeur=rsVilla.getBoolean("Fumeur");
-                boolean animaux=rsVilla.getBoolean("Animaux");
-                boolean parking=rsVilla.getBoolean("Parking");
-                listeVilla.add(new Villa(id, nom, prix, lieu, distanceVillaCentre, nbM2, nbPers, noteClient, wifi, clim, animaux, parking, fumeur, piscine, distanceVillaMer, nbChambres, nbSDB));
+                int idVilla=rsVilla.getInt("ID");
+                String nomVilla=rsVilla.getString("Nom");
+                int prixVilla=rsVilla.getInt("Prix");
+                String lieuVilla=rsVilla.getString("Lieu");
+                boolean piscineVilla=rsVilla.getBoolean("Piscine");
+                float distanceVillaMerVilla=rsVilla.getFloat("D_Villa-Mer");
+                float distanceVillaCentreVilla=rsVilla.getFloat("D_Villa-Centre");
+                int nbChambresVilla=rsVilla.getInt("NB_CHAMBRE");
+                int nbSDBVilla=rsVilla.getInt("NB_SDB");
+                int nbM2Villa=rsVilla.getInt("NB_M2");
+                int nbPersVilla=rsVilla.getInt("NB_Personne");
+                float noteClientVilla=rsVilla.getFloat("Note_Client");
+                boolean wifiVilla=rsVilla.getBoolean("Wifi");
+                boolean climVilla=rsVilla.getBoolean("Climatisation");
+                boolean fumeurVilla=rsVilla.getBoolean("Fumeur");
+                boolean animauxVilla=rsVilla.getBoolean("Animaux");
+                boolean parkingVilla=rsVilla.getBoolean("Parking");
+                listeVilla.add(new Villa(idVilla, nomVilla, prixVilla, lieuVilla, distanceVillaCentreVilla, nbM2Villa, nbPersVilla, noteClientVilla, wifiVilla, climVilla, animauxVilla, parkingVilla, fumeurVilla, piscineVilla, distanceVillaMerVilla, nbChambresVilla, nbSDBVilla));
             }
 
+            listeHebergements.clear();
             listeHebergements.addAll(listeHotel);
             listeHebergements.addAll(listeAppart);
             listeHebergements.addAll(listeChalet);
@@ -321,27 +277,33 @@ public class BaseDeDonnee {
                         listeFiltre.add(h);
                     }
                 }
-
-
-                /*if(listeBool.get(i)==true && i==0 && h instanceof Villa)
-                    ((Villa) h).satisfaitFiltreHotel(listeBool);
-                if(listeBool.get(i)==true && i==0 && h instanceof Chalet)
-                    ((Chalet) h).satisfaitFiltreHotel(listeBool);*/
-
-
-
-
-
-
-                //if(h.satisfaitFiltres(listeBool))
-
+                if(listeBool.get(i)==true && i==1 && h instanceof Villa)
+                {
+                    listeintermediaire=((Villa) h).satisfaitFiltreVilla(listeBool);
+                    if(listeintermediaire.get(0)==1){//verif =1 dans le satistfait
+                        listeFiltre.add(h);
+                    }
+                }
+                if(listeBool.get(i)==true && i==2 && h instanceof Chalet)
+                {
+                    listeintermediaire=((Chalet) h).satisfaitFiltreChalet(listeBool);
+                    if(listeintermediaire.get(0)==1){//verif =1 dans le satistfait
+                        listeFiltre.add(h);
+                    }
+                }
+                if(listeBool.get(i)==true && i==3 && h instanceof Appartement)
+                {
+                    listeintermediaire=((Appartement) h).satisfaitFiltreAppart(listeBool);
+                    if(listeintermediaire.get(0)==1){//verif =1 dans le satistfait
+                        listeFiltre.add(h);
+                    }
+                }
             }
         }
-
         for(Hebergement elem : listeFiltre)
             System.out.println(elem.getNom());
     }
-    public void InscriptionClient(Client iencli){
+    public void InscriptionClient(String firstname,String lastname,String username, String email, String wordtopass){
 
         String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
@@ -355,7 +317,7 @@ public class BaseDeDonnee {
 
             //lire un élément de la bdd
             while(resConnexion.next()){
-                if ((resConnexion.getString("Email").compareTo(iencli.getEmail())==0) || (resConnexion.getString("Pseudo").compareTo(iencli.getPseudo())==0) && (resConnexion.getString("Password").compareTo(iencli.getPassword())==0))
+                if ((resConnexion.getString("Email").compareTo(email)==0) || (resConnexion.getString("Pseudo").compareTo(username)==0) && (resConnexion.getString("Password").compareTo(wordtopass)==0))
                 {
                     exist=true;
                 }
@@ -368,11 +330,11 @@ public class BaseDeDonnee {
             {
                 String query = "INSERT INTO Connexion_Client (Prenom, Nom, Email, Pseudo, Password) VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement statement = conn.prepareStatement(query);
-                statement.setString(1, iencli.getPrenom());
-                statement.setString(2, iencli.getNom());
-                statement.setString(3, iencli.getEmail());
-                statement.setString(4, iencli.getPseudo());
-                statement.setString(5, iencli.getPassword());
+                statement.setString(1, firstname);
+                statement.setString(2, lastname);
+                statement.setString(3, email);
+                statement.setString(4, username);
+                statement.setString(5, wordtopass);
                 statement.executeUpdate();
                 System.out.println("ligne ajouter.");
             }
@@ -382,12 +344,13 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public boolean Connexion_Client(Client yenkli) {
+    public boolean Connexion_Client(String identification,String mdp) {
 
         boolean verif=false;
         Scanner sc = new Scanner(System.in);
-        System.out.println(yenkli.getPseudo());
-        System.out.println(yenkli.getPassword());
+        System.out.println(identification);
+        System.out.println(mdp);
+
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
@@ -398,44 +361,11 @@ public class BaseDeDonnee {
             //lire un élément de la bdd
             while(resConnexion.next()){
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if ((resConnexion.getString("Email").compareTo(yenkli.getPseudo())==0) || (resConnexion.getString("Pseudo").compareTo(yenkli.getPseudo())==0) && (resConnexion.getString("Password").compareTo(yenkli.getPassword())==0)){
-                    System.out.println("a");
-                    return true;
+                if ((resConnexion.getString("Email").compareTo(identification)==0) || (resConnexion.getString("Pseudo").compareTo(identification)==0) && (resConnexion.getString("Password").compareTo(mdp)==0)){
+                    //System.out.println("Bienvenue sur votre compte client " + resConnexion.getString("Prenom") + " " + resConnexion.getString("Nom") + " !!!");
+                    verif=true;
                 }
                 else {
-                    System.out.println("b");
-                    verif=false;
-                }
-            }
-            con.close();
-
-        } catch (Exception e){
-            System.out.println("Error :" + e.getMessage());
-        }
-        return verif;
-    }
-    public boolean Connexion_Admin(Administrateur ad) {
-
-        boolean verif=false;
-        Scanner sc = new Scanner(System.in);
-        System.out.println(ad.getLogin());
-        System.out.println(ad.getMotDePasse());
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
-            //lire un élément de la bdd
-            Statement stConnexion = con.createStatement();
-            ResultSet resConnexion = stConnexion.executeQuery("select * from Connexion_Admin");
-
-            //lire un élément de la bdd
-            while(resConnexion.next()){
-                //System.out.println("Pays : " + resHotel.getString("pays"));
-                if ((resConnexion.getString("Login").compareTo(ad.toString())==0) || (resConnexion.getString("MotDePasse").compareTo(ad.getMotDePasse())==0)){
-                    System.out.println("a");
-                    return true;
-                }
-                else {
-                    System.out.println("b");
                     verif=false;
                 }
             }

@@ -75,7 +75,7 @@ public class Hotel extends Hebergement {
                 etoiles=0;
                 variable++;
             }
-            if (listeBool.get(i) == true && i == 7 && this.getNb_etoile() < 4) {
+            if (listeBool.get(i) == true && i == 7 && this.getNb_etoile() > 4) {
                 etoiles=1;
                 variable++;
             }
