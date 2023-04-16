@@ -163,10 +163,6 @@ public class HelloController {
         String NbEnfantsBdd = NombreEnfantTextField.getText();
         System.out.println(NbEnfantsBdd);*/
         b1.filtrageBox(listeCheckbox);
-        for(int k=0;k<listeCheckbox.size();k++)
-        {
-            System.out.print(listeCheckbox.get(k)+"/");
-        }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
         Parent root = loader.load();
@@ -177,8 +173,6 @@ public class HelloController {
         stage.setScene(scene);
         stage.show();
         currentStage.close();
-
-
     }
 
     @FXML
