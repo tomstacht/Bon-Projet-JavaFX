@@ -305,11 +305,9 @@ public class BaseDeDonnee {
         if(listeFiltre.isEmpty()){
             System.out.println("liste vide");
             for(Hebergement h : listeHebergements)
-                if(h.getLieu().equals(choixVille)){
+                if(h.getLieu().equals(choixVille))
                     listeFiltre.add(h);
-                    System.out.println("ajout d'un hebergement");
-                }
-        }
+
 
         else{
             System.out.println("liste non vide");
@@ -318,7 +316,6 @@ public class BaseDeDonnee {
                 Hebergement h = it.next();
                 if (!h.getLieu().equals(choixVille)) {
                     it.remove();
-                    System.out.println("suppression d'un hebergement");
                 }
             }
         }
