@@ -17,6 +17,9 @@ public class HelloApplication extends Application {
         stage.show();
     }
     public static void main(String[] args) {
-        launch();
+
+        BaseDeDonnee base =new BaseDeDonnee();
+        base.lireReservation();
+        //launch();
     }
 }
