@@ -72,6 +72,8 @@ public class ControllerSupprimerHotel {
 
     public void scrollPane(ActionEvent event)  {
         b1.initHebergements();
+        System.out.println("fff");
+
 
         for(int i=0; i<b1.getListeHotel().size();i++){
             HBox hotel = new HBox();
@@ -79,9 +81,12 @@ public class ControllerSupprimerHotel {
             //hotel.setAlignment(Pos.CENTER_LEFT);
 
 
-            Label titre = new Label();
-            titre.setText(b1.getListeHotel().get(i).getNom());
-            hotel.getChildren().addAll(titre);
+            //Label titre = new Label();
+            String titre = b1.getListeHotel().get(i).getNom();
+           // hotel.getChildren().addAll(titre);
+            System.out.println(titre);
+
+            System.out.println("Hamid");
 
         }
     }
