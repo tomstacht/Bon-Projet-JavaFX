@@ -130,6 +130,14 @@ public class HelloController {
     @FXML
     private DatePicker DateDepartDatePicker;
     @FXML
+    private Label NomLogement1;
+    @FXML
+    private Label NomLogement2;
+    @FXML
+    private Label NomLogement3;
+    @FXML
+    private Label NomLogement4;
+    @FXML
     private TextField NombreAdulteTextField;
     @FXML
     private TextField NombreEnfantTextField;
