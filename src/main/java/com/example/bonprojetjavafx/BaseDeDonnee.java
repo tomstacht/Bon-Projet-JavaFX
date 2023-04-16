@@ -381,5 +381,37 @@ public class BaseDeDonnee {
         }
         return verif;
     }
+    public boolean Connexion_Admin(Administrateur ad) {
+
+        boolean verif=false;
+        Scanner sc = new Scanner(System.in);
+        System.out.println(ad.getLogin());
+        System.out.println(ad.getMotDePasse());
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
+            //lire un élément de la bdd
+            Statement stConnexion = con.createStatement();
+            ResultSet resConnexion = stConnexion.executeQuery("select * from Connexion_Admin");
+
+            //lire un élément de la bdd
+            while(resConnexion.next()){
+                //System.out.println("Pays : " + resHotel.getString("pays"));
+                if ((resConnexion.getString("Login").compareTo(ad.toString())==0) || (resConnexion.getString("MotDePasse").compareTo(ad.getMotDePasse())==0)){
+                    System.out.println("a");
+                    return true;
+                }
+                else {
+                    System.out.println("b");
+                    verif=false;
+                }
+            }
+            con.close();
+
+        } catch (Exception e){
+            System.out.println("Error :" + e.getMessage());
+        }
+        return verif;
+    }
 }
 

@@ -1,5 +1,7 @@
 package com.example.bonprojetjavafx;
 
+import classes.Administrateur;
+import classes.Client;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -22,6 +24,8 @@ import javafx.scene.control.DatePicker;
 
 public class ControllerAdministrateur {
 
+    Administrateur adminn = new Administrateur();
+    BaseDeDonnee labase = new BaseDeDonnee();
     @FXML
     private void BoutonAnnulerAdmin(ActionEvent event) throws IOException{
 
@@ -35,19 +39,33 @@ public class ControllerAdministrateur {
         newStage.show();
         currentStage.close();
     }
+    @FXML
+    private TextField AdminLogin;
+    @FXML
+    private TextField MotDePasseAdmin;
+
+    private boolean onvatester;
 
     @FXML
     private void BoutonConnexionAdmin(ActionEvent event) throws IOException{
+        if(AdminLogin.getText().isBlank() == false && MotDePasseAdmin.getText().isBlank() == false){
+            adminn.setLogin(AdminLogin.getText());
+            adminn.setMotDePasse(MotDePasseAdmin.getText());
+            onvatester=labase.Connexion_Admin(adminn);
+            System.out.println(onvatester);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-choix-admin.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Stage newStage = new Stage();
-        newStage.setTitle("GetAway/ADMIN/ChoixAction.com");
-        newStage.setScene(scene);
-        newStage.show();
-        currentStage.close();
+            if(onvatester==true)
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("page-choix-admin.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Stage newStage = new Stage();
+                newStage.setTitle("GetAway/ADMIN/ChoixAction.com");
+                newStage.setScene(scene);
+                newStage.show();
+                currentStage.close();
+            }
     }
-
+}
 }

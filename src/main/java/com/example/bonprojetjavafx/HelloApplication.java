@@ -20,7 +20,6 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
     public static void main(String[] args) {
         BaseDeDonnee b1 = new BaseDeDonnee();
         //b1.ajouterTable();
