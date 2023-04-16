@@ -95,8 +95,7 @@ public class HelloController {
         stage.show();
         currentStage.close();
     }
-    private BaseDeDonnee b1 = new BaseDeDonnee();
-    private Client clientel = new Client();
+
     private boolean hotel;
     private boolean chalet;
     private boolean villa;
@@ -133,7 +132,9 @@ public class HelloController {
     @FXML
     private TextField NombreEnfantTextField;
 
-    public void RechercherButtonOnAction(ActionEvent e){
+    public void RechercherButtonOnAction(ActionEvent e) throws IOException{
+        b1.initHebergements();
+        listeCheckbox.clear();
         MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
         listeCheckbox.add(hotel);
         listeCheckbox.add(villa);
@@ -157,12 +158,8 @@ public class HelloController {
         listeCheckbox.add(localSkis);
         listeCheckbox.add(cheminee);
 
-        for (int i=0;i<listeCheckbox.size();i++) {
-            System.out.print(listeCheckbox.get(i)+"/");
-        }
-        System.out.println("");
-        System.out.println("ButtonPushed=1");
-        String destinationbdd = DestinantionTextField.getText();
+        System.out.println("Recherche lancée...");
+        /*String destinationbdd = DestinantionTextField.getText();
         System.out.println(destinationbdd);
         LocalDate dateArriveebdd = DateArriveeDatePicker.getValue();
         System.out.println(dateArriveebdd);
@@ -171,8 +168,18 @@ public class HelloController {
         String NbAdulteBdd = NombreAdulteTextField.getText();
         System.out.println(NbAdulteBdd);
         String NbEnfantsBdd = NombreEnfantTextField.getText();
-        System.out.println(NbEnfantsBdd);
-        //b1.rechercheFiltre(listeCheckbox);
+        System.out.println(NbEnfantsBdd);*/
+        b1.filtrageBox(listeCheckbox);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.setTitle("GetAway/Home.com");
+        stage.setScene(scene);
+        stage.show();
+        currentStage.close();
     }
 
     @FXML
