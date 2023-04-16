@@ -61,7 +61,7 @@ public class ControllerConnexion {
             System.out.println(test);
             if (test==true)
             {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connecte.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
                 Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();

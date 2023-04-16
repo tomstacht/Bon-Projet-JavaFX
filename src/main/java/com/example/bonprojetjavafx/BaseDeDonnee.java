@@ -275,9 +275,9 @@ public class BaseDeDonnee {
     }
     public void InscriptionClient(Client iencli) {
 
-        String url = "jdbc:mysql://localhost/projet ";
+        String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
-        String password = "";
+        String password = "root";
         boolean exist = false;
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
@@ -319,7 +319,7 @@ public class BaseDeDonnee {
         System.out.println(yenkli.getPassword());
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd", "root", "root");
             //lire un élément de la bdd
             Statement stConnexion = con.createStatement();
             ResultSet resConnexion = stConnexion.executeQuery("select * from Connexion_Client");
@@ -351,7 +351,7 @@ public class BaseDeDonnee {
         System.out.println(ad.getMotDePasse());
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/bdd", "root", "root");
             //lire un élément de la bdd
             Statement stConnexion = con.createStatement();
             ResultSet resConnexion = stConnexion.executeQuery("select * from Connexion_Admin");
