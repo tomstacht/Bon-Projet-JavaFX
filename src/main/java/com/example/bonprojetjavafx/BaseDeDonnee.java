@@ -277,19 +277,28 @@ public class BaseDeDonnee {
                         listeFiltre.add(h);
                     }
                 }
+                if(listeBool.get(i)==true && i==1 && h instanceof Villa)
+                {
+                    listeintermediaire=((Villa) h).satisfaitFiltreVilla(listeBool);
+                    if(listeintermediaire.get(0)==1){//verif =1 dans le satistfait
+                        listeFiltre.add(h);
+                    }
+                }
+                if(listeBool.get(i)==true && i==2 && h instanceof Chalet)
+                {
+                    listeintermediaire=((Chalet) h).satisfaitFiltreChalet(listeBool);
+                    if(listeintermediaire.get(0)==1){//verif =1 dans le satistfait
+                        listeFiltre.add(h);
+                    }
+                }
+                if(listeBool.get(i)==true && i==3 && h instanceof Appartement)
+                {
+                    listeintermediaire=((Appartement) h).satisfaitFiltreAppart(listeBool);
+                    if(listeintermediaire.get(0)==1){//verif =1 dans le satistfait
+                        listeFiltre.add(h);
+                    }
+                }
 
-
-                /*if(listeBool.get(i)==true && i==0 && h instanceof Villa)
-                    ((Villa) h).satisfaitFiltreHotel(listeBool);
-                if(listeBool.get(i)==true && i==0 && h instanceof Chalet)
-                    ((Chalet) h).satisfaitFiltreHotel(listeBool);*/
-
-
-
-
-
-
-            //if(h.satisfaitFiltres(listeBool))
 
         }
         }
