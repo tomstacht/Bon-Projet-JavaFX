@@ -40,7 +40,7 @@ public class BaseDeDonnee {
     public void ajouterTable() {
         String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
-        String password = "";
+        String password ="root";
         try {
             Connection conn = DriverManager.getConnection(url, user, password);
 
@@ -126,7 +126,7 @@ public class BaseDeDonnee {
     }
 
     public void initHebergements(){
-        String url = "jdbc:mysql://localhost:8889/bdd";
+        String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
         String password = "root";
 

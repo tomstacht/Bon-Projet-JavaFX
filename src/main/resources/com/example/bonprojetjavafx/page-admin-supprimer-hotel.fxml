@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -46,25 +46,18 @@
          </font>
       </Button>
       <Label fx:id="recupNomHotel" alignment="CENTER" layoutX="39.0" layoutY="203.0" prefHeight="25.0" prefWidth="498.0" />
-      <ScrollPane layoutX="51.0" layoutY="179.0" prefHeight="584.0" prefWidth="535.0">
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="51.0" layoutY="179.0" prefHeight="584.0" prefWidth="535.0">
          <content>
-            <VBox prefWidth="516.0">
+            <VBox alignment="TOP_CENTER" prefWidth="516.0" spacing="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" />
+               </padding>
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" />
-                        <VBox prefHeight="150.0" prefWidth="358.0" />
-                     </children>
-                  </HBox>
+                  <Label text="COUCOU" />
+                  <VBox fx:id="inteVbox" prefHeight="200.0" prefWidth="100.0" />
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <Button fx:id="monBouton" layoutX="906.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleClick" text="Button" />
-      <Label fx:id="affichertitreHotel" layoutX="722.0" layoutY="365.0" prefHeight="17.0" prefWidth="591.0" />
-      <Label fx:id="affichertitreHotel1" layoutX="722.0" layoutY="405.0" prefHeight="17.0" prefWidth="591.0" />
-      <Label fx:id="affichertitreHotel11" layoutX="712.0" layoutY="434.0" prefHeight="17.0" prefWidth="591.0" />
-      <Label fx:id="affichertitreHotel111" layoutX="702.0" layoutY="534.0" prefHeight="17.0" prefWidth="591.0" />
-      <Label fx:id="affichertitreHotel1111" layoutX="702.0" layoutY="584.0" prefHeight="17.0" prefWidth="591.0" />
    </children>
 </Pane>
