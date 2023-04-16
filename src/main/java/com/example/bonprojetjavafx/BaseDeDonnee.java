@@ -231,6 +231,7 @@ public class BaseDeDonnee {
                 }
             }
         }
+
         if(listeFiltre.isEmpty()) {
             for (Hebergement h : listeHebergements)
                 if (h.getLieu().equals(choixVille))
@@ -245,9 +246,6 @@ public class BaseDeDonnee {
                 }
             }
         }
-        System.out.println("Avant filtrage NBpers");
-        for(Hebergement item : listeFiltre)
-            System.out.println(item.getNom());
 
         int nbFinal=0;
 
@@ -271,7 +269,7 @@ public class BaseDeDonnee {
                 }
             }
         }
-        System.out.println("Après le filtre personnes : ");
+        System.out.println("Voici les hébergements filtrés : ");
         for(Hebergement item : listeFiltre)
             System.out.println(item.getNom());
     }
