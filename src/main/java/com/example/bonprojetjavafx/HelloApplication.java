@@ -24,7 +24,7 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         BaseDeDonnee b1 = new BaseDeDonnee();
         //b1.ajouterTable();
-        b1.initBddClient();
+        b1.initBddAdmin();
         System.out.println("init successful");
         launch();
     }

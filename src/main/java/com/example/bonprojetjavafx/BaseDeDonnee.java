@@ -105,7 +105,7 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public void intibddAdmin(){
+    public void initBddAdmin(){
         String url = "jdbc:mysql://localhost/projet ";
         String user = "root";
         String password = "";
@@ -116,7 +116,7 @@ public class BaseDeDonnee {
             while(rsAdmin.next()){
                 String log=rsAdmin.getString("Login");
                 String mdpp=rsAdmin.getString("MotDePasse");
-                listeAmdin.add(new Administrateur(log,mdpp);
+                listeAmdin.add(new Administrateur(log,mdpp));
             }
         } catch (Exception e) {
             System.err.println("Exception relevée...");
