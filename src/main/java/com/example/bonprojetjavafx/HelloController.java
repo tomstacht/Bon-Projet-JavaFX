@@ -22,6 +22,9 @@ import javafx.scene.control.DatePicker;
 
 
 public class HelloController {
+
+    private BaseDeDonnee b1 = new BaseDeDonnee();
+
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
@@ -86,8 +89,6 @@ public class HelloController {
         currentStage.close();
     }
 
-    private BaseDeDonnee b1 = new BaseDeDonnee();
-
     private boolean hotel;
     private boolean chalet;
     private boolean villa;
@@ -124,7 +125,9 @@ public class HelloController {
     @FXML
     private TextField NombreEnfantTextField;
 
-    public void RechercherButtonOnAction(ActionEvent e){
+    public void RechercherButtonOnAction(ActionEvent e) throws IOException{
+        b1.initHebergements();
+        listeCheckbox.clear();
         MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
         listeCheckbox.add(hotel);
         listeCheckbox.add(villa);
@@ -149,8 +152,6 @@ public class HelloController {
         listeCheckbox.add(cheminee);
 
         System.out.println("Recherche lancée...");
-        for(int i=0;i<listeCheckbox.size();i++)
-            System.out.print(listeCheckbox.get(i)+"/");
         /*String destinationbdd = DestinantionTextField.getText();
         System.out.println(destinationbdd);
         LocalDate dateArriveebdd = DateArriveeDatePicker.getValue();
@@ -162,6 +163,22 @@ public class HelloController {
         String NbEnfantsBdd = NombreEnfantTextField.getText();
         System.out.println(NbEnfantsBdd);*/
         b1.filtrageBox(listeCheckbox);
+        for(int k=0;k<listeCheckbox.size();k++)
+        {
+            System.out.print(listeCheckbox.get(k)+"/");
+        }
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.setTitle("GetAway/Home.com");
+        stage.setScene(scene);
+        stage.show();
+        currentStage.close();
+
+
     }
 
     @FXML
