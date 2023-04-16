@@ -149,8 +149,8 @@ public class BaseDeDonnee {
         for(int i=0;i<listeClient.size();i++)
             System.out.println(listeClient.get(i).getNom());
     }
-     public void initBdd(){
-        String url = "jdbc:mysql://localhost:8889/projet";
+     public void initHebergements(){
+        String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
         String password = "root";
 
@@ -307,6 +307,39 @@ public class BaseDeDonnee {
             System.err.println("Exception relevée...");
             System.err.println(e.getMessage());
         }
+    }
+    public void filtrageBox(ArrayList<Boolean> listeBool) {
+        ArrayList<Hebergement> listeFiltre = new ArrayList<>();
+        ArrayList<Integer> listeintermediaire= new ArrayList<>();
+
+        for(Hebergement h : listeHebergements){
+            for(int i=0;i<listeBool.size();i++){
+                if(listeBool.get(i)==true && i==0 && h instanceof Hotel)
+                {
+                    listeintermediaire=((Hotel) h).satisfaitFiltreHotel(listeBool);
+                    if(listeintermediaire.get(0)==1){//verif =1 dans le satistfait
+                        listeFiltre.add(h);
+                    }
+                }
+
+
+                /*if(listeBool.get(i)==true && i==0 && h instanceof Villa)
+                    ((Villa) h).satisfaitFiltreHotel(listeBool);
+                if(listeBool.get(i)==true && i==0 && h instanceof Chalet)
+                    ((Chalet) h).satisfaitFiltreHotel(listeBool);*/
+
+
+
+
+
+
+                //if(h.satisfaitFiltres(listeBool))
+
+            }
+        }
+
+        for(Hebergement elem : listeFiltre)
+            System.out.println(elem.getNom());
     }
     public void InscriptionClient(Client iencli){
 
