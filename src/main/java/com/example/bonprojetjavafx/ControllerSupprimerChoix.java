@@ -21,4 +21,31 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.DatePicker;
 
 public class ControllerSupprimerChoix {
+    @FXML
+    private void BoutonAdminSupprimerHotel(ActionEvent event) throws IOException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-admin-supprimer-hotel.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway/ADMIN/Choix/Supprimer/Hotel.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
+
+    @FXML
+    private void BoutonAdminSupprimerVilla(ActionEvent event) throws IOException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-admin-supprimer-villa.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway/ADMIN/Choix/Supprimer/Villa.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
 }
