@@ -20,12 +20,12 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="13.0" layoutY="442.0" mnemonicParsing="false" onAction="#BoutonAjouterHotel" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="HOTEL" textFill="WHITE">
+      <Button layoutX="13.0" layoutY="442.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="HOTEL" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>
       </Button>
-      <Button layoutX="383.0" layoutY="442.0" mnemonicParsing="false" onAction="#BoutonAjouterVilla" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="VILLA" textFill="WHITE">
+      <Button layoutX="383.0" layoutY="442.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="VILLA" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>
@@ -35,7 +35,7 @@
             <Font size="32.0" />
          </font>
       </Button>
-      <Button layoutX="1113.0" layoutY="442.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="CHALET" textFill="WHITE">
+      <Button layoutX="1113.0" layoutY="442.0" mnemonicParsing="false" onAction="#BoutonAjouterChalet" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="CHALET" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>

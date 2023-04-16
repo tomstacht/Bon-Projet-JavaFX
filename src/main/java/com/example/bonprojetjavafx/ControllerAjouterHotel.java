@@ -54,7 +54,7 @@ public class ControllerAjouterHotel {
 
 
 
-    public void AjouterAppartement(ActionEvent event) {
+    public void AjouterHotel(ActionEvent event) {
         String NomHotelAjoutTextFieldBDD = NomHotelAjoutTextField.getText();
         System.out.println(NomHotelAjoutTextFieldBDD);
         String PrixHotelAjoutTextFieldBDD = PrixHotelAjoutTextField.getText();
