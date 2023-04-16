@@ -25,7 +25,7 @@
             <Font size="32.0" />
          </font>
       </Button>
-      <Button layoutX="383.0" layoutY="442.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="VILLA" textFill="WHITE">
+      <Button layoutX="383.0" layoutY="442.0" mnemonicParsing="false" onAction="#BoutonAjouterVilla" prefHeight="94.0" prefWidth="312.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="VILLA" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>
