@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -390,5 +391,31 @@ public class HelloController {
             cheminee=false;
         }
     }
+
+
+
+
+    //REFRESH PRESENTATION HEBERGEMENTS
+    @FXML
+    private VBox VboxRefresh;
+    @FXML
+    private Label NomLogement1;
+    @FXML
+    private Label NomLogement2;
+    @FXML
+    private Label NomLogement3;
+    @FXML
+    private Label NomLogement4;
+
+    public void boutonsuivant(ActionEvent event) {
+        BaseDeDonnee b1 = new BaseDeDonnee();
+        /*for(int i=0; i<b1.get)
+        NomLogement1.setText(b1.);
+        NomLogement2.setText();
+        NomLogement3.setText();
+        NomLogement4.setText();*/
+
+    }
+
 
 }
