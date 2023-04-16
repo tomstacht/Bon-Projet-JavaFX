@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bonprojetjavafx.ControllerAjouterHotel">
+   <children>
+      <ImageView fitHeight="96.0" fitWidth="152.0" layoutX="485.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../LogoGetAway.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="571.0" layoutY="64.0" text="ADMINISTRATEUR" />
+      <Button layoutX="1071.0" layoutY="31.0" mnemonicParsing="false" onAction="#retourChoixHebergement" prefHeight="37.0" prefWidth="356.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AUX CHOIX D'HEBERGEMENT" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="37.0" layoutY="32.0" mnemonicParsing="false" onAction="#retourMenuPrincipal" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AU MENU PRINCIPAL" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Line endX="1306.0" layoutX="134.0" layoutY="89.0" startX="-134.0" stroke="#83bced" strokeWidth="3.0" />
+      <Button layoutX="197.0" layoutY="122.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: #83bced; -fx-border-radius: 30;" text="ADMINISTRATEUR" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="697.0" layoutY="122.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="534.0" style="-fx-background-color: BLACK; -fx-border-radius: 30;" text="AJOUTER UN HOTEL" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="47.0" layoutY="192.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="477.0" style="-fx-background-color: WHITE; -fx-border-color: black;" text="REMPLISSEZ LES CASES SUIVANTES : ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="NomHotelAjoutTextField" layoutX="223.0" layoutY="305.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="305.0" prefHeight="22.0" prefWidth="155.0" text="Nom du logement :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="355.0" prefHeight="22.0" prefWidth="155.0" text="Prix :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="405.0" prefHeight="22.0" prefWidth="155.0" text="Lieu (Ville) :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="455.0" prefHeight="22.0" prefWidth="155.0" text="Nombre d'étoiles :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="505.0" prefHeight="22.0" prefWidth="155.0" text="Petit-déjeuner :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="4.0" layoutY="555.0" prefHeight="22.0" prefWidth="190.0" text="Restaurant :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="605.0" prefHeight="22.0" prefWidth="155.0" text="Marque :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="655.0" prefHeight="22.0" prefWidth="155.0" text="Distance Centre Ville :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="PrixHotelAjoutTextField" layoutX="223.0" layoutY="355.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="LieuHotelAjoutTextField" layoutX="223.0" layoutY="405.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NBEtoileHotelAjoutTextField" layoutX="223.0" layoutY="455.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="PetitDEJHotelAjoutTextField" layoutX="223.0" layoutY="505.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="RestaurantHotelAjoutTextField" layoutX="223.0" layoutY="555.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="MarqueHotelAjoutTextField" layoutX="223.0" layoutY="605.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="DistCententreHotelAjoutTextField" layoutX="222.0" layoutY="655.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="SurfaceHotelAjoutTextField" layoutX="963.0" layoutY="305.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="305.0" prefHeight="22.0" prefWidth="155.0" text="Surface :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="774.0" layoutY="355.0" prefHeight="22.0" prefWidth="160.0" text="Nombre de personnes :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="788.0" layoutY="405.0" prefHeight="22.0" prefWidth="155.0" text="Note client :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="455.0" prefHeight="22.0" prefWidth="155.0" text="Wifi :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="505.0" prefHeight="22.0" prefWidth="155.0" text="Climatisation :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="555.0" prefHeight="22.0" prefWidth="155.0" text="Fumeur :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="605.0" prefHeight="22.0" prefWidth="155.0" text="Animaux :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="655.0" prefHeight="22.0" prefWidth="155.0" text="Parking : ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="NBdePersonneHotelAjoutTextField" layoutX="963.0" layoutY="355.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NoteClientHotelAjoutTextField" layoutX="963.0" layoutY="405.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="WifiHotelAjoutTextField" layoutX="963.0" layoutY="455.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="ClimHotelAjoutTextField" layoutX="963.0" layoutY="505.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="FumeurHotelAjoutTextField" layoutX="963.0" layoutY="555.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="AnnimauxHotelAjoutTextField" layoutX="963.0" layoutY="605.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="ParkingHotelAjoutTextField" layoutX="963.0" layoutY="655.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <Button layoutX="756.0" layoutY="31.0" mnemonicParsing="false" onAction="#retourChoixAction" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AUX CHOIX D'ACTION" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="1192.0" layoutY="718.0" mnemonicParsing="false" onAction="#AjouterAppartement" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: BLACK; -fx-border-radius: 30;" text="AJOUTER" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

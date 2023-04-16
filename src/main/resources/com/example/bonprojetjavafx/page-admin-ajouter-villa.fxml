@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bonprojetjavafx.ControllerAjouterVilla">
+   <children>
+      <ImageView fitHeight="96.0" fitWidth="152.0" layoutX="485.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../LogoGetAway.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="571.0" layoutY="54.0" text="ADMINISTRATEUR" />
+      <Button layoutX="1071.0" layoutY="21.0" mnemonicParsing="false" onAction="#retourChoixHebergement" prefHeight="37.0" prefWidth="356.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AUX CHOIX D'HEBERGEMENT" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="37.0" layoutY="22.0" mnemonicParsing="false" onAction="#retourMenuPrincipal" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AU MENU PRINCIPAL" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Line endX="1306.0" layoutX="134.0" layoutY="79.0" startX="-134.0" stroke="#83bced" strokeWidth="3.0" />
+      <Button layoutX="197.0" layoutY="112.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: #83bced; -fx-border-radius: 30;" text="ADMINISTRATEUR" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="697.0" layoutY="112.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="534.0" style="-fx-background-color: BLACK; -fx-border-radius: 30;" text="AJOUTER UN APPARTEMENT" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="47.0" layoutY="182.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="477.0" style="-fx-background-color: WHITE; -fx-border-color: black;" text="REMPLISSEZ LES CASES SUIVANTES : ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="NomVillaAjoutTextField" layoutX="223.0" layoutY="295.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="295.0" prefHeight="22.0" prefWidth="155.0" text="Nom du logement :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="345.0" prefHeight="22.0" prefWidth="155.0" text="Prix :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="395.0" prefHeight="22.0" prefWidth="155.0" text="Lieu (Ville) :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="445.0" prefHeight="22.0" prefWidth="155.0" text="Piscine :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="495.0" prefHeight="22.0" prefWidth="155.0" text="Distance mer :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="4.0" layoutY="545.0" prefHeight="22.0" prefWidth="190.0" text="Distance Centre Ville :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="595.0" prefHeight="22.0" prefWidth="155.0" text="Nombre de chambre :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="39.0" layoutY="645.0" prefHeight="22.0" prefWidth="155.0" text="Nombre Salle de Bain :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="PrixVillaAjoutTextField" layoutX="223.0" layoutY="345.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="LieuVillaAjoutTextField" layoutX="223.0" layoutY="395.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="PiscineVillaAjoutTextField" layoutX="223.0" layoutY="445.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="DistMerVillaAjoutTextField" layoutX="223.0" layoutY="495.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="DistCentreVillaAjoutTextField" layoutX="223.0" layoutY="545.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NBChambreVillaAjoutTextField" layoutX="223.0" layoutY="595.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NBSalleDeBainVillaAjoutTextField" layoutX="223.0" layoutY="645.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="SurfaceVillaAjoutTextField" layoutX="963.0" layoutY="295.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="295.0" prefHeight="22.0" prefWidth="155.0" text="Surface :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="774.0" layoutY="345.0" prefHeight="22.0" prefWidth="160.0" text="Nombre de personnes :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="395.0" prefHeight="22.0" prefWidth="155.0" text="Note client :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="445.0" prefHeight="22.0" prefWidth="155.0" text="Wifi :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="495.0" prefHeight="22.0" prefWidth="155.0" text="Climatisation :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="545.0" prefHeight="22.0" prefWidth="155.0" text="Fumeur :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="595.0" prefHeight="22.0" prefWidth="155.0" text="Animaux :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="779.0" layoutY="645.0" prefHeight="22.0" prefWidth="155.0" text="Parking : ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="NBPersoVillaAjoutTextField" layoutX="963.0" layoutY="345.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="NoteClientVillaAjoutTextField" layoutX="963.0" layoutY="395.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="WifiVillaAjoutTextField" layoutX="963.0" layoutY="445.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="ClimVillaAjoutTextField" layoutX="963.0" layoutY="495.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="FumeurVillaAjoutTextField" layoutX="963.0" layoutY="545.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="AnnimauxVillaAjoutTextField" layoutX="963.0" layoutY="595.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <TextField fx:id="ParkingVillaAjoutTextField" layoutX="963.0" layoutY="645.0" prefHeight="26.0" prefWidth="386.0" promptText="Tapez..." />
+      <Button layoutX="756.0" layoutY="21.0" mnemonicParsing="false" onAction="#retourChoixAction" prefHeight="31.0" prefWidth="301.0" style="-fx-background-color: black; -fx-border-radius: 30;" text="RETOUR AUX CHOIX D'ACTION" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="1192.0" layoutY="708.0" mnemonicParsing="false" onAction="#AjouterVilla" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: BLACK; -fx-border-radius: 30;" text="AJOUTER" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
