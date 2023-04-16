@@ -1,4 +1,5 @@
 package com.example.bonprojetjavafx;
+import classes.Villa;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -20,6 +21,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.DatePicker;
 
 public class ControllerAjouterVilla {
+    BaseDeDonnee pourlavilla = new BaseDeDonnee();
+    Villa ajoutvilla = new Villa();
     @FXML
     private TextField NomVillaAjoutTextField;
     @FXML
@@ -55,38 +58,39 @@ public class ControllerAjouterVilla {
 
     public void AjouterVilla(ActionEvent event) {
 
-        String NomVillaAjoutTextFieldBDD = NomVillaAjoutTextField.getText();
-        System.out.println(NomVillaAjoutTextFieldBDD);
-        String PrixVillaAjoutTextFieldBDD = PrixVillaAjoutTextField.getText();
-        System.out.println(PrixVillaAjoutTextFieldBDD);
-        String LieuVillaAjoutTextFieldBDD = LieuVillaAjoutTextField.getText();
-        System.out.println(LieuVillaAjoutTextFieldBDD);
-        String PiscineVillaAjoutTextFieldBDD = PiscineVillaAjoutTextField.getText();
-        System.out.println(PiscineVillaAjoutTextFieldBDD);
-        String DistMerVillaAjoutTextFieldBDD = DistMerVillaAjoutTextField.getText();
-        System.out.println(DistMerVillaAjoutTextFieldBDD);
-        String DistCentreVillaAjoutTextFieldBDD = DistCentreVillaAjoutTextField.getText();
-        System.out.println(DistCentreVillaAjoutTextFieldBDD);
-        String NBChambreVillaAjoutTextFieldBDD = NBChambreVillaAjoutTextField.getText();
-        System.out.println(NBChambreVillaAjoutTextFieldBDD);
-        String NBSalleDeBainVillaAjoutTextFieldBDD = NBSalleDeBainVillaAjoutTextField.getText();
-        System.out.println(NBSalleDeBainVillaAjoutTextFieldBDD);
-        String SurfaceVillaAjoutTextFieldBDD = SurfaceVillaAjoutTextField.getText();
-        System.out.println(SurfaceVillaAjoutTextFieldBDD);
-        String NBPersoVillaAjoutTextFieldBDD = NBPersoVillaAjoutTextField.getText();
-        System.out.println(NBPersoVillaAjoutTextFieldBDD);
-        String NoteClientVillaAjoutTextFieldBDD = NoteClientVillaAjoutTextField.getText();
-        System.out.println(NoteClientVillaAjoutTextFieldBDD);
-        String WifiVillaAjoutTextFieldBDD = WifiVillaAjoutTextField.getText();
-        System.out.println(WifiVillaAjoutTextFieldBDD);
-        String ClimVillaAjoutTextFieldBDD = ClimVillaAjoutTextField.getText();
-        System.out.println(ClimVillaAjoutTextFieldBDD);
-        String FumeurVillaAjoutTextFieldBDD = FumeurVillaAjoutTextField.getText();
-        System.out.println(FumeurVillaAjoutTextFieldBDD);
-        String AnnimauxVillaAjoutTextFieldBDD = AnnimauxVillaAjoutTextField.getText();
-        System.out.println(AnnimauxVillaAjoutTextFieldBDD);
-        String ParkingVillaAjoutTextFieldBDD = ParkingVillaAjoutTextField.getText();
-        System.out.println(ParkingVillaAjoutTextFieldBDD);
+        ajoutvilla.setNom(NomVillaAjoutTextField.getText());
+        System.out.println(ajoutvilla.getNom());
+        ajoutvilla.setPrix(Integer.parseInt(PrixVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.getPrix());
+        ajoutvilla.setLieu(LieuVillaAjoutTextField.getText());
+        System.out.println(ajoutvilla.getLieu());
+        ajoutvilla.setPiscine(Boolean.parseBoolean(PiscineVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.isPiscine());
+        ajoutvilla.setDistance_mer(Float.parseFloat(DistMerVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.getDistance_mer());
+        ajoutvilla.setDistanceCentre(Float.parseFloat(DistCentreVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.getDistanceCentre());
+        ajoutvilla.setDistanceCentre(Float.parseFloat(NBChambreVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.getDistanceCentre());
+        ajoutvilla.setNbChambres(Integer.parseInt(NBSalleDeBainVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.getNbChambres());
+        ajoutvilla.setM2(Integer.parseInt(SurfaceVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.getM2());
+        ajoutvilla.setNbPersonnes(Integer.parseInt(NBPersoVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.getNbPersonnes());
+        ajoutvilla.setNote(Float.parseFloat(NoteClientVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.getNote());
+        ajoutvilla.setWifi(Boolean.parseBoolean(WifiVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.isWifi());
+        ajoutvilla.setClim(Boolean.parseBoolean(ClimVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.isClim());
+        ajoutvilla.setFumeur(Boolean.parseBoolean(FumeurVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.isFumeur());
+        ajoutvilla.setAnimaux(Boolean.parseBoolean(AnnimauxVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.isAnimaux());
+        ajoutvilla.setParking(Boolean.parseBoolean(ParkingVillaAjoutTextField.getText()));
+        System.out.println(ajoutvilla.isParking());
+        pourlavilla.ajoutligneVilla(ajoutvilla);
     }
 
     @FXML

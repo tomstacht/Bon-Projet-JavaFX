@@ -6,6 +6,10 @@ public class Appartement extends Hebergement{
     private int nbChambres;
     private int nbSDB;
 
+    public Appartement() {
+
+    }
+
     public int getEtage() {
         return etage;
     }

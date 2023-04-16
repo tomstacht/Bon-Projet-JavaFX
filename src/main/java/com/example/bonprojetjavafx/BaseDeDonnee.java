@@ -155,7 +155,6 @@ public class BaseDeDonnee {
         String url = "jdbc:mysql://localhost:8889/projet";
         String user = "root";
         String password = "root";
-
         try{
             Connection conn = DriverManager.getConnection(url, user, password);
 
@@ -449,6 +448,127 @@ public class BaseDeDonnee {
             statementC.setBoolean(17, newchalet.isAnimaux());
             statementC.setBoolean(18, newchalet.isParking());
             statementC.executeUpdate();
+            System.out.println("Hébergement ajouté.");
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
+    }
+    public void ajoutligneHotel(Hotel newhotel){
+        String url = "jdbc:mysql://localhost:8889/bdd";
+        String user = "root";
+        String password = "root";
+
+        Random rand = new Random();
+        int min = 50;
+        int max = 300;
+        int randomNumber = rand.nextInt((max - min) + 1) + min;
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            String queryH = "INSERT INTO Hotel (ID, Nom, Prix, Lieu, NB_Etoile, Petit_Dej, Restaurant, Marque, D_Hotel_Centre, NB_M2, NB_Pers, Note_Client, WIFI, Clim, Animaux, Parking, Fumeur, Lien) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statementH = conn.prepareStatement(queryH);
+            statementH.setInt(1, randomNumber);
+            statementH.setString(2, newhotel.getNom());
+            statementH.setInt(3, newhotel.getPrix());
+            statementH.setString(4, newhotel.getLieu());
+            statementH.setFloat(5, newhotel.getNb_etoile());
+            statementH.setBoolean(6, newhotel.isPetitDej());
+            statementH.setBoolean(7, newhotel.isRestaurant());
+            statementH.setString(8, newhotel.getCompagnie());
+            statementH.setFloat(9, newhotel.getDistanceCentre());
+            statementH.setInt(10, newhotel.getM2());
+            statementH.setInt(11, newhotel.getNbPersonnes());
+            statementH.setFloat(12, newhotel.getNote());
+            statementH.setBoolean(13, newhotel.isWifi());
+            statementH.setBoolean(14, newhotel.isClim());
+            statementH.setBoolean(15, newhotel.isAnimaux());
+            statementH.setBoolean(16, newhotel.isParking());
+            statementH.setBoolean(17, newhotel.isFumeur());
+            statementH.setString(18, "pas d'image");
+            statementH.executeUpdate();
+            System.out.println("Hébergement ajouté.");
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
+    }
+    public void ajoutligneAppart(Appartement newappart){
+        String url = "jdbc:mysql://localhost:8889/bdd";
+        String user = "root";
+        String password = "root";
+
+        Random rand = new Random();
+        int min = 50;
+        int max = 300;
+        int randomNumber = rand.nextInt((max - min) + 1) + min;
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            String queryA = "INSERT INTO Appartement (ID, Nom, Prix, Lieu, Num_Etage, Balcon, D_Appart_Centre, NB_Chambre, NB_SDB, NB_M2, NB_Personne, Note_Client, Wifi, Climatisation, Fumeur, Animaux, Parking) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statementA = conn.prepareStatement(queryA);
+            statementA.setInt(1, randomNumber);
+            statementA.setString(2, newappart.getNom());
+            statementA.setInt(3, newappart.getPrix());
+            statementA.setString(4, newappart.getLieu());
+            statementA.setFloat(5, newappart.getEtage());
+            statementA.setBoolean(6, newappart.isBalcon());
+            statementA.setFloat(7, newappart.getDistanceCentre());
+            statementA.setInt(8, newappart.getNbChambres());
+            statementA.setInt(9, newappart.getNbSDB());
+            statementA.setInt(10, newappart.getM2());
+            statementA.setInt(11, newappart.getNbPersonnes());
+            statementA.setFloat(12, newappart.getNote());
+            statementA.setBoolean(13, newappart.isWifi());
+            statementA.setBoolean(14, newappart.isClim());
+            statementA.setBoolean(15, newappart.isAnimaux());
+            statementA.setBoolean(16, newappart.isParking());
+            statementA.setBoolean(17, newappart.isFumeur());
+            //statementA.setString(18, "pas d'image");
+            statementA.executeUpdate();
+            System.out.println("Hébergement ajouté.");
+            conn.close();
+        } catch (Exception e) {
+            System.err.println("Exception relevée...");
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void ajoutligneVilla(Villa newvilla){
+        String url = "jdbc:mysql://localhost:8889/bdd";
+        String user = "root";
+        String password = "root";
+
+        Random rand = new Random();
+        int min = 50;
+        int max = 300;
+        int randomNumber = rand.nextInt((max - min) + 1) + min;
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            String queryV = "INSERT INTO Villa (ID, Nom, Prix, Lieu, Piscine, D_Villa_Mer, D_Villa_Centre, NB_CHAMBRE, NB_SDB, NB_M2, NB_Personne, Note_Client, Wifi, Climatisation, Fumeur, Animaux, Parking) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statementV = conn.prepareStatement(queryV);
+            statementV.setInt(1, randomNumber);
+            statementV.setString(2, newvilla.getNom());
+            statementV.setInt(3, newvilla.getPrix());
+            statementV.setString(4, newvilla.getLieu());
+            statementV.setBoolean(5, newvilla.isPiscine());
+            statementV.setFloat(6, newvilla.getDistance_mer());
+            statementV.setFloat(7, newvilla.getDistanceCentre());
+            statementV.setInt(8, newvilla.getNbChambres());
+            statementV.setInt(9, newvilla.getNbSDB());
+            statementV.setInt(10, newvilla.getM2());
+            statementV.setInt(11, newvilla.getNbPersonnes());
+            statementV.setFloat(12, newvilla.getNote());
+            statementV.setBoolean(13, newvilla.isWifi());
+            statementV.setBoolean(14, newvilla.isClim());
+            statementV.setBoolean(15, newvilla.isAnimaux());
+            statementV.setBoolean(16, newvilla.isParking());
+            statementV.setBoolean(17, newvilla.isFumeur());
+            //statementA.setString(18, "pas d'image");
+            statementV.executeUpdate();
             System.out.println("Hébergement ajouté.");
             conn.close();
         } catch (Exception e) {

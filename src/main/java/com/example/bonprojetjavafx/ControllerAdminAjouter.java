@@ -1,10 +1,12 @@
 package com.example.bonprojetjavafx;
 
+import classes.Appartement;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.PixelBuffer;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -22,6 +24,8 @@ import javafx.scene.control.DatePicker;
 
 public class ControllerAdminAjouter {
 
+    BaseDeDonnee pourlappart = new BaseDeDonnee();
+    Appartement ajoutappart= new Appartement();
     @FXML
     private TextField NomAppartAjoutTextField;
     @FXML
@@ -56,38 +60,39 @@ public class ControllerAdminAjouter {
     private TextField ParkingAppartAjoutTextField;
 
     public void AjouterAppartement(ActionEvent event) {
-        String NomAppartAjoutTextFieldBDD = NomAppartAjoutTextField.getText();
-        System.out.println(NomAppartAjoutTextFieldBDD);
-        String PrixAppartAjoutTextFieldBDD = PrixAppartAjoutTextField.getText();
-        System.out.println(PrixAppartAjoutTextFieldBDD);
-        String LieuAppartAjoutTextFieldBDD = LieuAppartAjoutTextField.getText();
-        System.out.println(LieuAppartAjoutTextFieldBDD);
-        String NumEtageAppartAjoutTextFieldBDD = NumEtageAppartAjoutTextField.getText();
-        System.out.println(NumEtageAppartAjoutTextFieldBDD);
-        String BalconAppartAjoutTextFieldBDD = BalconAppartAjoutTextField.getText();
-        System.out.println(BalconAppartAjoutTextFieldBDD);
-        String DistCentreAppartAjoutTextFieldBDD = DistCentreAppartAjoutTextField.getText();
-        System.out.println(DistCentreAppartAjoutTextFieldBDD);
-        String NBChambreAppartAjoutTextFieldBDD = NBChambreAppartAjoutTextField.getText();
-        System.out.println(NBChambreAppartAjoutTextFieldBDD);
-        String NBSalleDeBainAppartAjoutTextFieldBDD = NBSalleDeBainAppartAjoutTextField.getText();
-        System.out.println(NBSalleDeBainAppartAjoutTextFieldBDD);
-        String SurfaceAppartAjoutTextFieldBDD = SurfaceAppartAjoutTextField.getText();
-        System.out.println(SurfaceAppartAjoutTextFieldBDD);
-        String NBPersoAppartAjoutTextFieldBDD = NBPersoAppartAjoutTextField.getText();
-        System.out.println(NBPersoAppartAjoutTextFieldBDD);
-        String NoteClientAppartAjoutTextFieldBDD = NoteClientAppartAjoutTextField.getText();
-        System.out.println(NoteClientAppartAjoutTextFieldBDD);
-        String WifiAppartAjoutTextFieldBDD = WifiAppartAjoutTextField.getText();
-        System.out.println(WifiAppartAjoutTextFieldBDD);
-        String ClimAppartAjoutTextFieldBDD = ClimAppartAjoutTextField.getText();
-        System.out.println(ClimAppartAjoutTextFieldBDD);
-        String FumeurAppartAjoutTextFieldBDD = FumeurAppartAjoutTextField.getText();
-        System.out.println(FumeurAppartAjoutTextFieldBDD);
-        String AnnimauxAppartAjoutTextFieldBDD = AnnimauxAppartAjoutTextField.getText();
-        System.out.println(AnnimauxAppartAjoutTextFieldBDD);
-        String ParkingAppartAjoutTextFieldBDD = ParkingAppartAjoutTextField.getText();
-        System.out.println(ParkingAppartAjoutTextFieldBDD);
+        ajoutappart.setNom(NomAppartAjoutTextField.getText());
+        System.out.println(ajoutappart.getNom());
+        ajoutappart.setPrix(Integer.parseInt(PrixAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.getPrix());
+        ajoutappart.setLieu(LieuAppartAjoutTextField.getText());
+        System.out.println(ajoutappart.getLieu());
+        ajoutappart.setEtage(Integer.parseInt(NumEtageAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.getEtage());
+        ajoutappart.setDistanceCentre(Float.parseFloat(DistCentreAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.getDistanceCentre());
+        ajoutappart.setM2(Integer.parseInt(SurfaceAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.getM2());
+        ajoutappart.setNbPersonnes(Integer.parseInt(NBPersoAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.getNbPersonnes());
+        ajoutappart.setNote(Float.parseFloat(NoteClientAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.getNote());
+        ajoutappart.setWifi(Boolean.parseBoolean(WifiAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.isWifi());
+        ajoutappart.setClim(Boolean.parseBoolean(ClimAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.isClim());
+        ajoutappart.setFumeur(Boolean.parseBoolean(FumeurAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.isFumeur());
+        ajoutappart.setAnimaux(Boolean.parseBoolean(AnnimauxAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.isAnimaux());
+        ajoutappart.setParking(Boolean.parseBoolean(ParkingAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.isParking());
+        ajoutappart.setBalcon(Boolean.parseBoolean(BalconAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.isBalcon());
+        ajoutappart.setNbSDB(Integer.parseInt(NBSalleDeBainAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.getNbSDB());
+        ajoutappart.setNbChambres(Integer.parseInt(NBChambreAppartAjoutTextField.getText()));
+        System.out.println(ajoutappart.getNbChambres());
+        pourlappart.ajoutligneAppart(ajoutappart);
     }
 
     @FXML
