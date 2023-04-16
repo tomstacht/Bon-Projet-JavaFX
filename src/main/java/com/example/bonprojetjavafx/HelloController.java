@@ -1,6 +1,8 @@
 package com.example.bonprojetjavafx;
 
 import classes.Client;
+import classes.Hebergement;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -27,19 +29,36 @@ public class HelloController {
 
     private BaseDeDonnee b1 = new BaseDeDonnee();
     @FXML
-    private void handleButtonAction(ActionEvent event) throws IOException{
+    private Label NomLogement1;
+    @FXML
+    private Label NomLogement2;
+    @FXML
+    private Label NomLogement3;
+    @FXML
+    private Label NomLogement4;
+
+    @FXML
+    private void handleButtonAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Stage newStage = new Stage();
+
+        NomLogement1.setText(b1.listeHebergementsFiltre.get(0).getNom());
+        NomLogement2.setText(b1.listeHebergementsFiltre.get(1).getNom());
+        NomLogement3.setText(b1.listeHebergementsFiltre.get(2).getNom());
+        NomLogement4.setText(b1.listeHebergementsFiltre.get(3).getNom());
+
         newStage.setTitle("GetAway/Home.com");
         newStage.setScene(scene);
         newStage.show();
         currentStage.close();
+
     }
+
     @FXML
-    private void BoutonAdministrateur(ActionEvent event) throws IOException{
+    private void BoutonAdministrateur(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-administrateur.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -50,8 +69,9 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
+
     @FXML
-    private void retourPremierePage(MouseEvent event) throws IOException{
+    private void retourPremierePage(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -62,8 +82,9 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
+
     @FXML
-    private void retourPremierePageMenu(ActionEvent event) throws IOException{
+    private void retourPremierePageMenu(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -74,8 +95,9 @@ public class HelloController {
         newStage.show();
         currentStage.close();
     }
+
     @FXML
-    private void BoutonActionSeConnecter(ActionEvent event) throws IOException{
+    private void BoutonActionSeConnecter(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-connexion.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -86,8 +108,9 @@ public class HelloController {
         stage.show();
         currentStage.close();
     }
+
     @FXML
-    private void ButtonOnActionInscription(ActionEvent event) throws IOException{
+    private void ButtonOnActionInscription(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-inscription.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -127,15 +150,11 @@ public class HelloController {
     @FXML
     private TextField DestinantionTextField;
     @FXML
-    private DatePicker DateArriveeDatePicker;
-    @FXML
-    private DatePicker DateDepartDatePicker;
-    @FXML
     private TextField NombreAdulteTextField;
     @FXML
     private TextField NombreEnfantTextField;
 
-    public void RechercherButtonOnAction(ActionEvent e) throws IOException{
+    public void RechercherButtonOnAction(ActionEvent e) throws IOException {
         b1.initHebergements();
         listeCheckbox.clear();
         MessageErreurRechercheLabel.setText("Vos critères ont bien été enregistrés !");
@@ -165,7 +184,7 @@ public class HelloController {
         String destinationbdd = DestinantionTextField.getText();
         String NbAdulteBdd = NombreAdulteTextField.getText();
         String NbEnfantsBdd = NombreEnfantTextField.getText();
-        //b1.filtrageBox(listeCheckbox, destinationbdd, NbAdulteBdd, NbEnfantsBdd);
+        b1.setListeHebergementsFiltre(b1.filtrageBox(listeCheckbox, destinationbdd, NbAdulteBdd, NbEnfantsBdd));
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
         Parent root = loader.load();
@@ -176,6 +195,8 @@ public class HelloController {
         stage.setScene(scene);
         stage.show();
         currentStage.close();
+
+        //Affichage
     }
 
     @FXML
@@ -219,199 +240,175 @@ public class HelloController {
     @FXML
     private CheckBox MyCheckBoxLocalSki;
     @FXML
-    private CheckBox MyCheckBoxCheminee ;
+    private CheckBox MyCheckBoxCheminee;
 
-    public void ChangeHotel(ActionEvent eventHotel){
-        if(MyCheckBoxHotel.isSelected())
-            hotel=true;
+    public void ChangeHotel(ActionEvent eventHotel) {
+        if (MyCheckBoxHotel.isSelected())
+            hotel = true;
         else
-            hotel=false;
+            hotel = false;
     }
-    public void ChangeVilla(ActionEvent eventVilla){
-        if(MyCheckBoxVilla.isSelected())
-            villa=true;
+
+    public void ChangeVilla(ActionEvent eventVilla) {
+        if (MyCheckBoxVilla.isSelected())
+            villa = true;
         else
-            villa=false;
+            villa = false;
     }
-    public void ChangeChalet(ActionEvent eventChalet){
-        if(MyCheckBoxChalet.isSelected())
-            chalet=true;
+
+    public void ChangeChalet(ActionEvent eventChalet) {
+        if (MyCheckBoxChalet.isSelected())
+            chalet = true;
         else
-            chalet=false;
+            chalet = false;
 
     }
-    public void ChangeAppart(ActionEvent eventAppart){
-        if(MyCheckBoxAppartement.isSelected()){
-            appartement=true;
-        }
-        else{
-            appartement=false;
-        }
-    }
-    public void ChangePasChere(ActionEvent eventPasChere){
-        if(MyCheckBoxPaschere.isSelected()){
-            pasCher=true;
-        }
-        else{
-            pasCher=false;
-        }
-    }
-    public void ChangeMoyen(ActionEvent eventMoyen){
-        if(MyCheckBoxMoyen.isSelected()){
-            moyenCher=true;
-        }
-        else{
-            moyenCher=false;
-        }
-    }
-    public void ChangeChere(ActionEvent eventChere){
-        if(MyCheckBoxChere.isSelected()){
-            cher=true;
-        }
-        else{
-            cher=false;
-        }
-    }
-    public void Change123Etoiles(ActionEvent event123Etoiles){
-        if(MyCheckBox123Etoiles.isSelected()){
-            etoiles1_2_3=true;
-        }
-        else{
-            etoiles1_2_3=false;
-        }
-    }
-    public void Change45Etoiles(ActionEvent event45Etoiles){
-        if(MyCheckBox45Etoiles.isSelected()){
-            etoiles4_5=true;
-        }
-        else{
-            etoiles4_5=false;
-        }
-    }
-    public void ChangeP_D(ActionEvent eventP_D){
-        if(MyCheckBoxP_D.isSelected()){
-            petitDej=true;
-        }
-        else{
-            petitDej=false;
-        }
-    }
-    public void ChangeRestaurant(ActionEvent eventRestaurant){
-        if(MyCheckBoxRestaurant.isSelected()){
-            restau=true;
-        }
-        else{
-            restau=false;
-        }
-    }
-    public void ChangeNoteClientNul(ActionEvent eventNoteClientNul){
-        if(MyCheckBoxNoteClientNul.isSelected()){
-            noteClientInf8=true;
-        }
-        else{
-            noteClientInf8=false;
-        }
-    }
-    public void ChangeNoteClientBien(ActionEvent eventNoteClientBien){
-        if(MyCheckBoxNoteClientBien.isSelected()){
-            noteClientSup8=true;
-        }
-        else{
-            noteClientSup8=false;
-        }
-    }
-    public void ChangePiscine(ActionEvent eventPiscine){
-        if(MyCheckBoxPiscine.isSelected()){
-            piscine=true;
-        }
-        else{
-            piscine=false;
-        }
-    }
-    public void ChangeWifi(ActionEvent eventWifi){
-        if(MyCheckBoxWifi.isSelected()){
-            wifi=true;
-        }
-        else{
-            wifi=false;
-        }
-    }
-    public void ChangeClim(ActionEvent eventClim){
-        if(MyCheckBoxClim.isSelected()){
-            clim=true;
-        }
-        else{
-            clim=false;
-        }
-    }
-    public void ChangeFumeur(ActionEvent eventFumeur){
-        if(MyCheckBoxFumeur.isSelected()){
-            fumeur=true;
-        }
-        else{
-            fumeur=false;
-        }
-    }
-    public void ChangeAnimaux(ActionEvent eventAnimaux){
-        if(MyCheckBoxAnimaux.isSelected()){
-            animaux=true;
-        }
-        else{
-            animaux=false;
-        }
-    }
-    public void ChangeParking(ActionEvent eventParking){
-        if(MyCheckBoxParking.isSelected()){
-            parking=true;
-        }
-        else{
-            parking=false;
-        }
-    }
-    public void ChangeLocalSki(ActionEvent eventLocalSki){
-        if(MyCheckBoxLocalSki.isSelected()){
-            localSkis=true;
-        }
-        else{
-            localSkis=false;
-        }
-    }
-    public void ChangeCheminee(ActionEvent eventCheminee){
-        if(MyCheckBoxCheminee.isSelected()){
-            cheminee=true;
-        }
-        else{
-            cheminee=false;
+
+    public void ChangeAppart(ActionEvent eventAppart) {
+        if (MyCheckBoxAppartement.isSelected()) {
+            appartement = true;
+        } else {
+            appartement = false;
         }
     }
 
-
-
-
-    //REFRESH PRESENTATION HEBERGEMENTS
-    @FXML
-    private VBox VboxRefresh;
-    @FXML
-    private Label NomLogement1;
-    @FXML
-    private Label NomLogement2;
-    @FXML
-    private Label NomLogement3;
-    @FXML
-    private Label NomLogement4;
-
-    @FXML
-    public void boutonsuivant(ActionEvent event) {
-        BaseDeDonnee b1 = new BaseDeDonnee();
-        int i=0;
-
-        NomLogement1.setText(b1.getListeHebergements().get(i).getNom());
-        NomLogement2.setText(b1.getListeHebergements().get(i+1).getNom());
-        NomLogement3.setText(b1.getListeHebergements().get(i+2).getNom());
-        NomLogement4.setText(b1.getListeHebergements().get(i+3).getNom());
+    public void ChangePasChere(ActionEvent eventPasChere) {
+        if (MyCheckBoxPaschere.isSelected()) {
+            pasCher = true;
+        } else {
+            pasCher = false;
         }
-
     }
+
+    public void ChangeMoyen(ActionEvent eventMoyen) {
+        if (MyCheckBoxMoyen.isSelected()) {
+            moyenCher = true;
+        } else {
+            moyenCher = false;
+        }
+    }
+
+    public void ChangeChere(ActionEvent eventChere) {
+        if (MyCheckBoxChere.isSelected()) {
+            cher = true;
+        } else {
+            cher = false;
+        }
+    }
+
+    public void Change123Etoiles(ActionEvent event123Etoiles) {
+        if (MyCheckBox123Etoiles.isSelected()) {
+            etoiles1_2_3 = true;
+        } else {
+            etoiles1_2_3 = false;
+        }
+    }
+
+    public void Change45Etoiles(ActionEvent event45Etoiles) {
+        if (MyCheckBox45Etoiles.isSelected()) {
+            etoiles4_5 = true;
+        } else {
+            etoiles4_5 = false;
+        }
+    }
+
+    public void ChangeP_D(ActionEvent eventP_D) {
+        if (MyCheckBoxP_D.isSelected()) {
+            petitDej = true;
+        } else {
+            petitDej = false;
+        }
+    }
+
+    public void ChangeRestaurant(ActionEvent eventRestaurant) {
+        if (MyCheckBoxRestaurant.isSelected()) {
+            restau = true;
+        } else {
+            restau = false;
+        }
+    }
+
+    public void ChangeNoteClientNul(ActionEvent eventNoteClientNul) {
+        if (MyCheckBoxNoteClientNul.isSelected()) {
+            noteClientInf8 = true;
+        } else {
+            noteClientInf8 = false;
+        }
+    }
+
+    public void ChangeNoteClientBien(ActionEvent eventNoteClientBien) {
+        if (MyCheckBoxNoteClientBien.isSelected()) {
+            noteClientSup8 = true;
+        } else {
+            noteClientSup8 = false;
+        }
+    }
+
+    public void ChangePiscine(ActionEvent eventPiscine) {
+        if (MyCheckBoxPiscine.isSelected()) {
+            piscine = true;
+        } else {
+            piscine = false;
+        }
+    }
+
+    public void ChangeWifi(ActionEvent eventWifi) {
+        if (MyCheckBoxWifi.isSelected()) {
+            wifi = true;
+        } else {
+            wifi = false;
+        }
+    }
+
+    public void ChangeClim(ActionEvent eventClim) {
+        if (MyCheckBoxClim.isSelected()) {
+            clim = true;
+        } else {
+            clim = false;
+        }
+    }
+
+    public void ChangeFumeur(ActionEvent eventFumeur) {
+        if (MyCheckBoxFumeur.isSelected()) {
+            fumeur = true;
+        } else {
+            fumeur = false;
+        }
+    }
+
+    public void ChangeAnimaux(ActionEvent eventAnimaux) {
+        if (MyCheckBoxAnimaux.isSelected()) {
+            animaux = true;
+        } else {
+            animaux = false;
+        }
+    }
+
+    public void ChangeParking(ActionEvent eventParking) {
+        if (MyCheckBoxParking.isSelected()) {
+            parking = true;
+        } else {
+            parking = false;
+        }
+    }
+
+    public void ChangeLocalSki(ActionEvent eventLocalSki) {
+        if (MyCheckBoxLocalSki.isSelected()) {
+            localSkis = true;
+        } else {
+            localSkis = false;
+        }
+    }
+
+    public void ChangeCheminee(ActionEvent eventCheminee) {
+        if (MyCheckBoxCheminee.isSelected()) {
+            cheminee = true;
+        } else {
+            cheminee = false;
+        }
+    }
+
+}
 
 
 

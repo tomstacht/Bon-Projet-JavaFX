@@ -10,6 +10,15 @@ public class BaseDeDonnee {
     ArrayList<Chalet> listeChalet = new ArrayList<Chalet>();
     ArrayList<Hotel> listeHotel = new ArrayList<Hotel>();
     ArrayList<Villa> listeVilla = new ArrayList<Villa>();
+    ArrayList<Hebergement> listeHebergementsFiltre = new ArrayList<Hebergement>();
+
+    public ArrayList<Hebergement> getListeHebergementsFiltre() {
+        return listeHebergementsFiltre;
+    }
+
+    public void setListeHebergementsFiltre(ArrayList<Hebergement> listeHebergementsFiltre) {
+        this.listeHebergementsFiltre = listeHebergementsFiltre;
+    }
 
     ArrayList<String> searchHotel = new ArrayList<>();
     ArrayList<String> searchVilla = new ArrayList<>();
@@ -268,7 +277,7 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public void filtrage(ArrayList<Boolean> listeBool, String choixVille, String nbAdultes, String nbEnfants) {
+    public ArrayList<Hebergement> filtrageBox(ArrayList<Boolean> listeBool, String choixVille, String nbAdultes, String nbEnfants) {
         ArrayList<Hebergement> listeFiltre = new ArrayList<>();
         ArrayList<Integer> listeintermediaire= new ArrayList<>();
 
@@ -318,9 +327,6 @@ public class BaseDeDonnee {
                 }
             }
         }
-        System.out.println("Avant filtrage NBpers");
-        for(Hebergement item : listeFiltre)
-            System.out.println(item.getNom());
 
         int nbFinal=0;
 
@@ -344,9 +350,10 @@ public class BaseDeDonnee {
                 }
             }
         }
-        System.out.println("Après le filtre personnes : ");
         for(Hebergement item : listeFiltre)
             System.out.println(item.getNom());
+
+        return listeFiltre;
     }
     public void InscriptionClient(Client iencli) {
 
