@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -53,18 +54,7 @@ public class ControllerSupprimerHotel {
         currentStage.close();
     }
 
-    @FXML
-    private Pane panetest;
 
-    public void afficherPane() {
-        int i = 0;
-        while (i < 6) {
-            Pane pane = new Pane();
-            pane.setPrefSize(panetest.getPrefWidth(), panetest.getPrefHeight());
-            panetest.getChildren().add(pane);
-            i++;
-        }
-    }
 }
 
 

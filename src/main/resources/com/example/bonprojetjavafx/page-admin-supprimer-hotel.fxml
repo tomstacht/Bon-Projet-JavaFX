@@ -49,11 +49,10 @@
          <content>
             <VBox prefWidth="516.0">
                <children>
-                  <Pane fx:id="panetest" maxHeight="-Infinity" maxWidth="-Infinity" onMousePressed="#afficherPane" prefHeight="100.0" prefWidth="525.0" style="-fx-background-color: red;" />
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" onMousePressed="#afficherPane" prefHeight="100.0" prefWidth="525.0" style="-fx-background-color: red;" />
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <Button fx:id="afficherPanesButton" layoutX="783.0" layoutY="302.0" mnemonicParsing="false" text="Affiche" />
    </children>
 </Pane>
