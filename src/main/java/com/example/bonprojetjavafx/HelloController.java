@@ -165,7 +165,7 @@ public class HelloController {
         String destinationbdd = DestinantionTextField.getText();
         String NbAdulteBdd = NombreAdulteTextField.getText();
         String NbEnfantsBdd = NombreEnfantTextField.getText();
-        b1.filtrage(listeCheckbox, destinationbdd, NbAdulteBdd, NbEnfantsBdd);
+        //b1.filtrageBox(listeCheckbox, destinationbdd, NbAdulteBdd, NbEnfantsBdd);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-invite.fxml"));
         Parent root = loader.load();
@@ -400,15 +400,18 @@ public class HelloController {
     @FXML
     private Label NomLogement4;
 
+    @FXML
     public void boutonsuivant(ActionEvent event) {
         BaseDeDonnee b1 = new BaseDeDonnee();
-        /*for(int i=0; i<b1.get)
-        NomLogement1.setText(b1.);
-        NomLogement2.setText();
-        NomLogement3.setText();
-        NomLogement4.setText();*/
+        int i=0;
+
+        NomLogement1.setText(b1.getListeHebergements().get(i).getNom());
+        NomLogement2.setText(b1.getListeHebergements().get(i+1).getNom());
+        NomLogement3.setText(b1.getListeHebergements().get(i+2).getNom());
+        NomLogement4.setText(b1.getListeHebergements().get(i+3).getNom());
+        }
 
     }
 
 
-}
+
