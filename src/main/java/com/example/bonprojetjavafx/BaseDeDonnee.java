@@ -303,14 +303,12 @@ public class BaseDeDonnee {
         }
 
         if(listeFiltre.isEmpty()) {
-            System.out.println("liste vide");
             for (Hebergement h : listeHebergements)
                 if (h.getLieu().equals(choixVille))
                     listeFiltre.add(h);
         }
 
-        else{
-            System.out.println("liste non vide");
+        else if (!(listeFiltre.isEmpty())&& !(choixVille.isEmpty())) {
             Iterator<Hebergement> it = listeFiltre.iterator();
             while (it.hasNext()) {
                 Hebergement h = it.next();
@@ -319,9 +317,38 @@ public class BaseDeDonnee {
                 }
             }
         }
-
+        System.out.println("Avant filtrage NBpers");
         for(Hebergement item : listeFiltre)
             System.out.println(item.getNom());
+
+        int nbFinal=0;
+
+        if(!(nbAdultes.isEmpty()) && !(nbEnfants.isEmpty())){
+            int nombreAdultes=Integer.parseInt(nbAdultes);
+            int nombreEnfants=Integer.parseInt(nbEnfants);
+            nbFinal=nombreAdultes+nombreEnfants;
+        }
+        else if(!(nbAdultes.isEmpty()) && (nbEnfants.isEmpty())){
+            nbFinal=Integer.parseInt(nbAdultes);
+        }
+        else if((nbAdultes.isEmpty()) && !(nbEnfants.isEmpty())){
+            nbFinal=Integer.parseInt(nbEnfants);
+        }
+
+        if(nbFinal!=0){
+            Iterator<Hebergement> ite = listeFiltre.iterator();
+            while (ite.hasNext()) {
+                Hebergement he = ite.next();
+                if (he.getNbPersonnes()!=nbFinal) {
+                    ite.remove();
+                }
+            }
+        }
+
+        System.out.println("Après le filtre personnes : ");
+        for(Hebergement item : listeFiltre)
+            System.out.println(item.getNom());
+
     }
     public void InscriptionClient(Client iencli) {
 
