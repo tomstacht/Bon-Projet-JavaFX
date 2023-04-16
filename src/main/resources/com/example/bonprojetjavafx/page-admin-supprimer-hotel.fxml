@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -46,14 +45,15 @@
          </font>
       </Button>
       <Label fx:id="recupNomHotel" alignment="CENTER" layoutX="39.0" layoutY="203.0" prefHeight="25.0" prefWidth="498.0" />
-      <ScrollPane layoutX="51.0" layoutY="179.0" prefHeight="600.0" prefWidth="535.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+      <ScrollPane layoutX="51.0" layoutY="179.0" prefHeight="584.0" prefWidth="535.0">
+         <content>
+            <VBox prefWidth="516.0">
                <children>
-                  <VBox layoutX="-1.0" layoutY="2.0" prefHeight="890.0" prefWidth="533.0" />
+                  <Pane fx:id="panetest" maxHeight="-Infinity" maxWidth="-Infinity" onMousePressed="#afficherPane" prefHeight="100.0" prefWidth="525.0" style="-fx-background-color: red;" />
                </children>
-            </AnchorPane>
-        </content>
+            </VBox>
+         </content>
       </ScrollPane>
+      <Button fx:id="afficherPanesButton" layoutX="783.0" layoutY="302.0" mnemonicParsing="false" text="Affiche" />
    </children>
 </Pane>

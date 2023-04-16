@@ -1,12 +1,15 @@
 package com.example.bonprojetjavafx;
 
+import com.sun.javafx.menu.MenuItemBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,8 +27,9 @@ public class ControllerSupprimerHotel {
         newStage.show();
         currentStage.close();
     }
+
     @FXML
-    private void retourChoixAction(ActionEvent event) throws IOException{
+    private void retourChoixAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-choix-admin.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -36,8 +40,9 @@ public class ControllerSupprimerHotel {
         newStage.show();
         currentStage.close();
     }
+
     @FXML
-    private void retourChoixHebergement(ActionEvent event) throws IOException{
+    private void retourChoixHebergement(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("page-admin-supprimer-choix.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -50,6 +55,18 @@ public class ControllerSupprimerHotel {
     }
 
     @FXML
-    private Label recupNomHotel;
+    private Pane panetest;
 
+    public void afficherPane() {
+        int i = 0;
+        while (i < 6) {
+            Pane pane = new Pane();
+            pane.setPrefSize(panetest.getPrefWidth(), panetest.getPrefHeight());
+            panetest.getChildren().add(pane);
+            i++;
+        }
+    }
 }
+
+
+
