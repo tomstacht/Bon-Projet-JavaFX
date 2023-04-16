@@ -21,5 +21,17 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.DatePicker;
 
 public class ControllerChoixAdmin {
+    @FXML
+    private void BoutonAdminAjouter(ActionEvent event) throws IOException{
 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-ChoixHebergement-admin.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setTitle("GetAway/ADMIN/Choix/Ajouter.com");
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
+    }
 }

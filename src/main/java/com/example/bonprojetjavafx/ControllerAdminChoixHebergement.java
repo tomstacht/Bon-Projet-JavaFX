@@ -1,5 +1,12 @@
 package com.example.bonprojetjavafx;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -20,34 +27,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.DatePicker;
 
-public class ControllerAdministrateur {
+import java.io.IOException;
+
+public class ControllerAdminChoixHebergement {
 
     @FXML
-    private void BoutonAnnulerAdmin(ActionEvent event) throws IOException{
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+    private void BoutonAjouterAppartement(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-admin-ajouter.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Stage newStage = new Stage();
-        newStage.setTitle("GetAway.com");
+        newStage.setTitle("GetAway/ADMIN/Choix/Ajouter.com");
         newStage.setScene(scene);
         newStage.show();
         currentStage.close();
     }
-
-    @FXML
-    private void BoutonConnexionAdmin(ActionEvent event) throws IOException{
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("page-choix-admin.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Stage newStage = new Stage();
-        newStage.setTitle("GetAway/ADMIN/ChoixAction.com");
-        newStage.setScene(scene);
-        newStage.show();
-        currentStage.close();
-    }
-
 }
