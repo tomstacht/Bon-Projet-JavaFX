@@ -349,13 +349,12 @@ public class BaseDeDonnee {
             System.err.println(e.getMessage());
         }
     }
-    public boolean Connexion_Client(String identification,String mdp) {
+    public boolean Connexion_Client(Client yenkli) {
 
         boolean verif=false;
         Scanner sc = new Scanner(System.in);
-        System.out.println(identification);
-        System.out.println(mdp);
-
+        System.out.println(yenkli.getPseudo());
+        System.out.println(yenkli.getPassword());
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/projet", "root", "");
@@ -366,11 +365,12 @@ public class BaseDeDonnee {
             //lire un élément de la bdd
             while(resConnexion.next()){
                 //System.out.println("Pays : " + resHotel.getString("pays"));
-                if ((resConnexion.getString("Email").compareTo(identification)==0) || (resConnexion.getString("Pseudo").compareTo(identification)==0) && (resConnexion.getString("Password").compareTo(mdp)==0)){
-                    //System.out.println("Bienvenue sur votre compte client " + resConnexion.getString("Prenom") + " " + resConnexion.getString("Nom") + " !!!");
-                    verif=true;
+                if ((resConnexion.getString("Email").compareTo(yenkli.getPseudo())==0) || (resConnexion.getString("Pseudo").compareTo(yenkli.getPseudo())==0) && (resConnexion.getString("Password").compareTo(yenkli.getPassword())==0)){
+                    System.out.println("a");
+                    return true;
                 }
                 else {
+                    System.out.println("b");
                     verif=false;
                 }
             }
