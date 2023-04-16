@@ -10,6 +10,9 @@ public class Chalet extends Hebergement{
     private int nbChambres;
     private int nbSDB;
 
+    public Chalet() {
+    }
+
     public boolean isCheminer() {
         return cheminer;
     }

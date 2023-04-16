@@ -1,4 +1,5 @@
 package com.example.bonprojetjavafx;
+import classes.Hotel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Node;
@@ -19,6 +20,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.DatePicker;
 public class ControllerAjouterHotel {
+    private BaseDeDonnee pourlhotel =new BaseDeDonnee();
+    private Hotel ajouthotel =new Hotel();
     @FXML
     private TextField NomHotelAjoutTextField;
     @FXML
@@ -55,38 +58,39 @@ public class ControllerAjouterHotel {
 
 
     public void AjouterHotel(ActionEvent event) {
-        String NomHotelAjoutTextFieldBDD = NomHotelAjoutTextField.getText();
-        System.out.println(NomHotelAjoutTextFieldBDD);
-        String PrixHotelAjoutTextFieldBDD = PrixHotelAjoutTextField.getText();
-        System.out.println(PrixHotelAjoutTextFieldBDD);
-        String LieuHotelAjoutTextFieldBDD = LieuHotelAjoutTextField.getText();
-        System.out.println(LieuHotelAjoutTextFieldBDD);
-        String NBEtoileHotelAjoutTextFieldBDD = NBEtoileHotelAjoutTextField.getText();
-        System.out.println(NBEtoileHotelAjoutTextFieldBDD);
-        String PetitDEJHotelAjoutTextFieldBDD = PetitDEJHotelAjoutTextField.getText();
-        System.out.println(PetitDEJHotelAjoutTextFieldBDD);
-        String RestaurantHotelAjoutTextFieldBDD = RestaurantHotelAjoutTextField.getText();
-        System.out.println(RestaurantHotelAjoutTextFieldBDD);
-        String MarqueHotelAjoutTextFieldBDD = MarqueHotelAjoutTextField.getText();
-        System.out.println(MarqueHotelAjoutTextFieldBDD);
-        String DistCententreHotelAjoutTextFieldBDD = DistCententreHotelAjoutTextField.getText();
-        System.out.println(DistCententreHotelAjoutTextFieldBDD);
-        String SurfaceHotelAjoutTextFieldBDD = SurfaceHotelAjoutTextField.getText();
-        System.out.println(SurfaceHotelAjoutTextFieldBDD);
-        String NBdePersonneHotelAjoutTextFieldBDD = NBdePersonneHotelAjoutTextField.getText();
-        System.out.println(NBdePersonneHotelAjoutTextFieldBDD);
-        String NoteClientHotelAjoutTextFieldBDD = NoteClientHotelAjoutTextField.getText();
-        System.out.println(NoteClientHotelAjoutTextFieldBDD);
-        String WifiHotelAjoutTextFieldBDD = WifiHotelAjoutTextField.getText();
-        System.out.println(WifiHotelAjoutTextFieldBDD);
-        String ClimHotelAjoutTextFieldBDD = ClimHotelAjoutTextField.getText();
-        System.out.println(ClimHotelAjoutTextFieldBDD);
-        String FumeurHotelAjoutTextFieldBDD = FumeurHotelAjoutTextField.getText();
-        System.out.println(FumeurHotelAjoutTextFieldBDD);
-        String AnnimauxHotelAjoutTextFieldBDD = AnnimauxHotelAjoutTextField.getText();
-        System.out.println(AnnimauxHotelAjoutTextFieldBDD);
-        String ParkingHotelAjoutTextFieldBDD = ParkingHotelAjoutTextField.getText();
-        System.out.println(ParkingHotelAjoutTextFieldBDD);
+        ajouthotel.setNom(NomHotelAjoutTextField.getText());
+        System.out.println(ajouthotel.getNom());
+        ajouthotel.setPrix(Integer.parseInt(PrixHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.getPrix());
+        ajouthotel.setLieu(LieuHotelAjoutTextField.getText());
+        System.out.println(ajouthotel.getLieu());
+        ajouthotel.setNb_etoile(Float.parseFloat(NBEtoileHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.getNb_etoile());
+        ajouthotel.setPetitDej(Boolean.parseBoolean(PetitDEJHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.isPetitDej());
+        ajouthotel.setRestaurant(Boolean.parseBoolean(RestaurantHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.isRestaurant());
+        ajouthotel.setDistanceCentre(Float.parseFloat(DistCententreHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.getDistanceCentre());
+        ajouthotel.setM2(Integer.parseInt(SurfaceHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.getM2());
+        ajouthotel.setNbPersonnes(Integer.parseInt(NBdePersonneHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.getNbPersonnes());
+        ajouthotel.setNote(Float.parseFloat(NoteClientHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.getNote());
+        ajouthotel.setWifi(Boolean.parseBoolean(WifiHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.isWifi());
+        ajouthotel.setClim(Boolean.parseBoolean(ClimHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.isClim());
+        ajouthotel.setFumeur(Boolean.parseBoolean(FumeurHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.isFumeur());
+        ajouthotel.setAnimaux(Boolean.parseBoolean(AnnimauxHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.isAnimaux());
+        ajouthotel.setParking(Boolean.parseBoolean(ParkingHotelAjoutTextField.getText()));
+        System.out.println(ajouthotel.isParking());
+        ajouthotel.setCompagnie(MarqueHotelAjoutTextField.getText());
+        System.out.println(ajouthotel.getCompagnie());
+        pourlhotel.ajoutligneHotel(ajouthotel);
     }
 
     @FXML

@@ -17,6 +17,10 @@ public class Hotel extends Hebergement {
         this.compagnie = compagnie;
     }
 
+    public Hotel() {
+
+    }
+
     public float getNb_etoile() {
         return nb_etoile;
     }

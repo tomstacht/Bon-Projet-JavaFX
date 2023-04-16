@@ -16,6 +16,9 @@ public class Villa extends Hebergement{
         this.nbSDB = nbSDB;
     }
 
+    public Villa() {
+
+    }
     public boolean isPiscine() {
         return piscine;
     }
