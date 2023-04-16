@@ -28,6 +28,7 @@ public class BaseDeDonnee {
         return listeChalet;
     }
 
+
     public ArrayList<Hotel> getListeHotel() {
         return listeHotel;
     }

@@ -82,6 +82,7 @@ public class ControllerSupprimerHotel {
             Label titre = new Label();
             titre.setText(b1.getListeHotel().get(i).getNom());
             hotel.getChildren().addAll(titre);
+
         }
     }
 
