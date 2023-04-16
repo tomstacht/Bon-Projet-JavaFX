@@ -313,12 +313,14 @@ public class BaseDeDonnee {
 
         else{
             System.out.println("liste non vide");
-            for(int k=0;k<listeFiltre.size();k++)
-                if(!((listeFiltre.get(k).getLieu()).equals(choixVille))){
-                    listeFiltre.remove(k);
+            Iterator<Hebergement> it = listeFiltre.iterator();
+            while (it.hasNext()) {
+                Hebergement h = it.next();
+                if (!h.getLieu().equals(choixVille)) {
+                    it.remove();
                     System.out.println("suppression d'un hebergement");
                 }
-
+            }
         }
 
         for(Hebergement item : listeFiltre)
