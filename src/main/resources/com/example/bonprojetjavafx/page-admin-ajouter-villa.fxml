@@ -33,7 +33,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="697.0" layoutY="112.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="534.0" style="-fx-background-color: BLACK; -fx-border-radius: 30;" text="AJOUTER UN APPARTEMENT" textFill="WHITE">
+      <Button layoutX="697.0" layoutY="112.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="534.0" style="-fx-background-color: BLACK; -fx-border-radius: 30;" text="AJOUTER UNE VILLA" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
