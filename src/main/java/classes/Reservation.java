@@ -15,8 +15,6 @@ public class Reservation {
         this.ville = ville;
         this.pseudo = pseudo;
         this.mail = mail;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
     }
 
     public int getIdReservation() {
