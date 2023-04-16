@@ -12,99 +12,29 @@ public class BaseDeDonnee {
     ArrayList<Villa> listeVilla = new ArrayList<Villa>();
     ArrayList<Reservation> listeReservations = new ArrayList<Reservation>();
 
-    ArrayList<String> searchHotel = new ArrayList<>();
-    ArrayList<String> searchVilla = new ArrayList<>();
-    ArrayList<String> searchAppart = new ArrayList<>();
-    ArrayList<String> searchChalet = new ArrayList<>();
-
-    public void ajouterTable() {
-        String url = "jdbc:mysql://localhost:8889/projet";
-        String user = "root";
-        String password = "";
-        try {
-            Connection conn = DriverManager.getConnection(url, user, password);
-
-            Statement stmt = conn.createStatement();
-            Scanner sc = new Scanner(System.in);
-
-            System.out.println("Saisissez le nom de la nouvelle table : ");
-            String titre = sc.nextLine();
-
-            System.out.print("Saisissez le nombre de colonnes de la nouvelle table : ");
-            int nbColonnes = sc.nextInt();
-            sc.nextLine();
-
-            String sql = "CREATE TABLE " + titre + " (";
-            for (int i = 0; i < nbColonnes; i++) {
-                System.out.print("Saisissez le titre de la colonne " + (i + 1) + " : ");
-
-                if (i != 0)
-                    sc.nextLine();
-
-                String titreColonne = sc.nextLine();
-                System.out.println("Quel est le type de donnée que vous allez stocker ? ");
-                System.out.println("1. Booléen");
-                System.out.println("2. Entier");
-                System.out.println("3. Réel");
-                System.out.println("4. Chaine de caractères");
-                int choix = sc.nextInt();
-
-                switch (choix) {
-                    case 1:
-                        sql += titreColonne + " " + "BOOLEAN" + ",";
-                        break;
-
-                    case 2:
-                        sql += titreColonne + " " + "INT" + ",";
-                        break;
-
-                    case 3:
-                        sql += titreColonne + " " + "FLOAT" + ",";
-                        break;
-
-                    case 4:
-                        sql += titreColonne + " " + "VARCHAR(50)" + ",";
-                        break;
-                }
-            }
-            sql = sql.substring(0, sql.length() - 1) + ")";
-
-            stmt.executeUpdate(sql);
-
-            System.out.println("Table créée !");
-
-            conn.close();
-        } catch (Exception e) {
-            System.err.println("Exception relevée... ");
-            System.err.println(e.getMessage());
-        }
-    }
-    public void supprimerTable() {
-        String url = "jdbc:mysql://localhost:3306/projet";
-        String user = "root";
-        String password = "root";
-
-        try {
-            Connection conn = DriverManager.getConnection(url, user, password);
-            Statement stmt = conn.createStatement();
-
-            Scanner sc = new Scanner(System.in);
-
-            System.out.println("Saisissez le nom de la table à supprimer : ");
-            String titre = sc.nextLine();
-
-            String sql = "DROP TABLE " + titre + " ";
-            stmt.executeUpdate(sql);
-
-            System.out.println("Table supprimée.");
-
-            conn.close();
-        } catch (Exception e) {
-            System.err.println("Exception relevée...");
-            System.err.println(e.getMessage());
-        }
+    public ArrayList<Hebergement> getListeHebergements() {
+        return listeHebergements;
     }
 
+    public ArrayList<Appartement> getListeAppart() {
+        return listeAppart;
+    }
+
+    public ArrayList<Chalet> getListeChalet() {
+        return listeChalet;
+    }
+
+    public ArrayList<Hotel> getListeHotel() {
+        return listeHotel;
+    }
+
+    public ArrayList<Villa> getListeVilla() {
+        return listeVilla;
+    }
+
+    public ArrayList<Reservation> getListeReservations() {
+        return listeReservations;
+    }
     public void initHebergements(){
         String url = "jdbc:mysql://localhost:8889/bdd";
         String user = "root";
